@@ -1,23 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/oruguitas');
+
 :root {
-    --primary-color: #181515;
-    --secondary-color: #FF7A00;
     --secondary-light: #FFCE6D;
     --intermadiate: #444242;
     --light: #f3f3f3;
-    --font-title: ;
-    --font-text: ;
-
-
+    --font-title: 'Oruguitas', sans-serif;
+    --font-text: 'Roboto', sans-serif;
 }
 
-* {
-    box-sizing: border-box;
-}
-/* Pink Light scheme (Default) */
-/* Can be forced with data-theme="light" */
 [data-theme="light"],
 :root:not([data-theme="dark"]) {
-  --primary:var(--primary-color);
-  --secondary: var( --secondary-color);
+    --primary: #181515;
+    --secondary: #FF7A00;
 
 }
