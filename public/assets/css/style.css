@@ -1,3 +1,23 @@
-body {
-    color: #f76c6c;
+:root {
+    --primary-color: #181515;
+    --secondary-color: #FF7A00;
+    --secondary-light: #FFCE6D;
+    --intermadiate: #444242;
+    --light: #FFFFFF;
+    --font-title: ;
+    --font-text: ;
+
+
+}
+
+* {
+    box-sizing: border-box;
+}
+/* Pink Light scheme (Default) */
+/* Can be forced with data-theme="light" */
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  --primary:var(--primary-color);
+  --secondary: var( --secondary-color);
+
 }
