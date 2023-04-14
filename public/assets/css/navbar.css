@@ -5,7 +5,7 @@ body>header {
 body {
     background-color: var(--primary);
     background-image: url(../images/beauceron.png);
-    background-position: -16rem center;
+    background-position: calc(var(--spacing)*-16) center;
     min-height: 100vh;
     background-size: cover;
     display: flex;
@@ -19,18 +19,19 @@ nav {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 70px;
-    background-color: rgba(24, 21, 21, 0.8);
+    height: var(--navbar-height);
+    background-color:var(--navbar-color);
+
 }
 
 nav a {
     color: var(--intermediate);
-    text-shadow: 2px 2px 4px black;
+    text-shadow: var(--text-shadow);
 
 }
 
 ul>li:last-child {
-    padding-right: 2rem;
+    padding-right: calc(var(--spacing)*2);
 }
 
 ul {
@@ -61,13 +62,13 @@ nav li {
 h1 {
     color: var(--light);
     font-family: var(--font-title);
-    font-size: 7rem;
+    font-size: calc(var(--font-size)*3.6);
 
     text-align: center;
-    margin-top: 8rem;
-    margin-right: 4rem;
-    line-height: 8rem;
-    text-shadow: 1px 1px 2px black;
+    margin-top: calc(var(--spacing)*8);
+    margin-right: calc(var(--spacing)*4);
+    line-height: calc(var(--spacing)*8);
+    text-shadow: var(--text-shadow);
     font-weight: 550;
 }
 
@@ -77,8 +78,8 @@ h1 {
 }
 
 .burger svg {
-    width: 50px;
-    height: 50px;
+    width: var( --burger-width);
+    height: var( --burger-height);
 }
 
 @media screen and (width < 750px) {
@@ -94,7 +95,7 @@ h1 {
         display: flex;
         flex-direction: column;
         width: 100%;
-        background-color: rgba(24, 21, 21, 0.8);
+        background-color:var(--navbar-color);
     }
 
 }

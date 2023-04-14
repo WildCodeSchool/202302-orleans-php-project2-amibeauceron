@@ -7,6 +7,12 @@
     --light: #f3f3f3;
     --font-title: 'Oruguitas', sans-serif;
     --font-text: 'Roboto', sans-serif;
+    --navbar-height: 70px;
+    --navbar-color:  rgba(24, 21, 21, 0.8);
+    --text-shadow: 2px 2px 4px black;
+    --burger-width:12vw;
+    --burger-height:6vh;
+
 }
 
 [data-theme="light"],
