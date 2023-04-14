@@ -1,0 +1,100 @@
+body>header {
+    padding: 0;
+}
+
+body {
+    background-color: var(--primary);
+    background-image: url(../images/beauceron.png);
+    background-position: -16rem center;
+    min-height: 100vh;
+    background-size: cover;
+    display: flex;
+
+}
+
+nav {
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(24, 21, 21, 0.8);
+}
+
+nav a {
+    color: var(--intermediate);
+    text-shadow: 2px 2px 4px black;
+
+}
+
+ul>li:last-child {
+    padding-right: 2rem;
+}
+
+ul {
+    color: var(--secondary-light);
+}
+
+nav a:hover {
+    color: var(--secondary);
+}
+
+nav li {
+    margin: 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+
+}
+
+.brand img {
+    width: 80px;
+    object-fit: cover;
+    padding: 0;
+
+}
+
+h1 {
+    color: var(--light);
+    font-family: var(--font-title);
+    font-size: 7rem;
+
+    text-align: center;
+    margin-top: 8rem;
+    margin-right: 4rem;
+    line-height: 8rem;
+    text-shadow: 1px 1px 2px black;
+    font-weight: 550;
+}
+
+.burger {
+    display: none;
+    align-items: center;
+}
+
+.burger svg {
+    width: 50px;
+    height: 50px;
+}
+
+@media screen and (width < 750px) {
+    .burger {
+        display: flex;
+    }
+
+    .links {
+        display: none;
+    }
+
+    .links:target {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: rgba(24, 21, 21, 0.8);
+    }
+
+}

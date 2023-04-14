@@ -11,7 +11,7 @@
 
 [data-theme="light"],
 :root:not([data-theme="dark"]) {
-    --primary: #181515;
+    --primary: rgb(23, 20, 20);
     --secondary: #FF7A00;
 
 }
