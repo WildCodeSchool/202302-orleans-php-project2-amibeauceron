@@ -4,9 +4,9 @@ body>header {
 
 body {
     background-color: var(--primary);
-    background-image: url(../images/beauceron.png);
-    background-position: calc(var(--spacing)*-16) center;
-    min-height: 100vh;
+    background-image: url(../images/919640.jpg);
+    background-position: center;
+    min-height: 80vh;
     background-size: cover;
     display: flex;
 
@@ -22,11 +22,13 @@ nav {
     height: var(--navbar-height);
     background-color: var(--navbar-color);
 
+
 }
 
 nav a {
-    color: var(--intermediate);
+    color: var(--light);
     text-shadow: var(--text-shadow);
+    font-family: var(--font-text);
 
 }
 
@@ -35,7 +37,7 @@ ul>li:last-child {
 }
 
 ul {
-    color: var(--secondary-light);
+    color: var(--secondary);
 }
 
 nav a:hover {
@@ -59,17 +61,41 @@ nav li {
 
 }
 
+button {
+    border: 3px solid var(--secondary);
+    --background-color: transparent;
+    text-shadow:1px 1px 2px var(--intermadiate);
+    font-family: var(--font-text);
+    width: 20%;
+    --border-color: none;
+    box-shadow: 1px 1px 2px var(--intermadiate);
+    color: var(--secondary);
+    border-radius: 1.2rem;
+    font-size: 1.2rem;
+    padding:0.5rem;
+    margin-left: auto; 
+    margin-right: var(--spacing);
+    margin-top: var(--spacing);
+}
+
+button:hover {
+    color: var(--light);
+    --background-color: transparent;
+    border: 3px solid var(--light);
+}
+
 h1 {
     color: var(--light);
     font-family: var(--font-title);
-    font-size: calc(var(--font-size)*3.6);
+    font-size: calc(var(--font-size)*3);
 
     text-align: center;
-    margin-top: calc(var(--spacing)*8);
+    margin-top: calc(var(--spacing)*12);
     margin-right: calc(var(--spacing)*4);
     line-height: calc(var(--spacing)*8);
     text-shadow: var(--text-shadow);
-    font-weight: 550;
+    font-weight: 700;
+    letter-spacing: 0.5rem;
 }
 
 .burger {
@@ -94,8 +120,17 @@ h1 {
     .links:target {
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: 100vh;
         background-color: var(--navbar-color);
+    }
+
+    nav a {
+        font-size: calc(var(--font-size)*1.5);
+
+    }
+
+    svg {
+        color: var(--secondary-light)
     }
 
 }
