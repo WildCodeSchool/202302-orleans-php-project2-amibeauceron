@@ -62,25 +62,25 @@ nav li {
 }
 
 button {
-    border: 3px solid var(--secondary);
     --background-color: transparent;
-    text-shadow:1px 1px 2px var(--intermadiate);
+    --border-color: none;
+    border: 3px solid var(--secondary);
+    text-shadow: 1px 1px 2px var(--intermediate);
     font-family: var(--font-text);
     width: 20%;
-    --border-color: none;
-    box-shadow: 1px 1px 2px var(--intermadiate);
+    box-shadow: 1px 1px 2px var(--intermediate);
     color: var(--secondary);
     border-radius: 1.2rem;
     font-size: 1.2rem;
-    padding:0.5rem;
-    margin-left: auto; 
+    padding: 0.5rem;
+    margin-left: auto;
     margin-right: var(--spacing);
     margin-top: var(--spacing);
 }
 
 button:hover {
-    color: var(--light);
     --background-color: transparent;
+    color: var(--light);
     border: 3px solid var(--light);
 }
 
@@ -88,7 +88,6 @@ h1 {
     color: var(--light);
     font-family: var(--font-title);
     font-size: calc(var(--font-size)*3);
-
     text-align: center;
     margin-top: calc(var(--spacing)*12);
     margin-right: calc(var(--spacing)*4);

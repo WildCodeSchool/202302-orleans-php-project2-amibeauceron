@@ -1,23 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,900&display=swap');
 @import url('https://fonts.cdnfonts.com/css/oruguitas');
+@import 'navbar.css';
 
 :root {
     --secondary-light: #FFCE6D;
-    --intermadiate: #444242;
+    --intermediate: #444242;
     --light: #f3f3f3;
     --font-title: 'Oruguitas', sans-serif;
     --font-text: 'Roboto', sans-serif;
     --navbar-height: 70px;
-    --navbar-color: rgba(24, 21, 21, 0.8);
+    --navbar-color: rgba(var(--primary-color), 0.8);
     --text-shadow: 2px 2px 4px black;
     --burger-width: 12vw;
     --burger-height: 6vh;
+    --primary-color: 23, 20, 20;
 
 }
 
 [data-theme="light"],
 :root:not([data-theme="dark"]) {
-    --primary: rgb(23, 20, 20);
+    --primary: rgb(var(--primary-color));
     --secondary: #FF7A00;
 
 }
