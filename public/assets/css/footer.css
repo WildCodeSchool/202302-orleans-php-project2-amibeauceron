@@ -1,33 +1,23 @@
-footer {
-
-color:var(--primary);
-background-color:var(--primary);
+body>footer {
+    color: var(--primary);
+    background-color: var(--primary);
     display: flex;
-    padding: 8rem;
-    width: 45px;
-     
-    
-
+    justify-content: space-between;
+    padding: auto 1rem;
 }
- .contact img {
-justify-content:space-around;
+
+.contact {
+    display: flex;
+    gap: 2rem;
+}
+
+.messagerie {
+    display: flex;
+    gap: 3rem;
+}
+
+img {
+    justify-content: space-around;
     width: 4rem;
     border-radius: 2rem;
-    
- }
-
- .contact img hover {
-
-    color:var(--primary);
-    background:var(--secondary);
-    border-radius: 1rem;
- }
-
-
- 
-
-
-
-
-
- 
+}

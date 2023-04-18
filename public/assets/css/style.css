@@ -4,7 +4,7 @@
 :root {
     --secondary-light: #FFCE6D;
     --intermadiate: #444242;
-    --light: #f3f3f3;
+    --light: --primary: #181515;
     --font-title: 'Oruguitas', sans-serif;
     --font-text: 'Roboto', sans-serif;
 }
@@ -13,5 +13,4 @@
 :root:not([data-theme="dark"]) {
     --primary: #181515;
     --secondary: #FF7A00;
-
 }
