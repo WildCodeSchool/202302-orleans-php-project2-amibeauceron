@@ -63,9 +63,9 @@ MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
 ;
 -- --------------------------------------------------------
 --
--- Structure de la table `news`
+-- Structure de la table `Actuality`
 --
-CREATE TABLE `news` (
+CREATE TABLE `Actuality` (
 `id` INT NOT NULL AUTO_INCREMENT,
 `title` VARCHAR(100) NOT NULL,
 `content` TEXT NULL,
@@ -75,9 +75,9 @@ PRIMARY KEY (`id`),
 UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
 --
--- Contenu de la table `news`
+-- Contenu de la table `Actuality`
 --
-INSERT INTO `news` (
+INSERT INTO `Actuality` (
 `id`,
 `title`,
 `content`,
@@ -102,7 +102,7 @@ VALUES (
 			Clôture de l''assembée générale.
 			
 			Pour participer à l''assembée générale, il faut être à jour de cotisation et adhérent depuis plus de 9 mois.',
-    CURRENT_TIMESTAMP(),
+    NULL,
     NULL
   ),
   (
@@ -117,7 +117,7 @@ VALUES (
           - <a href="RIB Crédit Agricole CAB.pdf" border="0" alt="">RIB bancaire</a>
          
     ',
-    CURRENT_TIMESTAMP(),
+    NULL,
     NULL
   ),
   (
@@ -144,6 +144,6 @@ VALUES (
       CNRS UMR 5310 - INSERM U1217 - UCBL1 Université de Lyon
       8 avenue Rockefeller, 69008 Lyon 
     ',
-    CURRENT_TIMESTAMP(),
+    NULL,
     NULL
   );
