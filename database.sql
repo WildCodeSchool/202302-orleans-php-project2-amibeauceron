@@ -63,9 +63,9 @@ MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
 ;
 -- --------------------------------------------------------
 --
--- Structure de la table `Actuality`
+-- Structure de la table `actuality`
 --
-CREATE TABLE `Actuality` (
+CREATE TABLE `actuality` (
 `id` INT NOT NULL AUTO_INCREMENT,
 `title` VARCHAR(100) NOT NULL,
 `content` TEXT NULL,
@@ -77,7 +77,7 @@ UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE
 --
 -- Contenu de la table `Actuality`
 --
-INSERT INTO `Actuality` (
+INSERT INTO `actuality` (
 `id`,
 `title`,
 `content`,

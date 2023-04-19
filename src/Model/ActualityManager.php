@@ -6,5 +6,5 @@ use PDO;
 
 class ActualityManager extends AbstractManager
 {
-    public const TABLE = 'Actuality';
+    public const TABLE = 'actuality';
 }
