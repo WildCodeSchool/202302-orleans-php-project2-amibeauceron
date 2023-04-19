@@ -23,3 +23,8 @@
     --secondary: #FF7A00;
 
 }
+
+img {
+    object-fit: cover;
+    width: 100%;
+}
