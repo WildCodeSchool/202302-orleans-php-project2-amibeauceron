@@ -1,0 +1,10 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/history.css" type="text/css">
+{% endblock %}
+{% block title %}
+	{{ parent() }}
+	| Beauceron
+{% endblock %}
+{% block content %}
+{% include '/beauceron/history.html.twig' %}
+{% endblock %}

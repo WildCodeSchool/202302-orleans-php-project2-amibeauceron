@@ -14,5 +14,5 @@ return [
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
 
-    'history' => ['HomeController', 'history'],
+    'beauceron' => ['DogController', 'beauceron'],
 ];
