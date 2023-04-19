@@ -7,7 +7,7 @@ use App\Model\ActualityManager;
 class ActualityController extends AbstractController
 {
     /**
-     * List news
+     * List of Actualities
      */
     public function index(): string
     {

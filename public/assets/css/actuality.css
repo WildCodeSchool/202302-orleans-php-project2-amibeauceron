@@ -1,11 +1,11 @@
-section {
+main {
     background-image: url("../images/empreintechienblanc.png");
     background-color: var(--light);
     background-repeat: repeat-y;
-    background-size: 50%;
+    background-size: 35%;
     background-position: 80% 30%;
     padding-top: calc(var(--spacing) * 2);
-    --text-shadow: 8px 5px 8px rgba(0, 0, 0, 0.5);
+    --text-shadow: 6px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 section > div {

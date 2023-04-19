@@ -8,14 +8,16 @@
 {% endblock %}
 
 {% block content %}
-	<section class="container">
-		<header>
-			<h1>Actualités</h1>
-		</header>
-		<div>
-			{% for actuality in actualities %}
-				{% include 'Component/_card_actuality.html.twig' %}
-			{% endfor %}
-		</div>
-	</section>
+	<main>
+		<section class="container">
+			<header>
+				<h1>Actualités</h1>
+			</header>
+			<div>
+				{% for actuality in actualities %}
+					{% include 'Component/_card_actuality.html.twig' %}
+				{% endfor %}
+			</div>
+		</section>
+	</main>
 {% endblock %}
