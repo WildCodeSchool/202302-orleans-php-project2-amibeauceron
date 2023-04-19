@@ -1,6 +1,6 @@
 <article>
 	<header>
-		<h2>{{ actuality.title|upper }}</h2>
+		<h2>{{ actuality.title|title }}</h2>
 	</header>
 	<div class="news-content">
 		{{ actuality.content|length > 150 ? actuality.content|slice(0, 150) ~ '...' : actuality.content }}
@@ -8,11 +8,12 @@
 	<footer>
 		<div>
 			<small>
-				Date :{{ actuality.creation_date|date("d/m/Y : H:m") }}
+				Date :
+				<span>{{ actuality.creation_date|date("m/d/Y", "Europe/Paris")  }}</span>
 			</small>
 		</div>
 		<div>
-			<a href="/news/show?id={{ actuality.id }}" role="button" class="secondary">Détail</a>
+			<a href="/news/show?id={{ actuality.id }}" role="button" class="secondary">DÉTAIL</a>
 		</div>
 	</footer>
 </article>

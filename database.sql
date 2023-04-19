@@ -69,7 +69,7 @@ CREATE TABLE `Actuality` (
 `id` INT NOT NULL AUTO_INCREMENT,
 `title` VARCHAR(100) NOT NULL,
 `content` TEXT NULL,
-`creation_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+`creation_date` DATETIME NOT NULL DEFAULT NOW(),
 `image_path` VARCHAR(255) NULL,
 PRIMARY KEY (`id`),
 UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE
@@ -102,7 +102,7 @@ VALUES (
 			Clôture de l''assembée générale.
 			
 			Pour participer à l''assembée générale, il faut être à jour de cotisation et adhérent depuis plus de 9 mois.',
-    NULL,
+    NOW(),
     NULL
   ),
   (
@@ -117,7 +117,7 @@ VALUES (
           - <a href="RIB Crédit Agricole CAB.pdf" border="0" alt="">RIB bancaire</a>
          
     ',
-    NULL,
+    DATE_ADD(NOW(), INTERVAL -2 DAY),
     NULL
   ),
   (
@@ -144,6 +144,6 @@ VALUES (
       CNRS UMR 5310 - INSERM U1217 - UCBL1 Université de Lyon
       8 avenue Rockefeller, 69008 Lyon 
     ',
-    NULL,
+    DATE_ADD(NOW(), INTERVAL -5 DAY),
     NULL
   );

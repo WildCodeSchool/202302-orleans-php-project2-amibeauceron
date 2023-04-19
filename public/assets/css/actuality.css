@@ -1,15 +1,37 @@
 section {
+    background-image: url("../images/empreintechienblanc.png");
+    background-color: var(--light);
+    background-repeat: repeat-y;
+    background-size: 50%;
+    background-position: 80% 30%;
+    padding-top: calc(var(--spacing) * 2);
+    --text-shadow: 8px 5px 8px rgba(0, 0, 0, 0.5);
+}
+
+section > div {
     display: grid;
-    grid-template-columns: 1fr;
     gap: var(--spacing);
-    font-family: var(--font-text);
+    grid-template-columns: 1fr;
+}
+
+section > header > h1 {
+    font-size: clamp(1rem, 4vw, calc(var(--font-size) * 1.5));
+    color: var(--primary);
+    font-weight: 600;
+    font-family: var(--font-title);
+    text-align: center;
 }
 
 article {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: var(--light);
+    width: clamp(360px, 70%, 95vw);
+    margin: var(--spacing);
+    --stagger-delay: 150ms;
+    animation: 400ms FadeInAnimation var(--stagger-delay) ease-out;
+    animation-fill-mode: backwards;
+    animation-iteration-count: 1;
 }
 
 article > header {
@@ -17,32 +39,32 @@ article > header {
     padding: var(--spacing);
     background-image: url("../images/dog-information.webp");
     background-repeat: no-repeat;
-    background-size: 5vw;
-    background-position: right;
+    background-size: 10%;
+    background-position: 97% 30%;
+    background-color: var(--light);
 }
 
 article > header > h2 {
     margin-bottom: 0;
     font-size: clamp(0.9rem, 1.9vw, var(--font-size));
     color: var(--secondary);
+    font-weight: 400;
+    text-shadow: var(--text-shadow);
 }
 
 article > footer {
     margin-top: calc(var(--block-spacing-vertical) * 2 / 3);
     padding: 0 0 0 calc(var(--spacing) * 2 / 3);
-    background-color: var(--primary);
     color: var(--light);
+    background-color: var(--primary);
 }
 
-footer [role="button"] {
+footer a[role="button"] {
     width: clamp(6rem, 10vw, 8rem);
     padding: calc(var(--spacing) / 3) calc(var(--spacing) / 3);
     border-radius: 0;
-}
-
-.news-content {
-    margin: calc(var(--spacing) / 2);
-    padding: calc(var(--spacing) / 2);
+    text-shadow: var(--text-shadow);
+    font-size: calc(var(--font-size) * 3 / 4);
 }
 
 article > footer {
@@ -50,4 +72,68 @@ article > footer {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 0;
+}
+
+article:nth-child(even) {
+    justify-self: end;
+}
+
+article:nth-child(odd) {
+    justify-self: start;
+}
+
+article:nth-child(even) > header {
+    text-align: right;
+    padding-right: 15%;
+}
+
+article:nth-child(odd) > header {
+    background-position: 3% 30%;
+    text-align: left;
+    padding-left: 15%;
+}
+
+article:nth-child(even) > footer {
+    flex-direction: row-reverse;
+    padding-inline-end: 2vw;
+    background-image: linear-gradient(
+        to right,
+        var(--intermadiate) 30%,
+        var(--primary) 70%
+    );
+}
+
+article:nth-child(odd) > footer {
+    padding-inline-start: 2vw;
+    background-image: linear-gradient(
+        to left,
+        var(--intermadiate) 30%,
+        var(--primary) 70%
+    );
+}
+
+@keyframes FadeInAnimation {
+    from {
+        opacity: 0.3;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media screen and (width <= 500px) {
+    article {
+        width: 99%;
+        justify-content: center;
+    }
+
+    article:nth-child(odd) {
+        justify-self: center;
+    }
+    article:nth-child(even) {
+        justify-self: center;
+    }
 }
