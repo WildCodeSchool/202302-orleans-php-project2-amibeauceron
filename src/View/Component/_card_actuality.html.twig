@@ -1,18 +1,37 @@
-<article>
+{% if (smallcard ?? false) == false %}
+	<article>
+		<header>
+			<img class='info-sticker' src="./assets/images/dog-information.webp" alt="image de patte de chien info">
+			<h2>{{ actuality.title|title }}</h2>
+		</header>
+		<div class="news-content">
+			{{ actuality.content|length > 150 ? actuality.content|slice(0, 150) ~ '...' : actuality.content }}
+		</div>
+		<footer>
+			<div>
+				<small>
+					<span>{{ actuality.creation_date|date("m/d/Y", "Europe/Paris")  }}</span>
+				</small>
+			</div>
+			<div>
+				<a href="/news/show?id={{ actuality.id }}" role="button" class="secondary">DÉTAIL</a>
+			</div>
+		</footer>
+	</article>
+{% else %}
+<article class="small-card">
 	<header>
-		<h2><img class='info-sticker' src="./assets/images/dog-information.webp" alt="image de patte de chien info">{{ actuality.title|title }}</h2>
+		<img class='info-sticker' src="./assets/images/dog-information.webp" alt="image de patte de chien info">
 	</header>
-	<div class="news-content">
+	<div>
+		<small>{{ actuality.creation_date|date("m/d/Y", "Europe/Paris")  }}</small>
+		<h2>{{ actuality.title|title }}</h2>
+	</div>
+	<div class="content">
 		{{ actuality.content|length > 150 ? actuality.content|slice(0, 150) ~ '...' : actuality.content }}
 	</div>
 	<footer>
-		<div>
-			<small>
-				<span>{{ actuality.creation_date|date("m/d/Y", "Europe/Paris")  }}</span>
-			</small>
-		</div>
-		<div>
-			<a href="/news/show?id={{ actuality.id }}" role="button" class="secondary">DÉTAIL</a>
-		</div>
+		<a href="/news/show?id={{ actuality.id }}" role="button" class="secondary">DÉTAIL</a>
 	</footer>
 </article>
+{% endif %}
