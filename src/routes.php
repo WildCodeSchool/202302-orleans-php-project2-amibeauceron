@@ -14,4 +14,5 @@ return [
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
     'Actualites'  => ['ActualityController', 'index'],
+    'Administration' => ['Admin\AdminController', 'index'],
 ];

@@ -1,0 +1,52 @@
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: calc(var(--spacing) * 1);
+    background-image: url("../images/img_header_dog.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    background-color: var(--primary);
+}
+
+header button {
+    --background-color: transparent;
+    --border-color: none;
+    border: 3px solid var(--secondary);
+    text-shadow: 1px 1px 2px var(--intermediate);
+    font-family: var(--font-text);
+    width: clamp(80px, 20vw, 200px);
+    font-size: clamp(0.6rem, 4vw, 1.2rem);
+    box-shadow: 1px 1px 2px var(--intermediate);
+    color: var(--secondary);
+    border-radius: 1.2rem;
+
+    padding: 0.5rem;
+    margin-left: auto;
+    margin-right: var(--spacing);
+    margin-top: var(--navbar-height);
+}
+
+header button:hover {
+    --background-color: transparent;
+    color: var(--light);
+    border: 3px solid var(--light);
+}
+
+header h1 {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-block-start: clamp(50px, 15vw, 300px);
+    margin-inline-start: clamp(10px, 5vw, 100px);
+    color: var(--light);
+    font-family: var(--font-title);
+    font-size: clamp(1.5rem, 7vw, calc(var(--font-size) * 3));
+    text-shadow: var(--text-shadow);
+    font-weight: 700;
+    letter-spacing: 0.5rem;
+}
+.lower-title {
+    font-size: clamp(1rem, 5vw, var(--font-size));
+}
