@@ -10,7 +10,7 @@ class ActualityManager extends AbstractManager
 
     public function selectLastThree(): array
     {
-        $query = 'SELECT * FROM ' . self::TABLE . ' ORDER BY creation_date ASC LIMIT 3';
+        $query = 'SELECT * FROM ' . self::TABLE . ' ORDER BY creation_date DESC LIMIT 3';
         return $this->pdo->query($query)->fetchAll();
     }
 }
