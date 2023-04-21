@@ -10,17 +10,23 @@
 {% block content %}
 <main>
     <section class="container">
-        <article>
+        <article class="details">
             <header>
-                <img class='info-sticker' src="/assets/images/dog-information.webp" alt="image de patte de chien info">
                 <h2>{{ actuality.title|title }}</h2>
-                 <small>
-                    <span>{{ actuality.creation_date|date("m/d/Y", "Europe/Paris")  }}</span>
-                </small>
             </header>
             <div>
-                <pre>{{ actuality.content }}</pre>
+                {% if actuality.image_path is not empty %}
+                <div>
+                    <img class="img-actuality" src="{{ actuality.image_path }}" alt="image de l'actualité">
+                </div>
+                {% endif %}
+                <p>{{ actuality.content }}</p>
             </div>
+            <footer>
+                <small>
+                    <span>{{ actuality.creation_date|date("m/d/Y", "Europe/Paris")  }}</span>
+                </small>
+            </footer>
         </article>
     </section>
 </main>
