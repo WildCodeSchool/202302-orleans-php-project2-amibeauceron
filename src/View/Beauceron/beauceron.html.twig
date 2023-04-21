@@ -1,5 +1,7 @@
 {% extends 'layout.html.twig' %}
-{% block stylesheet %}<link rel="stylesheet" href="/assets/css/history.css" type="text/css">
+{% block stylesheet %}
+	<link rel="stylesheet" href="/assets/css/history.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/genese.css" type="text/css">
 {% endblock %}
 {% block title %}
 	{{ parent() }}
@@ -82,5 +84,6 @@
 				</p>
 			</div>
 		</div>
+		{% include "Beauceron/beauceron_genese.html.twig" %}
 	</main>
 {% endblock %}
