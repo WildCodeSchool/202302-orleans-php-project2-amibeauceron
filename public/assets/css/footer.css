@@ -4,20 +4,81 @@ body>footer {
     display: flex;
     justify-content: space-between;
     padding: auto 1rem;
+    flex-direction: column;
 }
 
-.contact {
+h1 {
+    color: white;
+    background-color: var(--primary#181515);
+}
+
+.reseaux {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    flex-direction: column;
+    width: 100%;
+}
+
+.logos {
     display: flex;
     gap: 2rem;
-}
-
-.messagerie {
-    display: flex;
-    gap: 3rem;
+    align-items: center;
 }
 
 img {
     justify-content: space-around;
-    width: 4rem;
-    border-radius: 2rem;
+    width: 3rem;
+}
+
+.administrateur {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.facebook {
+    height: 2rem;
+    width: auto;
+}
+
+.instagram {
+    height: 2rem;
+    width: auto;
+}
+
+.entt {
+    height: 2rem;
+    width: auto;
+}
+
+h2 {
+    color: white;
+    background-color: var(--primary#181515);
+}
+
+p {
+    color: white;
+    background-color: var(-primary#181515);
+}
+
+ul li {
+    list-style: none;
+    color: white;
+    background-color: var(--primary#181515);
+}
+
+[role="button"], button, input[type="button"], input[type="reset"], input[type="submit"] {
+    background-color: var(--secondary);
+}
+
+.administrateur img {
+    width: 6rem;
+}
+
+footer>p {
+    text-align: center;
+    background-color: var();
+    margin-top: 3rem;
 }
