@@ -39,11 +39,6 @@ nav.admin-navbar a {
     font-family: var(--font-text);
     font-size: clamp(0.4rem, 3vw, var(--font-size));
 }
-/*
-nav.admin-navbar ul > li:last-child {
-    padding-right: calc(var(--spacing) * 2);
-}
-*/
 
 nav.admin-navbar ul {
     color: var(--secondary);
