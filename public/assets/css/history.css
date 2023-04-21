@@ -69,7 +69,12 @@ li {
     border-radius: calc(var(--spacing)*2);
 }
 
-
 .part3 :first-child {
     padding-block-start: calc(var(--spacing)*2);
+}
+
+@media screen and (max-width: 1200px) {
+    .part1 {
+        flex-direction: column;
+    }
 }
