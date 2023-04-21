@@ -1,0 +1,27 @@
+{% extends 'layout.html.twig' %}
+{% block title %}
+	{{ parent() }}
+	| Actualités
+{% endblock %}
+{% block stylesheet %}
+	<link rel="stylesheet" href="/assets/css/actuality.css" type="text/css">
+{% endblock %}
+
+{% block content %}
+<main>
+    <section class="container">
+        <article>
+            <header>
+                <img class='info-sticker' src="/assets/images/dog-information.webp" alt="image de patte de chien info">
+                <h2>{{ actuality.title|title }}</h2>
+                 <small>
+                    <span>{{ actuality.creation_date|date("m/d/Y", "Europe/Paris")  }}</span>
+                </small>
+            </header>
+            <div>
+                <pre>{{ actuality.content }}</pre>
+            </div>
+        </article>
+    </section>
+</main>
+{% endblock %}
