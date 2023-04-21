@@ -1,0 +1,76 @@
+.berger>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.berger {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing)*2);
+    padding: calc(var(--spacing)*2);
+}
+
+.beauceron p,
+.beauceron ul,
+.beauceron li {
+    font-family: var(--font-text);
+    font-weight: 400;
+    font-size: calc(var(--font-size))*2/3;
+    line-height: calc(var(--spacing)*1.5);
+    color: var(--intermediate);
+}
+
+.beauceron>h1 {
+    text-align: center;
+    font-family: 'Cinzel';
+    font-size: calc(var(--spacing)*2.5);
+    padding: 0;
+}
+
+.berger>h2 {
+    color: var(--secondary);
+    font-family: 'Cormorant Garamond';
+    font-weight: 500;
+    font-size: calc(var(--spacing)*3);
+    display: block;
+    margin: 0;
+}
+
+.beauceron>div {
+    width: 80%;
+    margin: auto;
+}
+
+.beauceron>img {
+    width: 80%;
+    padding: var(--spacing);
+    border-radius: calc(var(--spacing)*2);
+    display: block;
+    margin: auto;
+}
+
+.berger .part3 ul,
+.berger .part3 li {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.part1 {
+    display: flex;
+    align-items: center;
+}
+
+.part1 img {
+    width: 50%;
+    border-radius: calc(var(--spacing)*2);
+}
+
+.part3 :first-child {
+    padding-block-start: calc(var(--spacing)*2);
+}
+
+@media screen and (max-width: 1200px) {
+    .part1 {
+        flex-direction: column;
+    }
+}
