@@ -53,13 +53,13 @@
 			</tbody>
 			<tfoot>
 				<tr class="result-info">
-					<th scope="col" colspan="5">Enregistrement(s) : {{ nbrActualities }}</th>
+					<th scope="col" colspan="5">Enregistrement(s) : {{ pagination.countRecords ?? 0 }}</th>
 				</tr>
 				<tr> 
 					<td colspan="5"> 
-						{% for page in pages %}
-							<span class="step {{ currentPage == page ? 'active' : '' }}" >
-								{% if(currentPage != page) %}
+						{% for page in pagination.pages %}
+							<span class="step {{ pagination.currentPage == page ? 'active' : '' }}" >
+								{% if(pagination.currentPage != page) %}
 									<a href="/administration/actualites/?page={{ page }}">{{ page }}</a>
 								{% else %}
 									{{ page }}

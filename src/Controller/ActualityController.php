@@ -8,7 +8,11 @@ class ActualityController extends AbstractController
 {
     // On détermine le nombre d'articles par page
     private const ROWS_PER_PAGE = 3;
-
+    private int $currentPage = 1;
+    private int $totalPages = 1;
+    private int $firstRow = 1;
+    private int $countRecords = 0;
+    private array $pages = [];
     /**
      * List of Actualities
      */
@@ -28,21 +32,44 @@ class ActualityController extends AbstractController
             exit();
         }
 
-        $currentPage = 1;
-        if (isset($_GET['page']) && !empty($_GET['page'])) {
-            $currentPage = (int) strip_tags($_GET['page']);
-        }
+        $this->getPagination();
 
         $actualityManager = new ActualityManager();
-        $nbrActualities = $actualityManager->getCount();
+        $actualities = $actualityManager->selectAllWithPagination(
+            $this->firstRow,
+            $this::ROWS_PER_PAGE,
+            'creation_date'
+        );
 
+        $pagination = [
+            'pages' => $this->pages,
+            'countRecords' => $this->countRecords,
+            'currentPage' => $this->currentPage
+        ];
+
+        return $this->twig->render(
+            'Admin/Actuality/index.html.twig',
+            [
+                'actualities' => $actualities,
+                'pagination' => $pagination
+            ]
+        );
+    }
+
+    private function getPagination(): void
+    {
+        $this->currentPage = 1;
+        if (isset($_GET['page']) && !empty($_GET['page'])) {
+            $this->currentPage = (int) strip_tags($_GET['page']);
+        }
+        $actualityManager = new ActualityManager();
+        // On recupère le nombre total d'enregistrements de la table
+        $this->countRecords = $actualityManager->getCount();
         // On calcule le nombre de pages total
-        $totalPages = ceil($nbrActualities / $this::ROWS_PER_PAGE);
+        $this->totalPages = (int) ceil($this->countRecords / $this::ROWS_PER_PAGE);
         // Calcul du 1er item de la page
-        $firstRow = ($currentPage * $this::ROWS_PER_PAGE) - $this::ROWS_PER_PAGE;
+        $this->firstRow = ($this->currentPage * $this::ROWS_PER_PAGE) - $this::ROWS_PER_PAGE;
         // génération d'un tableau de pages de 1 au nombre total de pages calculées
-        $pages = range(1, $totalPages);
-        $actualities = $actualityManager->selectAllWithPagination($firstRow, $this::ROWS_PER_PAGE, 'creation_date');
-        return $this->twig->render('Admin/Actuality/index.html.twig', ['actualities' => $actualities, 'pages' => $pages, 'nbrActualities' => $nbrActualities, 'currentPage' => $currentPage]);
+        $this->pages = range(1, $this->totalPages);
     }
 }

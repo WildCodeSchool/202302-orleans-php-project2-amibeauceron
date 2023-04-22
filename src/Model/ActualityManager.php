@@ -13,8 +13,12 @@ class ActualityManager extends AbstractManager
         $query = "SELECT COUNT(*) AS nbr_actualities FROM " . self::TABLE;
         return $this->pdo->query($query)->fetchColumn();
     }
-    public function selectAllWithPagination(int $firstRow, int $rowsPerPage, string $orderBy = '', string $direction = 'ASC'): array
-    {
+    public function selectAllWithPagination(
+        int $firstRow,
+        int $rowsPerPage,
+        string $orderBy = '',
+        string $direction = 'ASC'
+    ): array {
         // prepared request
         $query = 'SELECT * FROM ' . static::TABLE;
         if ($orderBy) {
