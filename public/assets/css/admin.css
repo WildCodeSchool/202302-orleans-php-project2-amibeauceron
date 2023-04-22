@@ -1,0 +1,68 @@
+.datas-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: clamp(350px, 96vw, 90%);
+    gap: var(--spacing);
+    margin: var(--spacing) auto;
+    font-family: var(--font-text);
+    font-size: var(--font-size);
+    padding: var(--spacing);
+}
+
+.datas-container h1 {
+    margin-block: 0px;
+}
+
+.datas-container table {
+    font-size: var(--font-size);
+    margin: var(--spacing);
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.datas-container table thead {
+    background-color: var(--secondary);
+}
+
+.datas-container table th {
+    color: var(--contrast-hover);
+}
+
+tr.result-info th {
+    text-align: right;
+    font-size: medium;
+    background-color: var(--primary);
+    color: var(--light);
+    font-style: italic;
+}
+
+.datas-container table form {
+    margin: 0px;
+    padding: 0px;
+}
+.datas-container table form button[role="link"] {
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+
+span.step {
+    background: var(--light);
+    border-radius: 0.8em;
+    display: inline-block;
+    font-weight: 600;
+    line-height: 1.6em;
+    margin-right: 5px;
+    text-align: center;
+    width: 1.6em;
+    border-color: solid 1px black;
+}
+
+span.step.active {
+    background: var(--secondary);
+    color: var(--dark);
+    font-weight: 300;
+}

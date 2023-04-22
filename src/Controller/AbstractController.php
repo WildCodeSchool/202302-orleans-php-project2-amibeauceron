@@ -12,7 +12,7 @@ use Twig\Loader\FilesystemLoader;
 abstract class AbstractController
 {
     protected Environment $twig;
-
+    protected array|false $user;
 
     public function __construct()
     {
@@ -25,5 +25,10 @@ abstract class AbstractController
             ]
         );
         $this->twig->addExtension(new DebugExtension());
+
+        // Create fictif user admin to test administration pages
+        $this->user = ['Name' => 'Administrator', 'Role' => 'Admin', 'email' => 'admin.wild@gmail.com'];
+        // Add global twig variable to store USER connected
+        $this->twig->addGlobal('user', $this->user);
     }
 }
