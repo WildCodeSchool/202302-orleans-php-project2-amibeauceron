@@ -24,7 +24,7 @@ class ActualityController extends AbstractController
     }
     public function add(): string
     {
-        $actuality = $errors = $uploadErrors = [];
+        $actuality = $errors = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
@@ -32,30 +32,19 @@ class ActualityController extends AbstractController
 
             // Validations
             if (!empty($actuality)) {
-
-                if (empty($actuality['title'])) {
-                    $errors[] = 'Veuillez renseigner la zone Titre.';
-                }
-
-                if (strlen($actuality['title']) > 100) {
-                    $errors[] = sprintf('la zone Titre ne doit pas dépasser 100 caractères (actuellement : %s).', strlen($actuality['title']));
-                }
-
-                if (empty($actuality['content'])) {
-                    $errors[] = 'Veuillez renseigner la zone Texte.';
-                }
+                $errors = $this->validateDatas($actuality);
 
                 //on effectue l'upload si aucunes erreurs de validation avant
                 if (empty($errors)) {
                     //on recupère le fichier sur le serveur
-                    $uplaodResult = $this->validateUploadFile();
+                    $uplaodResult = $this->uploadFile();
 
                     // On rappatrie les erreurs d'upload dans la variable $errors pour l'affichage
                     foreach ($uplaodResult['uploadErrors'] as $uploadError) {
                         $errors[] = $uploadError;
                     }
 
-                    // Si processus d'upload OK, on met a jour la valeur du chemin de fichier avec celui du serveur.
+                    // Si processus d'upload OK, on renseigne le chemin du fichier provenant du serveur.
                     if (empty($uplaodResult['uploadErrors']) && !empty($uplaodResult['uploadedFiles'])) {
                         $actuality['image_path'] = $uplaodResult['uploadedFiles'][0];
                     }
@@ -63,7 +52,6 @@ class ActualityController extends AbstractController
 
                 // if validation is ok, insert and redirection
                 if (empty($errors)) {
-                    print_r($actuality);
                     $actualityManager = new ActualityManager();
                     $id = $actualityManager->insert($actuality);
                     header('Location:/administration/actualities/show?id=' . $id);
@@ -74,17 +62,27 @@ class ActualityController extends AbstractController
         return $this->twig->render('Admin/Actuality/add.html.twig', ['actuality' => $actuality, 'errors' => $errors]);
     }
 
-    /**
-     * validateUploadFile.
-     * Fonction qui vérifie l'upload d'un ou plusieur fichier
-     * 
-     * @author	Benjamin
-     * @since	v0.0.1
-     * @version	v1.0.0	Sunday, April 23rd, 2023.
-     * @access	private
-     * @return	array [ 'uploadErrors' => array, 'uploadedFiles' => array ];
-     */
-    private function validateUploadFile(): array
+    private function validateDatas(array $actuality): array
+    {
+        $errors = [];
+
+        if (empty($actuality['title'])) {
+            $errors[] = 'Veuillez renseigner la zone Titre.';
+        }
+
+        if (strlen($actuality['title']) > 100) {
+            $errors[] = sprintf(
+                'la zone Titre ne doit pas dépasser 100 caractères (actuellement : {%s}).',
+                strlen($actuality['title'])
+            );
+        }
+
+        if (empty($actuality['content'])) {
+            $errors[] = 'Veuillez renseigner la zone Texte.';
+        }
+        return $errors;
+    }
+    private function uploadFile(): array
     {
         $uploaded = []; // Store uploaded files here -> OK
         $uploadErrors = []; // Store failed upload files here -> KO
@@ -105,7 +103,7 @@ class ActualityController extends AbstractController
             $files = $_FILES['files'];
 
             // Extensions autorisées pour l'upload du fichier image
-            $fileExtensionsAllowed = [
+            $extensionsAllowed = [
                 'jpeg',
                 'jpg',
                 'png',
@@ -114,14 +112,14 @@ class ActualityController extends AbstractController
             ];
 
             //Type image
-            $fileTypeMimeAllowed = [
-                'image/gif',                // : GIF ; défini dans la RFC 204516 et la RFC 20462.
-                'image/jpeg',               // : JPEG image JFIF ; défini dans la RFC 204516 et la RFC 20462 (attention, sur le navigateur Internet Explorer le type MIME peut être « image/pjpeg »17).
-                'image/png',                // : Portable Network Graphics ; enregistré18 (attention, à l'instar du jpeg sur le navigateur Internet Explorer le type MIME peut être « image/x-png »).
-                'image/webp',               // : Créé par Google, WebP est un format d’image qui vise à remplacer JPEG, PNG, GIF, SVG… A qualité égale, un poids réduit de 26 % par rapport à PNG ; et de -25 à -34 % par rapport à JPG.
+            $typeMimeAllowed = [
+                'image/gif',
+                'image/jpeg',
+                'image/png',
+                'image/webp',
             ];
 
-            $maximumAllowedSizeFiles = 1 * MB; //2Mo Par défaut, l'upload de fichier en PHP est limité à 2Mo. Configurable dans le fichier php.ini via la directive upload_max_filesize.
+            $maxSize = 1 * MB; //2Mo Par défaut, l'upload de fichier en PHP est limité à 2Mo.
 
             // on parcours chaque fichier
             foreach ($files['name'] as $position => $fileName) {
@@ -129,21 +127,21 @@ class ActualityController extends AbstractController
                 $fileTmpName = $files['tmp_name'][$position];
                 $fileSize = $files['size'][$position];
                 $fileError = $files['error'][$position];
-                $fileFullPath = $files['full_path'][$position];
                 $fileType = $files['type'][$position];
 
                 // on recupère l'extension du fichier sans le point avant, pour le control suivant
                 $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
                 // on check que l'extension est acceptée
-                if (in_array($fileExtension, $fileExtensionsAllowed)) {
-                    if (in_array($fileType, $fileTypeMimeAllowed)) {
+                if (in_array($fileExtension, $extensionsAllowed)) {
+                    if (in_array($fileType, $typeMimeAllowed)) {
                         // on check qu'il n'y a pas de code erreur en retour
                         if ($fileError === 0) {
                             // on check la taille du fichier
-                            if ($fileSize <= $maximumAllowedSizeFiles) {
+                            if ($fileSize <= $maxSize) {
                                 // on génère un nom unique pour l'enregistrement
                                 $fileNameNew = uniqid('', true) . '_' . $fileName;
+                                // chemin de stockage complet du fichier sur le serveur
                                 $fileDestination = self::UPLOAD_DIRECTOTRY . $fileNameNew;
                                 //si le dossier de destination pour l'upload n'existe pas on le créé
                                 if (!file_exists(self::UPLOAD_DIRECTOTRY)) {
@@ -156,16 +154,20 @@ class ActualityController extends AbstractController
                                     $uploadErrors[$position] = "Échec du téléchargement du fichier : [{$fileName}].";
                                 }
                             } else {
-                                $uploadErrors[$position] = "Le fichier : [{$fileName}] à une taille supérieur à {$maximumAllowedSizeFiles}.";
+                                $uploadErrors[$position] = "Fichier: [{$fileName}] trop volumineux, " .
+                                    " la taille maximum autorisée est de {$maxSize}MB.";
                             }
                         } else {
-                            $uploadErrors[$position] = "Le fichier : [{$fileName}] à une erreur avec le code suivant :{$fileError}. Description du message :{$uploadCodesErrors[$fileError]}.";
+                            $uploadErrors[$position] = "Fichier: [{$fileName}] en erreur avec le code :{$fileError}" .
+                                " Description du message :{$uploadCodesErrors[$fileError]}.";
                         }
                     } else {
-                        $uploadErrors[$position] = "Le fichier : [{$fileName}] à un type MIME {$fileType} qui n'est pas autorisé.";
+                        $uploadErrors[$position] = "Fichier: [{$fileName}] avec un type MIME {$fileType} " .
+                            " non autorisé.";
                     }
                 } else {
-                    $uploadErrors[$position] = "Le fichier : [{$fileName}] à une extension {$fileExtension} qui n'est pas autorisée.";
+                    $uploadErrors[$position] = "Fichier: [{$fileName}] avec l'extension {$fileExtension} " .
+                        "non autorisée.";
                 }
             }
         }
