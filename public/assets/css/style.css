@@ -9,6 +9,7 @@
     --light: #f3f3f3;
     --font-title: "Cinzel Decorative", cursive;
     --font-text: "Roboto", sans-serif;
+    --font-title2: 'Cormorant Garamond';
     --navbar-height: 70px;
     --navbar-color: rgba(var(--primary-color), 0.8);
     --text-shadow: 2px 2px 4px black;
