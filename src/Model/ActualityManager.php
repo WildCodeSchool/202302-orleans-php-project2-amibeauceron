@@ -17,7 +17,7 @@ class ActualityManager extends AbstractManager
         );
 
         $statement->bindValue('title', $actuality['title'], PDO::PARAM_STR);
-        $statement->bindValue('content', $actuality['content'], PDO::PARAM_STR);
+        $statement->bindValue('content', $actuality['content'] ?? null, PDO::PARAM_STR);
         $statement->bindValue('image_path', ($actuality['image_path']) ?? null, PDO::PARAM_STR);
         $statement->execute();
         return (int)$this->pdo->lastInsertId();

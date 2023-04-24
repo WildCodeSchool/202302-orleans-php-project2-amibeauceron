@@ -18,5 +18,5 @@ return [
     'items/delete' => ['ItemController', 'delete',],
     'beauceron' => ['DogController', 'beauceron'],
     'Actualites'  => ['ActualityController', 'index'],
-    'administration/actualites/ajouter' => ['ActualityController', 'add'],
+    'administration/actualites/ajouter' => ['AdminActualityController', 'add'],
 ];
