@@ -54,7 +54,7 @@ class ActualityController extends AbstractController
                 if (empty($errors)) {
                     $actualityManager = new ActualityManager();
                     $id = $actualityManager->insert($actuality);
-                    header('Location:/administration/actualities/show?id=' . $id);
+                    header('Location:/administration/actualites/afficher?id=' . $id);
                     exit();
                 }
             }
