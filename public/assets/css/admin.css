@@ -49,23 +49,3 @@ tr.result-info th {
     margin: 0px;
     border: 0px;
 }
-
-span.step {
-    --spacing: 0.8em;
-    background: var(--light);
-    border-radius: var(--spacing);
-    display: inline-block;
-    font-weight: 300;
-    line-height: 1.6em;
-    margin-right: var(--spacing);
-    text-align: center;
-    width: calc(var(--spacing)*2);
-    border: var(--primary) solid 1px;
-}
-
-span.step.active {
-    background: var(--secondary);
-    color: var(--dark);
-    font-weight: 400;
-    color: var(--primary);
-}
