@@ -1,0 +1,8 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+	<h1>Modification</h1>
+	{% include 'Component/_errors.html.twig' %}
+	{% include 'Admin/Actuality/_form.html.twig' %}
+	<a href="/administration/actualites/afficher?id={{ actuality.id }}">Back</a>
+{% endblock %}
