@@ -33,7 +33,7 @@
 
 tr.result-info th {
     text-align: right;
-    font-size: medium;
+    font-size: calc(var(--font-size)* 3/4);
     background-color: var(--primary);
     color: var(--light);
     font-style: italic;
@@ -43,6 +43,7 @@ tr.result-info th {
     margin: 0px;
     padding: 0px;
 }
+
 .datas-container table form button[role="link"] {
     padding: 0px;
     margin: 0px;
@@ -50,19 +51,21 @@ tr.result-info th {
 }
 
 span.step {
+    --spacing: 0.8em;
     background: var(--light);
-    border-radius: 0.8em;
+    border-radius: var(--spacing);
     display: inline-block;
-    font-weight: 600;
+    font-weight: 300;
     line-height: 1.6em;
-    margin-right: 5px;
+    margin-right: var(--spacing);
     text-align: center;
-    width: 1.6em;
-    border-color: solid 1px black;
+    width: calc(var(--spacing)*2);
+    border: var(--primary) solid 1px;
 }
 
 span.step.active {
     background: var(--secondary);
     color: var(--dark);
-    font-weight: 300;
+    font-weight: 400;
+    color: var(--primary);
 }
