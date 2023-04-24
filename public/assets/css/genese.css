@@ -24,6 +24,8 @@
     font-size: calc(var(--spacing)*3);
     display: block;
     margin: 0;
+    margin-left: calc(var(--spacing)*5);
+
 }
 
 .part4 {
