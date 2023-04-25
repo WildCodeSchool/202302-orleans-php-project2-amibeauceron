@@ -6,7 +6,6 @@
     padding: calc(var(--spacing)*2);
 }
 
-
 .genese p {
     font-family: var(--font-text);
     font-weight: 400;
