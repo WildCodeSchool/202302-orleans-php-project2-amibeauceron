@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-
 class SoinController extends AbstractController
 {
     public function index(): string

@@ -1,8 +1,9 @@
 <?php
+
 namespace App\Model;
 
 use PDO;
 
-class SoinManager extends AbstractManager {
-
+class SoinManager extends AbstractManager
+{
 }
