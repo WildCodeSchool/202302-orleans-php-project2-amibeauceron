@@ -27,6 +27,10 @@
     padding: 0;
 }
 
+.beauceron .part2:last-child p {
+    padding-bottom: calc(var(--spacing)*4);
+}
+
 .berger>h2 {
     color: var(--secondary);
     font-family: 'Cormorant Garamond';
@@ -37,16 +41,32 @@
 }
 
 .beauceron>div {
-    width: 80%;
+    width: 90%;
     margin: auto;
+    margin-bottom: calc(var(--spacing)*4);
 }
 
-.beauceron>img {
+.beauceron>.pawsContainer {
+    position: relative;
+    margin: calc(var(--spacing)*3) auto calc(var(--spacing)*4);
+}
+
+.beauceron>.pawsContainer>img:first-child {
     width: 80%;
     padding: var(--spacing);
     border-radius: calc(var(--spacing)*2);
     display: block;
     margin: auto;
+    z-index: -1;
+}
+
+.beauceron>.pawsContainer>img:last-child {
+    position: absolute;
+    top: -50px;
+    left: -70px;
+    z-index: -2;
+    width: 30%;
+    transform: rotate(-20deg);
 }
 
 .berger .part3 ul,
@@ -65,8 +85,12 @@
     border-radius: calc(var(--spacing)*2);
 }
 
-.part3 :first-child {
+.part3:first-child {
     padding-block-start: calc(var(--spacing)*2);
+}
+
+.part3:last-child {
+    margin-bottom: calc(var(--spacing)*5);
 }
 
 @media screen and (max-width: 1200px) {
