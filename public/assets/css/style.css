@@ -1,13 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,900&display=swap');
-@import url('https://fonts.cdnfonts.com/css/oruguitas');
-
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
 :root {
     --secondary-light: #FFCE6D;
     --intermadiate: #444242;
     --light: #f3f3f3;
-    --font-title: 'Oruguitas', sans-serif;
-    --font-text: 'Roboto', sans-serif;
+    --font-title: "Cinzel", cursive;
+    --font-text: "Roboto", sans-serif;
+    --font-title2: 'Cormorant Garamond';
+    --border: 1px solid #FF7A00;
+    --border-radius: 1rem;
 }
+h1 {
+    text-align: center;
+    font-family: var(--font-title);
+    font-size: calc(var(--font-size) * 2);
+    font-weight: 600;
+    color: var(--primary);
+}
+
+h2 {
+    font-family: var(--font-title2);
+    font-weight: 400;
+    font-size: calc(var(--font-size) * 1.5);
+    color: var(--secondary)
+}
+
+h3 {
+    font-family: var(--font-text);
+    font-size: var(--font-size);
+    font-weight: 600;
+    color: var(--primary);
+    text-transform: uppercase;
+}
+
+h4 {
+    font-family: var(--font-text);
+    font-weight: 500;
+    font-size: calc(var(--font-size) * 0.8);
+    color: var(--primary);
+}
+
+p {
+    line-height: calc(var(--spacing) * 1.5);
+    font-size: var(--font-size);
+    color: var(--intermadiate);
+}
+
 
 [data-theme="light"],
 :root:not([data-theme="dark"]) {
