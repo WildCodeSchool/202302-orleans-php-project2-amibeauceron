@@ -1,5 +1,6 @@
 nav {
     position: fixed;
+    top: 0px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -15,11 +16,11 @@ nav a {
     font-family: var(--font-text);
 }
 
-ul>li:last-child {
-    padding-right: calc(var(--spacing)*2);
+nav ul > li:last-child {
+    padding-right: calc(var(--spacing) * 2);
 }
 
-ul {
+nav ul {
     color: var(--secondary);
 }
 
@@ -31,13 +32,12 @@ nav li {
     margin: 0;
 }
 
-.brand {
+nav .brand {
     display: flex;
     align-items: center;
-
 }
 
-.brand img {
+nav .brand img {
     width: 80px;
     object-fit: cover;
     padding: 0;
@@ -70,12 +70,10 @@ nav li {
     }
 
     nav a {
-        font-size: calc(var(--font-size)*1.5);
-
+        font-size: calc(var(--font-size) * 1.5);
     }
 
-    svg {
-        color: var(--secondary-light)
+    .burger svg {
+        color: var(--secondary-light);
     }
-
 }
