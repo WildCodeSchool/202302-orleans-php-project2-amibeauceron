@@ -1,4 +1,4 @@
-header {
+header.main-header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -10,7 +10,7 @@ header {
     background-color: var(--primary);
 }
 
-header button {
+header.main-header > button {
     --background-color: transparent;
     --border-color: none;
     border: 3px solid var(--secondary);
@@ -27,13 +27,13 @@ header button {
     margin-top: var(--navbar-height);
 }
 
-header button:hover {
+header.main-header > button:hover {
     --background-color: transparent;
     color: var(--light);
     border: 3px solid var(--light);
 }
 
-header h1 {
+header.main-header > h1 {
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -47,6 +47,6 @@ header h1 {
     letter-spacing: 0.5rem;
 }
 
-.lower-title {
+header.main-header .lower-title {
     font-size: clamp(1rem, 5vw, var(--font-size));
 }
