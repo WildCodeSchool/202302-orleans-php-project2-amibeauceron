@@ -1,7 +1,7 @@
 <div class="container grid">
 	<form method="post" enctype="multipart/form-data" novalidate>
 		{% if actuality.image_path is not empty %}
-			<img name="img" class="img-actuality" src="{{ '/' ~ actuality.image_path }}">
+			<img class="img-actuality" name="img" src="{{ '/' ~ actuality.image_path }}">
 		{% endif %}
 		<input type="hidden" value="{{ actuality.id }}" name="id">
 		<label for="title">Titre</label>

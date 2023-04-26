@@ -9,30 +9,33 @@ class AdminActualityController extends AbstractController
     public const MAX_LENGTH_TITLE = 100;
     public const MAX_LENGTH_CONTENT = 65535;
 
-    public function edit(int $id): ?string
+    public function index(): string
     {
-        $errors = [];
-        // On recupère l'actualité en base
         $actualityManager = new ActualityManager();
-        $actuality = $actualityManager->selectOneById($id);
+        $actualities = $actualityManager->selectAll('creation_date');
+        return $this->twig->render('Admin/Actuality/index.html.twig', ['actualities' => $actualities]);
+    }
+
+    public function add(): string
+    {
+        $actuality = $errors = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
             $actuality = array_map('trim', $_POST);
 
-            // validations
+            // Validations
             $errors = $this->validateData($actuality);
 
-            // if validation is ok, update and redirection
+            // if validation is ok, insert and redirection
             if (empty($errors)) {
-                $actualityManager->update($actuality);
-                header('Location: /asministration/actualites/afficher?id=' . $id);
-                // we are redirecting so we don't want any content rendered
-                return null;
+                $actualityManager = new ActualityManager();
+                $id = $actualityManager->insert($actuality);
+                header('Location:/administration/actualites/afficher?id=' . $id);
+                exit();
             }
         }
-
-        return $this->twig->render('Admin/Actuality/edit.html.twig', ['actuality' => $actuality, 'errors' => $errors]);
+        return $this->twig->render('Admin/Actuality/add.html.twig', ['actuality' => $actuality, 'errors' => $errors]);
     }
 
     private function validateData(array $actuality): array
