@@ -55,7 +55,7 @@ class LoginController extends AbstractController
         }
 
         if (!filter_var($user['email'], FILTER_VALIDATE_EMAIL)) {
-            $emailErr = "Le format de votre email n'est pas valide";
+            $errors = "Le format de votre email n'est pas valide";
         }
 
         if (empty($user['password'])) {
