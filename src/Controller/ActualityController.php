@@ -15,4 +15,11 @@ class ActualityController extends AbstractController
         $actualities = $actualityManager->selectAll('creation_date');
         return $this->twig->render('Actuality/index.html.twig', ['actualities' => $actualities]);
     }
+
+    public function show(int $id): string
+    {
+        $actualityManager = new ActualityManager();
+        $actuality = $actualityManager->selectOneById($id);
+        return $this->twig->render('Actuality/show.html.twig', ['actuality' => $actuality]);
+    }
 }
