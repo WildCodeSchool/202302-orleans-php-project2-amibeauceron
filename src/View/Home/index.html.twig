@@ -3,16 +3,17 @@
 	{{ parent() }}
 	<link rel="stylesheet" href="/assets/css/actuality_small.css" type="text/css">
 {% endblock %}
-
 {% block header %}
-<header class="main-header">
-	<button>Login</button>
-	<h1><span class="lower-title">Les Amis du </span>Beauceron</h1>
-</header>
+	<header class="main-header">
+		<button>Login</button>
+		<h1>
+			<span class="lower-title">Les Amis du
+			</span>Beauceron</h1>
+	</header>
 {% endblock %}
-{% block content %} 
-<main>
-	{{ parent() }} 
+{% block content %}
+	<main>
+		{{ parent() }}
 		<section class="container">
 			<header>
 				<h1>Dernières Actualités</h1>
@@ -23,7 +24,5 @@
 				{% endfor %}
 			</div>
 		</section>
-</main>
+	</main>
 {% endblock %}
-
- 
