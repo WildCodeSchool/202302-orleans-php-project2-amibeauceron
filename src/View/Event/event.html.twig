@@ -1,0 +1,26 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}
+	<link rel="stylesheet" href="/public/assets/css/event.css">
+{% endblock %}
+{% block title %}
+	{{ parent() }}
+	| Event
+{% endblock %}
+{% block content %}
+	<main class="containerEvent">
+		<h1>ÉVENEMENTS</h1>
+		<div class="gridEvent">
+			{% for event in events %}
+				<article>
+					<header>
+						<img src="" alt="Hot Dogs">
+					</header>
+					<h1>{{ event.title}}</h1>
+					<h2>{{ event.date }}</h2>
+					<h3>{{ event.place }}</h3>
+					<p>{{ event.description }}</p>
+				</article>
+			{% endfor %}
+		</div>
+	</main>
+{% endblock %}

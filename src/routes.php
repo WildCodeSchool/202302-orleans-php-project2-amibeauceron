@@ -18,4 +18,5 @@ return [
     'administration/actualites'  => ['AdminActualityController', 'index'],
     'administration/actualites/supprimer' => ['AdminActualityController', 'delete'],
     'administration/actualites/modifier' => ['AdminActualityController', 'edit'],
+    'evenements' => ['EventController', 'index'],
 ];
