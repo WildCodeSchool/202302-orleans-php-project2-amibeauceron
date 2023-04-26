@@ -9,10 +9,8 @@
 }
 
 .soins p {
-
     margin-left: calc(var(--spacing) * 2);
     font-size: clamp(1rem, 10vw, 1rem);
-
 }
 
 .pagesoins section:nth-child(odd) {
@@ -37,7 +35,6 @@
 }
 
 @media screen and (width < 1200px) {
-
     .soins {
         grid-template-columns: 1fr;
     }
@@ -56,7 +53,6 @@
 
     @media screen and (width < 900px) {
         .soins {
-
             padding-inline: calc(var(--spacing) * 2);
         }
 
@@ -71,10 +67,8 @@
 
     @media screen and (width < 600px) {
         .soins p {
-
             padding-inline: 0;
             margin-left: 0;
         }
     }
-
 }
