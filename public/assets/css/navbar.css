@@ -76,4 +76,8 @@ nav .burger svg {
     nav svg {
         color: var(--secondary-light);
     }
+
+    .burger svg {
+        color: var(--secondary-light);
+    }
 }
