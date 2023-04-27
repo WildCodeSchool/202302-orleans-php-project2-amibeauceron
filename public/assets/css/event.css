@@ -21,7 +21,6 @@
     font-family: var(--font-text);
     margin-bottom: calc(var(--spacing)*0.5);
     font-size: var(--spacing);
-
 }
 
 .article-content>p {
