@@ -122,4 +122,23 @@ class AdminActualityController extends AbstractController
         $baseFilename = pathinfo($files['name'], PATHINFO_FILENAME);
         return uniqid($baseFilename, more_entropy: true) . '.' . $extension;
     }
+
+    public function delete(int $id): void
+    {
+        // Check Post Resquest
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // delete en bdd
+            $actualityManager = new ActualityManager();
+            //$actuality = $actualityManager->selectOneById($id);
+
+            // supprimer un fichier existant
+            //$this->deleteFile($actuality['image_path']);
+
+            $actualityManager->delete($id);
+
+
+            // redirec admin/pneus
+            header('Location: /admininistration/actualites');
+        }
+    }
 }
