@@ -10,6 +10,6 @@
 		{{ actuality.content|length > 150 ? actuality.content|slice(0, 150) ~ '...' : actuality.content }}
 	</div>
 	<footer>
-		<a href="/actualites/show?id={{ actuality.id }}" role="button" class="secondary">DÉTAIL</a>
+		<a href="/actualites/afficher?id={{ actuality.id }}" role="button" class="secondary">DÉTAIL</a>
 	</footer>
 </article>
