@@ -4,25 +4,26 @@
 	| Actualités
 {% endblock %}
 {% block stylesheet %}
+	{{ parent() }}
 	<link rel="stylesheet" href="/assets/css/actuality.css" type="text/css">
 {% endblock %}
 
 {% block content %}
-	<main class="actuality">
+	<main class="actuality-details">
 		<section class="container">
-			<article class="details">
+			<article>
 				<header>
 					<h2>{{ actuality.title|title }}</h2>
 				</header>
 				<div>
-					<div>
+					<div class="image-container">
 						<img class="img-actuality" src="{{ actuality.image_path ?? '/assets/images/dog-information.webp' }}" alt="image de l'actualité">
 					</div>
-					<p>{{ actuality.content }}</p>
+					<p>{{ actuality.content ?? '' }}</p>
 				</div>
 				<footer>
 					<small>
-						<span>{{ actuality.creation_date|date("m/d/Y", "Europe/Paris")  }}</span>
+						<span>{{ actuality.creation_date|date("d/m/Y", "Europe/Paris")  }}</span>
 					</small>
 				</footer>
 			</article>

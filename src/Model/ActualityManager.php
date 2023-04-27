@@ -8,6 +8,12 @@ class ActualityManager extends AbstractManager
 {
     public const TABLE = 'actuality';
 
+    public function selectLastThree(): array
+    {
+        $query = 'SELECT * FROM ' . self::TABLE . ' ORDER BY creation_date DESC LIMIT 3';
+        return $this->pdo->query($query)->fetchAll();
+    }
+
     public function update(array $item): bool
     {
         $statement = $this->pdo->prepare("UPDATE " . self::TABLE .

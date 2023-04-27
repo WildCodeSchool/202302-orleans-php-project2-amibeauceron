@@ -43,26 +43,26 @@ nav .brand img {
     padding: 0;
 }
 
-.burger {
+nav .burger {
     display: none;
     align-items: center;
 }
 
-.burger svg {
+nav .burger svg {
     width: var(--burger-width);
     height: var(--burger-height);
 }
 
 @media screen and (width < 750px) {
-    .burger {
+    nav .burger {
         display: flex;
     }
 
-    .links {
+    nav .links {
         display: none;
     }
 
-    .links:target {
+    nav .links:target {
         display: flex;
         flex-direction: column;
         width: 100vh;
@@ -71,6 +71,10 @@ nav .brand img {
 
     nav a {
         font-size: calc(var(--font-size) * 1.5);
+    }
+
+    nav svg {
+        color: var(--secondary-light);
     }
 
     .burger svg {

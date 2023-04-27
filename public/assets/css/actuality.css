@@ -1,10 +1,11 @@
+main.actuality-details,
 main.actuality {
     background-image: url("../images/empreintechienblanc.png");
     background-color: var(--light);
     background-repeat: repeat-y;
     background-size: 35%;
     background-position: 80% 30%;
-    padding-top: calc(var(--spacing) * 2);
+    margin-block-start: var(--navbar-height);
 }
 
 .actuality section > div {
@@ -21,6 +22,7 @@ main.actuality {
     text-align: center;
 }
 
+.actuality-details article,
 .actuality article {
     display: flex;
     flex-direction: column;
@@ -34,21 +36,23 @@ main.actuality {
 }
 
 .actuality article > header {
+    display: flex;
+    align-items: center;
     margin-bottom: calc(var(--block-spacing-vertical) * 1 / 3);
     padding: var(--spacing);
     background-color: var(--light);
 }
 
+.actuality article > header > h2 {
+    margin-bottom: 0;
+    font-size: clamp(1.2rem, 1.8vw, var(--font-size));
+    color: var(--secondary);
+    font-weight: 600;
+}
+
 .actuality img.info-sticker {
     width: clamp(50px, 7vw, 90px);
     padding-inline-end: var(--spacing);
-}
-
-.actuality article > header > h2 {
-    margin-bottom: 0;
-    font-size: clamp(1.3rem, 1.9vw, var(--font-size));
-    color: var(--secondary);
-    font-weight: 600;
 }
 
 .actuality article:nth-child(odd) {
@@ -60,10 +64,16 @@ main.actuality {
 }
 
 .actuality article > footer {
-    margin-top: calc(var(--block-spacing-vertical) * 2 / 3);
-    padding: 0 0 0 calc(var(--spacing) * 2 / 3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     color: var(--light);
     background-color: var(--primary);
+    margin-top: calc(var(--block-spacing-vertical) * 2 / 3);
+    padding: 0 0 0 calc(var(--spacing) * 2 / 3);
+    flex-direction: var(--flex-direction, row-reverse);
+    padding-inline: var(--padding-start, 0) var(--padding-end, var(--spacing));
 }
 
 .actuality footer a[role="button"] {
@@ -88,38 +98,44 @@ main.actuality {
     --flex-direction: row;
 }
 
-.actuality .details header {
+.actuality-details article > header {
     display: flex;
     justify-content: center;
-    padding-block: calc(var(--block-spacing-vertical) * 1 / 2);
-    background-color: var(--intermediate);
+    background-color: var(--light);
+    text-align: center;
 }
 
-.actuality .img-actuality {
-    width: clamp(350px, 60vw, 600px);
+
+.actuality-details .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.actuality .details header h2 {
-    color: var(--light);
-    font-size: calc(var(--font-size) * 1.3);
-    text-shadow: var(--text-shadow);
+.actuality-details .img-actuality {
+    width: clamp(200px, 25vw, 600px);
 }
 
-.actuality .details > div {
+.actuality-details article header > h2 {
+    margin: 0px;
+}
+
+.actuality-details article header > div {
     display: flex;
     flex-direction: column;
     gap: var(--spacing);
 }
 
-.actuality .details > div:nth-child(2) {
-    min-height: 50vh;
+.actuality-details article div > p {
+    min-height: 40vh;
     font-size: var(--font-size);
 }
 
-.actuality .details footer {
+.actuality-details footer {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    color: var(--light);
     padding-inline: 0 calc(var(--block-spacing-vertical) * 1 / 2);
     padding-block: calc(var(--block-spacing-vertical) * 1 / 2);
     background-color: var(--secondary);
@@ -141,6 +157,7 @@ main.actuality {
     .actuality article {
         width: 99%;
         justify-content: center;
+        margin: 0px;
     }
 
     .actuality article:nth-child(odd) {
