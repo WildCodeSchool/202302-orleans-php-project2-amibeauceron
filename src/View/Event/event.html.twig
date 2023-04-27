@@ -1,7 +1,6 @@
 {% extends 'layout.html.twig' %}
 {% block stylesheet %}
 	<link rel="stylesheet" href="/assets/css/event.css">
-
 {% endblock %}
 {% block title %}
 	{{ parent() }}
@@ -10,7 +9,7 @@
 {% block content %}
 	<main>
 		<div class="event">
-			<h1>ÉVENEMENTS</h1>
+			<h1>ÉVÈNEMENTS</h1>
 			<div class="slide-article">
 				{% for event in events %}
 					<article class="article-container">
