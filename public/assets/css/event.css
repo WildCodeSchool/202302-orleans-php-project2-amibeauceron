@@ -48,45 +48,29 @@
 .article-container {
     display: flex;
     padding: var(--spacing);
+    gap: var(--spacing);
 }
 
-.article-image {
-    width: 50%;
-    margin-right: calc(var(--spacing)*2);
+.article-container:nth-child(odd) {
+    flex-direction: row-reverse;
 }
 
+.article-image,
 .article-image2 {
     width: 50%;
-    margin-left: calc(var(--spacing)*2);
 }
 
 .article-content {
     flex-basis: 70%;
 }
 
-@media screen and (max-width: 1200px) {
-    .slide-article {
-        max-width: 80%;
-    }
-}
-
-@media screen and (max-width: 1000px) {
-    .slide-article {
-        max-width: 90%;
-    }
-}
-
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
     .article-container {
         display: block;
     }
 
-    .article-image {
-        width: 100%;
-    }
-
+    .article-image,
     .article-image2 {
         width: 100%;
-        margin-left: 0;
     }
 }
