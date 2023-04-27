@@ -40,8 +40,6 @@ class LoginController extends AbstractController
         if (!empty($dbUser) && password_verify($user['password'], $dbUser['password'])) {
             //add user to session
             $_SESSION['user_id'] = $dbUser['id'];
-            //add user to global twig variable
-            $this->twig->addGlobal('user_id', $dbUser['id']);
             return true;
         }
         return false;
@@ -59,7 +57,7 @@ class LoginController extends AbstractController
         }
 
         if (empty($user['password'])) {
-            $errors[] = "Veuillez renseigner votre password, zone obligatoire.";
+            $errors[] = "Veuillez renseigner votre mot de passe, zone obligatoire.";
         }
         return $errors;
     }

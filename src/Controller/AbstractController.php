@@ -24,5 +24,10 @@ abstract class AbstractController
             ]
         );
         $this->twig->addExtension(new DebugExtension());
+
+        //add user id to global twig variable
+        if (!empty($_SESSION['user_id'])) {
+            $this->twig->addGlobal('user_id', $_SESSION['user_id']);
+        }
     }
 }
