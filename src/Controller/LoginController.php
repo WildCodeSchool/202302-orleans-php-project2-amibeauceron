@@ -6,8 +6,6 @@ use App\Model\UserManager;
 
 class LoginController extends AbstractController
 {
-    private const MIN_LENGTH_PASSWORD = 8;
-
     public function login(): ?string
     {
         $user = [];
@@ -40,8 +38,10 @@ class LoginController extends AbstractController
         $userManager = new UserManager();
         $dbUser = $userManager->selectOneByEmail($user['email']);
         if (!empty($dbUser) && password_verify($user['password'], $dbUser['password'])) {
+            //add user to session
+            $_SESSION['user_id'] = $dbUser['id'];
             //add user to global twig variable
-            $this->twig->addGlobal('user', $dbUser);
+            $this->twig->addGlobal('user_id', $dbUser['id']);
             return true;
         }
         return false;
@@ -60,11 +60,6 @@ class LoginController extends AbstractController
 
         if (empty($user['password'])) {
             $errors[] = "Veuillez renseigner votre password, zone obligatoire.";
-        }
-
-        if (mb_strlen(($user['password'])) < self::MIN_LENGTH_PASSWORD) {
-            $errors[] = "Votre password doit faire " . self::MIN_LENGTH_PASSWORD .
-                " caractères minimum (actuellement" . mb_strlen(($user['password'])) . ")";
         }
         return $errors;
     }
