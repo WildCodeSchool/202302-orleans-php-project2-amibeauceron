@@ -1,5 +1,8 @@
 {% extends 'layout.html.twig' %}
-{% block stylesheet %}<link rel="stylesheet" href="/assets/css/history.css" type="text/css">
+{% block stylesheet %}
+	{{ parent() }}
+	<link rel="stylesheet" href="/assets/css/history.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/caractere.css" type="text/css">
 {% endblock %}
 {% block title %}
 	{{ parent() }}
@@ -86,4 +89,5 @@
 			</div>
 		</div>
 	</main>
+	{% include "Beauceron/beauceron_caractere.html.twig" %}
 {% endblock %}

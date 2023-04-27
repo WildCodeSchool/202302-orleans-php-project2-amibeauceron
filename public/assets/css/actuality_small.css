@@ -1,0 +1,92 @@
+main {
+    background-image: url("../images/empreintechienblanc.png");
+    background-color: var(--light);
+    background-repeat: repeat-y;
+    background-size: 20%;
+    background-position: 85% 30%;
+    padding-top: calc(var(--spacing) * 2);
+}
+
+section > div {
+    display: grid;
+    gap: var(--spacing);
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+section > header > h1 {
+    font-size: clamp(1rem, 4vw, calc(var(--font-size) * 1.5));
+    color: var(--primary);
+    font-weight: 600;
+    font-family: var(--font-title);
+    text-align: center;
+}
+
+article.small-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: auto;
+    --block-spacing-horizontal: var(--spacing);
+    --stagger-delay: 450ms;
+    animation: 400ms FadeInAnimation var(--stagger-delay) ease-out;
+    animation-fill-mode: backwards;
+    animation-iteration-count: 1;
+}
+
+article.small-card header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-block-end: var(--spacing);
+}
+
+img.info-sticker {
+    width: clamp(80px, 20vw, 200px);
+}
+article.small-card > div {
+    display: flex;
+    flex-direction: column;
+}
+
+article.small-card small {
+    align-self: end;
+}
+
+article.small-card h2 {
+    font-size: clamp(1.4rem, 1.5vw, var(--font-size));
+    color: var(--secondary);
+    font-weight: 400;
+    padding-block: var(--spacing);
+    margin-bottom: 0;
+}
+
+article.small-card .content {
+    font-size: clamp(1.3rem, 1.5vw, var(--font-size));
+    font-weight: 300;
+}
+
+article.small-card > footer {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: var(--spacing);
+    border-top: 0;
+    --card-sectionning-background-color: white;
+}
+
+article.small-card > footer a[role="button"] {
+    width: clamp(6rem, 10vw, 8rem);
+    padding: calc(var(--spacing) / 3) calc(var(--spacing) / 3);
+    border-radius: 0;
+    font-size: calc(var(--font-size) * 3 / 4);
+}
+
+@keyframes FadeInAnimation {
+    from {
+        opacity: 0.3;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
