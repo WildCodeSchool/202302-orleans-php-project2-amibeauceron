@@ -158,7 +158,7 @@ VALUES (
 			
 			Pour participer à l''assembée générale, il faut être à jour de cotisation et adhérent depuis plus de 9 mois.',
         NOW(),
-        NULL
+        'assemblee-generale.jpg'
     ), (
         2,
         'Renouvellement Adhesion & Abonnement 2023',
@@ -172,7 +172,7 @@ VALUES (
          
     ',
         DATE_ADD(NOW(), INTERVAL -2 DAY),
-        NULL
+        'adhesion-association.jpg'
     ), (
         3,
         'La surdité & l''hémophilie chez le beauceron',
@@ -197,13 +197,12 @@ VALUES (
       CNRS UMR 5310 - INSERM U1217 - UCBL1 Université de Lyon
       8 avenue Rockefeller, 69008 Lyon 
     ',
-    DATE_ADD(NOW(), INTERVAL -5 DAY),
-    NULL
-  ),
-  (
-    4,
-    'Titre de champion international de beaute',
-    'TITRES DE CHAMPION INTERNATIONAL DE BEAUTE JEUNE & VETERAN DE LA FCI C.I.B.-J & C.I.B.-V.
+        DATE_ADD(NOW(), INTERVAL -5 DAY),
+        'perte-audition-chien.webp'
+    ), (
+        4,
+        'Titre de champion international de beaute',
+        'TITRES DE CHAMPION INTERNATIONAL DE BEAUTE JEUNE & VETERAN DE LA FCI C.I.B.-J & C.I.B.-V.
 
     Mesdames, Messieurs les Présidents,
 
@@ -233,13 +232,12 @@ VALUES (
     Pour les chiens avec pedigree de races reconnues à titre définitif par la FCI selon la Nomenclature des
     Races de la FCI, inscrits dans le livre des origines reconnu par la FCI (cela signifie que les inscriptions
     ',
-    NOW(),
-    NULL
-  ),
-  (
-    5,
-    'Postes a pourvoir appel a candidature',
-    'DELEGATIONS : 
+        NOW(),
+        NULL
+    ), (
+        5,
+        'Postes a pourvoir appel a candidature',
+        'DELEGATIONS : 
       - ZONE 19 Départements 18-36-45. 
       - ZONE 24 Départements 11-30-34-48-66
     
@@ -249,6 +247,6 @@ VALUES (
     Appt 510 - 166, avenue Pasteur
     33200 BORDEAUX
     ',
-    DATE_ADD(NOW(), INTERVAL -8 DAY),
-    NULL
-  );
+        DATE_ADD(NOW(), INTERVAL -8 DAY),
+        NULL
+    );
