@@ -1,26 +1,41 @@
 {% extends 'layout.html.twig' %}
 {% block stylesheet %}
-	<link rel="stylesheet" href="/public/assets/css/event.css">
+	<link rel="stylesheet" href="/assets/css/event.css">
+
 {% endblock %}
 {% block title %}
 	{{ parent() }}
 	| Event
 {% endblock %}
 {% block content %}
-	<main class="containerEvent">
-		<h1>ÉVENEMENTS</h1>
-		<div class="gridEvent">
-			{% for event in events %}
-				<article>
-					<header>
-						<img src="" alt="Hot Dogs">
-					</header>
-					<h1>{{ event.title}}</h1>
-					<h2>{{ event.date }}</h2>
-					<h3>{{ event.place }}</h3>
-					<p>{{ event.description }}</p>
-				</article>
-			{% endfor %}
+	<main>
+		<div class="event">
+			<h1>ÉVENEMENTS</h1>
+			<div class="slide-article">
+				{% for event in events %}
+					<article class="article-container">
+						<img src="/assets/images/event/hotdogs.jpg" alt="Hot Dogs" class="article-image">
+						<div class="article-content">
+							<h2>{{ event.title}}</h2>
+							<h3>{{ event.date }}</h3>
+							<p>{{ event.place }}</p>
+							<p>{{ event.description }}</p>
+						</div>
+					</article>
+					<article class="article-container">
+						<div class="article-content">
+							<h2>{{ event.title}}</h2>
+							<h3>{{ event.date }}</h3>
+							<p>{{ event.place }}</p>
+							<p>{{ event.description }}</p>
+						</div>
+						<img src="/assets/images/event/hotdogs.jpg" alt="Hot Dogs" class="article-image2">
+					</article>
+				{% endfor %}
+			</div>
 		</div>
 	</main>
+{% endblock %}
+{% block javascript %}
+	<script src='/assets/js/event.js'></script>
 {% endblock %}
