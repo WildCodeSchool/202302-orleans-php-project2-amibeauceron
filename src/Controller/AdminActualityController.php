@@ -129,16 +129,23 @@ class AdminActualityController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // delete en bdd
             $actualityManager = new ActualityManager();
-            //$actuality = $actualityManager->selectOneById($id);
+            $actuality = $actualityManager->selectOneById($id);
 
             // supprimer un fichier existant
-            //$this->deleteFile($actuality['image_path']);
-
+            $this->deleteFile($actuality['image_path']);
+            // delete row
             $actualityManager->delete($id);
-
 
             // redirec admin/pneus
             header('Location: /admininistration/actualites');
+        }
+    }
+
+    // delete file (on delete and l'update)
+    private function deleteFile(?string $fileName)
+    {
+        if (!empty($fileName) && file_exists(__DIR__ . '/../../public/uploads/' . $fileName)) {
+            unlink(__DIR__ . '/../../public/uploads/' . $fileName);
         }
     }
 }
