@@ -198,6 +198,56 @@ VALUES (
       8 avenue Rockefeller, 69008 Lyon 
     ',
         DATE_ADD(NOW(), INTERVAL -5 DAY),
+        'perte-audition-chien.webp'
+    ), (
+        4,
+        'Titre de champion international de beaute',
+        'TITRES DE CHAMPION INTERNATIONAL DE BEAUTE JEUNE & VETERAN DE LA FCI C.I.B.-J & C.I.B.-V.
+
+    Mesdames, Messieurs les Présidents,
+
+    Le Comité Général de la FCI a décidé de créer deux nouveaux titres de Champion International de Beauté
+    pour tous les chiens de races (soumises à épreuves de travail ou non) inscrits en classe Jeunes
+    (de 9 à 18 mois) ou Vétérans (à partir de 8 ans) lors d’Expositions Internationales de la FCI avec
+    octroi du CACIB conformément au Règlement des Expositions Canines de la FCI.
+    
+    C.I.B.-J Champion International de Beauté Jeune
+    C.I.B.-V Champion International de Beauté Vétéran
+    
+    Les conditions DE BASE exigées pour TOUS les chiens avec pedigree sont les suivantes :
+    
+    C.I.B.-J Champion International de Beauté Jeune
+
+    Pour les chiens avec pedigree de races reconnues à titre définitif par la FCI selon la Nomenclature des
+    Races de la FCI, inscrits dans le livre des origines reconnu par la FCI (cela signifie que les inscriptions
+    dans des annexes aux livres des origines ne sont pas valables) (conformément au Règlement du
+    Championnat International de la FCI, Introduction)
+
+    • 3 certificats « Jeune » internationaux (c.-à-d. trois « 1er EXCELLENT » en classe Jeunes) obtenus
+    dans des Expositions Internationales de la FCI avec octroi du CACIB à partir du 1er août 2022
+    • Dans 3 pays différents
+    • Sous 3 juges différents
+
+    C.I.B.-V Champion International de Beauté Vétéran
+    Pour les chiens avec pedigree de races reconnues à titre définitif par la FCI selon la Nomenclature des
+    Races de la FCI, inscrits dans le livre des origines reconnu par la FCI (cela signifie que les inscriptions
+    ',
+        NOW(),
+        NULL
+    ), (
+        5,
+        'Postes a pourvoir appel a candidature',
+        'DELEGATIONS : 
+      - ZONE 19 Départements 18-36-45. 
+      - ZONE 24 Départements 11-30-34-48-66
+    
+    Adresser votre candidature à : 
+    Madame RENAUX Danièle
+    Résidence Les Fontaines de Caudéran 
+    Appt 510 - 166, avenue Pasteur
+    33200 BORDEAUX
+    ',
+        DATE_ADD(NOW(), INTERVAL -8 DAY),
         NULL
     );
 

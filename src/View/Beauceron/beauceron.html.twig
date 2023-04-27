@@ -1,5 +1,8 @@
 {% extends 'layout.html.twig' %}
-{% block stylesheet %}<link rel="stylesheet" href="/assets/css/history.css" type="text/css">
+{% block stylesheet %}
+	{{ parent() }}
+	<link rel="stylesheet" href="/assets/css/history.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/caractere.css" type="text/css">
 {% endblock %}
 {% block title %}
 	{{ parent() }}
@@ -10,22 +13,23 @@
 		<div class="beauceron">
 			<h1>HISTOIRE</h1>
 			<div class="part1">
-				<img src="/assets/images/beauceron/img1.jpeg" alt='Beauceron 1'>
+				<img src="/assets/images/beauceron/beauceron1.jpeg" alt='Beauceron 1'>
 				<div class="berger">
 					<h2>Le Berger de Beauce</h2>
 					<p>Le Berger de Beauce compte parmi les plus anciennes races françaises et a certainement une origine commune avec les différentes races bergères. Certains comme Pennant et Tilesius ont fait dériver le chien du chacal ou du loup, mais il apparaît, de nos jours, que cette version est totalement erronée.
 						<br>
 						Les modifications apportées à nos différentes variétés de chiens de berger sont le résultat des façons de vivre, d'élever, de dresser, de travailler, qui, ajoutées aux mille aspects divers des habitats, des variations climatiques - ce que nous appelons aujourd'hui le biotope -, et aux méthodes de reproduction, ont fait se diviser dans leurs espèces ces chiens si utiles à la garde des troupeaux, des habitations et à la défense des gens.
 						<br>
-						Le Berger de Beauce est du type dit lupoïde et les naturalistes du XVIII° siècle: Buffon, Linné, Cuvier, de même que les zootechniciens du XIX° siècle: Cornevin, Pierre Mégnin, Paul Dechambre, etc..., estimaient qu'il descendait d'une souche fort ancienne que les paléontologistes ont désigné sous le nom de "Chien des Tourbières" (Canis familiaris palustris) dont des vestiges ont été, notamment, découverts dans les stations lacustres du Jura français. Il serait faux de croire que ce Chien des Tourbières ressemblait physiquement au beauceron actuel ou à tout autre représentant de chien de berger.
-						<br>
-						Les appréciations que l'on peut porter sur l'utilisation des chiens en ces périodes très reculées de la préhistoire ne peuvent être que des hypothèses.
-						<br>
+						Le Berger de Beauce est du type dit lupoïde et les naturalistes du XVIII° siècle: Buffon, Linné, Cuvier, de même que les zootechniciens du XIX° siècle: Cornevin, Pierre Mégnin, Paul Dechambre, etc..., estimaient qu'il descendait d'une souche fort ancienne que les paléontologistes ont désigné sous le nom de "Chien des Tourbières" (Canis familiaris palustris) dont des vestiges ont été, notamment, découverts dans les stations lacustres du Jura français.
 					</p>
 				</div>
 			</div>
 			<div class="part2">
-				<p>Dès l'antiquité, certains auteurs latins font état de chiens de berger. Au premier siècle de notre civilisation, Varron cite, sans toutefois les définir, plusieurs races fameuses de chien de berger. Plus tard, Gaston Phoebus a lui aussi décrit ces variétés, reprenant certaines images de ses devanciers. L'idée qui se dégage de ces différents écrits est que le chien dit "de berger" était surtout un défenseur du troupeau contre les éventuels prédateurs, loups, lynx, ours, etc. et non un conducteur.
+				<p>Il serait faux de croire que ce Chien des Tourbières ressemblait physiquement au beauceron actuel ou à tout autre représentant de chien de berger.
+					<br>
+					Les appréciations que l'on peut porter sur l'utilisation des chiens en ces périodes très reculées de la préhistoire ne peuvent être que des hypothèses.
+					<br>
+					Dès l'antiquité, certains auteurs latins font état de chiens de berger. Au premier siècle de notre civilisation, Varron cite, sans toutefois les définir, plusieurs races fameuses de chien de berger. Plus tard, Gaston Phoebus a lui aussi décrit ces variétés, reprenant certaines images de ses devanciers. L'idée qui se dégage de ces différents écrits est que le chien dit "de berger" était surtout un défenseur du troupeau contre les éventuels prédateurs, loups, lynx, ours, etc. et non un conducteur.
 				</p>
 				<p>Jusqu'à une période relativement récente, il semble donc que tout le travail du chien de berger fut la défense du troupeau. Mais les différents documents qui nous permettent d'imaginer la vie ou l'utilisation des chiens de berger, il y a seulement quelques siècles, manquent nettement de rigueur.
 					<br>
@@ -44,7 +48,10 @@
 				<p>En cette année de 1898 Sauret, Chapuis, Derossy, Thibault, etc. présentèrent de très beaux sujets. Depuis, l'appellation "Beauceron" fut donnée à tort à tous les chiens dont le poil était court, même ras; à part eux, on ne voyait que des chiens à poil long, ébouriffés, sélectionnés et dénommés plus tard "Briard".
 				</p>
 			</div>
-			<img src="/assets/images/beauceron/img2.jpg" alt='Beauceron 2'>
+			<div class="pawsContainer">
+				<img src="/assets/images/beauceron/beauceron2.jpg" alt='Beauceron 2'>
+				<img src="/assets/images/beauceron/empreinte.png" alt='empreinte chien'>
+			</div>
 			<div class="part3">
 				<p>En 1894 était paru, en langue hollandaise, un ouvrage sur les Races de chiens ne faisant pas mention du Berger de Beauce ni d'aucune autre race de berger français, omission qui fut vivement reprochée à son auteur, le comte Henry de Bylandt. Dans l'édition qui fut faite en langue française et qui parut en 1897, cet oubli fut réparé. Les dessins d'une grande qualité technique nous présentait déjà le Berger de Beauce moderne. C'est, à ma connaissance, l'une des plus anciennes représentations du beauceron connue.
 				</p>
@@ -76,11 +83,11 @@
 						En engageant les Sociétés d'Agriculture à nommer une commission chargée d'inspecter les bergeries dans leur circonscription et de récompenser les bergers dont les troupeaux seront les mieux soignés et les bergeries les mieux tenues.
 					</li>
 				</ul>
-				<p>les bergers dont les troupeaux seront les mieux soignés et les bergeries les mieux tenues. La description de deux races bergères, le Berger de Brie et le Berger de Beauce, est définie vers la meme epoque par le professeur Cornevin de l'Ecole ' Vétérinaire de Lyon qui, avec l'aide d'Emmanuel Boulet, établit un protocole des différentes caractéristiques et mensurations précisant les points du standard des deux races.Il ne faut pas oublier de citer que vers 1900 apparurent des beaucerons à poil ras. En effet certains éleveurs pour des raisons diverses donnèrent la préférence à des chiens à poil ras et souvent de couleur très foncée, les feux n'apparaissant que très peu ou pas du tout. Des lots assez importants de cette variété furent alors présentés; ce fut du temps perdu pour l'avenir de la race, car, en restant dans le poil primitif, c'est-à-dire court battant, on avait le chien tout indiqué et bien plus pratique pour les travaux auxquels il était destiné. Cette toison faite par la nature protège mieux des intempéries journalières, ce poil battant donne plus de satisfaction que le poil ras, il entretient une certaine fraîcheur de la peau pendant les périodes de chaleur et protège du froid pendant l'hiver. Il fallait rappeler cette tentative car, de nos jours, on retrouve encore certains beaucerons avec un poil ras, souvent très foncé et une tête longue et maigre; on les qualifie de "dobermanisés", mais il est fort probable que ce sont des résurgences des chiens sélectionnés dans ce type à cette époque.
-					<br>
-					De 1914 à 1918, des chiens Berger de Beauce d'un excellent type participèrent avec tout leur courage, toute leur force, au sauvetage des blessés.
+				<p>
+					les bergers dont les troupeaux seront les mieux soignés et les bergeries les mieux tenues. La description de deux races bergères, le Berger de Brie et le Berger de Beauce, est définie vers la meme epoque par le professeur Cornevin de l'Ecole ' Vétérinaire de Lyon qui, avec l'aide d'Emmanuel Boulet, établit un protocole des différentes caractéristiques et mensurations précisant les points du standard des deux races.Il ne faut pas oublier de citer que vers 1900 apparurent des beaucerons à poil ras. En effet certains éleveurs pour des raisons diverses donnèrent la préférence à des chiens à poil ras et souvent de couleur très foncée, les feux n'apparaissant que très peu ou pas du tout. Des lots assez importants de cette variété furent alors présentés; ce fut du temps perdu pour l'avenir de la race, car, en restant dans le poil primitif, c'est-à-dire court battant, on avait le chien tout indiqué et bien plus pratique pour les travaux auxquels il était destiné. Cette toison faite par la nature protège mieux des intempéries journalières, ce poil battant donne plus de satisfaction que le poil ras, il entretient une certaine fraîcheur de la peau pendant les périodes de chaleur et protège du froid pendant l'hiver. Il fallait rappeler cette tentative car, de nos jours, on retrouve encore certains beaucerons avec un poil ras, souvent très foncé et une tête longue et maigre; on les qualifie de "dobermanisés", mais il est fort probable que ce sont des résurgences des chiens sélectionnés dans ce type à cette époque. De 1914 à 1918, des chiens Berger de Beauce d'un excellent type participèrent avec tout leur courage, toute leur force, au sauvetage des blessés.
 				</p>
 			</div>
 		</div>
 	</main>
+	{% include "Beauceron/beauceron_caractere.html.twig" %}
 {% endblock %}
