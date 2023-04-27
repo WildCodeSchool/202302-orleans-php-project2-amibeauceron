@@ -1,13 +1,13 @@
 .event>h1 {
     text-align: center;
-    font-family: 'Cinzel';
+    font-family: var(--font-title2);
     font-size: calc(var(--spacing)*2.5);
     padding: 0;
 }
 
 .article-content>h2 {
     color: var(--secondary);
-    font-family: 'Cormorant Garamond';
+    font-family: var(--font-title2);
     font-weight: 500;
     font-size: calc(var(--spacing)*1.5);
     display: block;
@@ -34,10 +34,10 @@
     flex-wrap: wrap;
     max-width: 70%;
     margin: auto;
-    transform: translate(-100px);
+    transform: translate(-12.5rem);
     opacity: 0;
-    transition: transform 0.4s ease-in-out,
-        opacity 0.4s ease-in-out;
+    transition: transform 0.5s ease-in-out,
+        opacity 0.5s ease-in-out;
 }
 
 .slide-article.active {
