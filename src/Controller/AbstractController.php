@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Model\UserManager;
 use Twig\Environment;
 use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
@@ -27,7 +28,9 @@ abstract class AbstractController
 
         //add user id to global twig variable
         if (!empty($_SESSION['user_id'])) {
-            $this->twig->addGlobal('user_id', $_SESSION['user_id']);
+            $userManager = new UserManager();
+            $user = $userManager->selectOneById($_SESSION['user_id']);
+            $this->twig->addGlobal('user', $user);
         }
     }
 }
