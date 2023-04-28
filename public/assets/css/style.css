@@ -7,9 +7,10 @@
     --intermediate: #444242;
     --light: #f3f3f3;
     --font-title: "Cinzel Decorative", cursive;
+    --font-title2: "Cormorant Garamond";
     --font-text: "Roboto", sans-serif;
-    --navbar-height: 75px;
-    --navbar-color: rgba(var(--primary-color), 0.85);
+    --navbar-height: 70px;
+    --navbar-color: rgba(var(--primary-color), 0.8);
     --text-shadow: 2px 2px 4px black;
     --burger-width: 12vw;
     --burger-height: 6vh;
