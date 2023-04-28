@@ -1,19 +1,6 @@
-body>header {
-    padding: 0;
-}
-
-body {
-    background-color: var(--primary);
-    background-image: url(../images/919640.jpg);
-    background-position: center;
-    min-height: 80vh;
-    background-size: cover;
-    display: flex;
-
-}
-
 nav {
     position: fixed;
+    top: 0px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -21,22 +8,19 @@ nav {
     width: 100%;
     height: var(--navbar-height);
     background-color: var(--navbar-color);
-
-
 }
 
 nav a {
     color: var(--light);
     text-shadow: var(--text-shadow);
     font-family: var(--font-text);
-
 }
 
-ul>li:last-child {
-    padding-right: calc(var(--spacing)*2);
+nav ul > li:last-child {
+    padding-right: calc(var(--spacing) * 2);
 }
 
-ul {
+nav ul {
     color: var(--secondary);
 }
 
@@ -48,75 +32,37 @@ nav li {
     margin: 0;
 }
 
-.brand {
+nav .brand {
     display: flex;
     align-items: center;
-
 }
 
-.brand img {
+nav .brand img {
     width: 80px;
     object-fit: cover;
     padding: 0;
-
 }
 
-button {
-    --background-color: transparent;
-    --border-color: none;
-    border: 3px solid var(--secondary);
-    text-shadow: 1px 1px 2px var(--intermediate);
-    font-family: var(--font-text);
-    width: 20%;
-    box-shadow: 1px 1px 2px var(--intermediate);
-    color: var(--secondary);
-    border-radius: 1.2rem;
-    font-size: 1.2rem;
-    padding: 0.5rem;
-    margin-left: auto;
-    margin-right: var(--spacing);
-    margin-top: var(--spacing);
-}
-
-button:hover {
-    --background-color: transparent;
-    color: var(--light);
-    border: 3px solid var(--light);
-}
-
-h1 {
-    color: var(--light);
-    font-family: var(--font-title);
-    font-size: calc(var(--font-size)*3);
-    text-align: center;
-    margin-top: calc(var(--spacing)*12);
-    margin-right: calc(var(--spacing)*4);
-    line-height: calc(var(--spacing)*8);
-    text-shadow: var(--text-shadow);
-    font-weight: 700;
-    letter-spacing: 0.5rem;
-}
-
-.burger {
+nav .burger {
     display: none;
     align-items: center;
 }
 
-.burger svg {
+nav .burger svg {
     width: var(--burger-width);
     height: var(--burger-height);
 }
 
 @media screen and (width < 750px) {
-    .burger {
+    nav .burger {
         display: flex;
     }
 
-    .links {
+    nav .links {
         display: none;
     }
 
-    .links:target {
+    nav .links:target {
         display: flex;
         flex-direction: column;
         width: 100vh;
@@ -124,12 +70,14 @@ h1 {
     }
 
     nav a {
-        font-size: calc(var(--font-size)*1.5);
-
+        font-size: calc(var(--font-size) * 1.5);
     }
 
-    svg {
-        color: var(--secondary-light)
+    nav svg {
+        color: var(--secondary-light);
     }
 
+    .burger svg {
+        color: var(--secondary-light);
+    }
 }

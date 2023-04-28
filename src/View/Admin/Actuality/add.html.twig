@@ -1,0 +1,12 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}
+	{{ parent() }}
+	<link rel="stylesheet" href="/assets/css/errors.css" type="text/css">
+{% endblock %}
+{% block content %}
+	<section class="container">
+		<h1>Nouvelle Actualité</h1>
+		{% include 'Component/_errors.html.twig' %}
+		{% include 'Admin/Actuality/_form.html.twig' %}
+	</section>
+{% endblock %}

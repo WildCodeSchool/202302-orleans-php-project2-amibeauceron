@@ -1,0 +1,15 @@
+<div class="container grid">
+	<form method="post" enctype="multipart/form-data" novalidate>
+		{% if actuality.image_path is not empty %}
+			<img class="img-actuality" name="img" src="{{ '/' ~ actuality.image_path }}">
+		{% endif %}
+		<input type="hidden" value="{{ actuality.id }}" name="id">
+		<label for="title">Titre</label>
+		<input type="text" value="{{ actuality.title }}" name="title" id="title" maxlength="100" placeholder='Titre de l&#39;actualité...' required value={{ actuality.title ?? '' }}>
+		<label for="content">Texte</label>
+		<textarea type="text" name="content" id="content" rows="7" placeholder='Text de l&#39;actualité...' spellcheck required>{{~ actuality.content ?? '' ~}}</textarea>
+		<label for="image">Ajouter une image</label>
+		<input type="file" id="image" name="image" accept="image/*">
+		<button type="submit">Ajouter</button>
+	</form>
+</div>

@@ -1,7 +1,28 @@
 {% extends 'layout.html.twig' %}
-
+{% block stylesheet %}
+	{{ parent() }}
+	<link rel="stylesheet" href="/assets/css/actuality_small.css" type="text/css">
+{% endblock %}
+{% block header %}
+	<header class="main-header">
+		<button>Login</button>
+		<h1>
+			<span class="lower-title">Les Amis du
+			</span>Beauceron</h1>
+	</header>
+{% endblock %}
 {% block content %}
-	<button>Login</button>
-	<h1>Les Amis du Beauceron</h1>
-
+	<main>
+		{{ parent() }}
+		<section class="container">
+			<header>
+				<h1>Dernières Actualités</h1>
+			</header>
+			<div>
+				{% for actuality in actualities %}
+					{% include 'Component/_card_actuality_home.html.twig' %}
+				{% endfor %}
+			</div>
+		</section>
+	</main>
 {% endblock %}

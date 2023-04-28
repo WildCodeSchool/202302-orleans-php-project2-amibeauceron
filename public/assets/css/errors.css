@@ -1,0 +1,25 @@
+.error-warning {
+    width: 100%;
+    margin: var(--spacing) auto;
+    padding: 0;
+    background-color: var(--light);
+}
+
+.error-warning ul {
+    padding: calc(var(--spacing)*1/2);
+    margin: 0;
+}
+
+.error-warning ul li {
+    display: flex;
+    list-style: none;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--spacing);
+    font-weight: 400;
+    color: var(--del-color);
+}
+
+.error-warning ul li > svg {
+    fill: var(--del-color);
+}

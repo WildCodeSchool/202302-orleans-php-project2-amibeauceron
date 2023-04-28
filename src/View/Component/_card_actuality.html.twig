@@ -1,6 +1,7 @@
 <article>
 	<header>
-		<h2><img class='info-sticker' src="./assets/images/dog-information.webp" alt="image de patte de chien info">{{ actuality.title|title }}</h2>
+		<img class='info-sticker' src="./assets/images/dog-information.webp" alt="image de patte de chien info">
+		<h2>{{ actuality.title|title }}</h2>
 	</header>
 	<div class="news-content">
 		{{ actuality.content|length > 150 ? actuality.content|slice(0, 150) ~ '...' : actuality.content }}
@@ -8,11 +9,11 @@
 	<footer>
 		<div>
 			<small>
-				<span>{{ actuality.creation_date|date("m/d/Y", "Europe/Paris")  }}</span>
+				<span>{{ actuality.creation_date|date("d/m/Y", "Europe/Paris")  }}</span>
 			</small>
 		</div>
 		<div>
-			<a href="/news/show?id={{ actuality.id }}" role="button" class="secondary">DÉTAIL</a>
+			<a href="/actualites/afficher?id={{ actuality.id }}" role="button" class="secondary">DÉTAIL</a>
 		</div>
 	</footer>
 </article>
