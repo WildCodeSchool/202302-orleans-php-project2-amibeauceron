@@ -347,5 +347,3 @@ VALUES (
         'admin@wildcodeschool.fr',
         '$2y$10$MlkN4ClnzqN6vjmaCELJ4uKYj0X85PkURYFASzFMTx77NZMB8JEZG'
     );
-
-Footer 
