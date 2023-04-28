@@ -1,0 +1,105 @@
+body {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 100vh;
+    gap: var(--spacing);
+}
+
+main {
+    align-self: stretch;
+    grid-column-start: 2;
+}
+
+main > h1 {
+    font-size: clamp(0.8rem, 4vw, var(--font-size));
+    color: var(--primary);
+    font-weight: 600;
+    font-family: var(--font-text);
+    text-align: center;
+}
+
+nav.admin-navbar {
+    grid-column-start: 1;
+    align-self: stretch;
+    padding-block-start: 10vh;
+    background-color: var(--navbar-color);
+}
+
+nav.admin-navbar .links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing);
+    padding-inline-start: 3vw;
+}
+
+nav.admin-navbar a {
+    color: var(--light);
+    text-shadow: var(--text-shadow);
+    font-family: var(--font-text);
+    font-size: clamp(0.4rem, 3vw, var(--font-size));
+}
+
+nav.admin-navbar ul {
+    color: var(--secondary);
+}
+
+nav.admin-navbar a:hover {
+    color: var(--secondary);
+}
+
+.datas-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: clamp(350px, 96vw, 90%);
+    gap: var(--spacing);
+    margin: var(--spacing) auto;
+    font-family: var(--font-text);
+    font-size: var(--font-size);
+    padding: var(--spacing);
+}
+
+.datas-container h1 {
+    margin-block: 0px;
+}
+
+.datas-container table {
+    font-size: var(--font-size);
+    margin: var(--spacing);
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.datas-container table thead {
+    background-color: var(--secondary);
+}
+
+.datas-container table th {
+    color: var(--contrast-hover);
+}
+
+tr.result-info th {
+    text-align: right;
+    font-size: calc(var(--font-size)* 3/4);
+    background-color: var(--primary);
+    color: var(--light);
+    font-style: italic;
+}
+
+.datas-container table form {
+    margin: 0px;
+    padding: 0px;
+}
+
+.datas-container table form button[role="link"] {
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+
+.img-actuality {
+    width: 30vw;
+}
