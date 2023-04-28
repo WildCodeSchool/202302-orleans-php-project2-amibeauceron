@@ -27,6 +27,14 @@ try {
     } else {
         echo DB_DUMP_PATH . ' file does not exist';
     }
+
+    //copie du jeux de fichier dans le dossier upload pour les tests.
+    $from = __DIR__ . "/data_migration/";
+    $to =  __DIR__ . "/public/uploads/";
+    $files = array_filter(glob("$from*"), "is_file");
+    foreach ($files as $f) {
+        copy($f, $to . basename($f));
+    }
 } catch (PDOException $exception) {
     echo $exception->getMessage();
 }

@@ -1,0 +1,83 @@
+nav {
+    position: fixed;
+    top: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: var(--navbar-height);
+    background-color: var(--navbar-color);
+}
+
+nav a {
+    color: var(--light);
+    text-shadow: var(--text-shadow);
+    font-family: var(--font-text);
+}
+
+nav ul > li:last-child {
+    padding-right: calc(var(--spacing) * 2);
+}
+
+nav ul {
+    color: var(--secondary);
+}
+
+nav a:hover {
+    color: var(--secondary);
+}
+
+nav li {
+    margin: 0;
+}
+
+nav .brand {
+    display: flex;
+    align-items: center;
+}
+
+nav .brand img {
+    width: 80px;
+    object-fit: cover;
+    padding: 0;
+}
+
+nav .burger {
+    display: none;
+    align-items: center;
+}
+
+nav .burger svg {
+    width: var(--burger-width);
+    height: var(--burger-height);
+}
+
+@media screen and (width < 750px) {
+    nav .burger {
+        display: flex;
+    }
+
+    nav .links {
+        display: none;
+    }
+
+    nav .links:target {
+        display: flex;
+        flex-direction: column;
+        width: 100vh;
+        background-color: var(--navbar-color);
+    }
+
+    nav a {
+        font-size: calc(var(--font-size) * 1.5);
+    }
+
+    nav svg {
+        color: var(--secondary-light);
+    }
+
+    .burger svg {
+        color: var(--secondary-light);
+    }
+}
