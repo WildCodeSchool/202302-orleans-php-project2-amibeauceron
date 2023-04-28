@@ -156,7 +156,7 @@ VALUES (
 			
 			Pour participer à l''assembée générale, il faut être à jour de cotisation et adhérent depuis plus de 9 mois.',
         NOW(),
-        NULL
+        'assemblee-generale.jpg'
     ), (
         'Renouvellement Adhesion & Abonnement 2023',
         'Pensez a renouveller votre adhesion. La numéro 1 - 2023 va bientôt paraître
@@ -168,7 +168,7 @@ VALUES (
           - <a href="RIB Crédit Agricole CAB.pdf" border="0" alt="">RIB bancaire</a>
     ',
         DATE_ADD(NOW(), INTERVAL -2 DAY),
-        NULL
+        'adhesion-association.jpg'
     ), (
         'La surdité & l''hémophilie chez le beauceron',
         'La surdité et l''hémophilie chez le beauceron, le beauceron arlequin. Description et génétique.
@@ -196,7 +196,7 @@ VALUES (
         'perte-audition-chien.webp'
     ), (
         'Titre de champion international de beaute',
-        'TITRES DE CHAMPION INTERNATIONAL DE BEAUTE JEUNE & VETERAN DE LA FCI C.I.B.-J & C.I.B.-V.
+        'Titres de champion international de beaute jeune & veteran de la FCI C.I.B.-J & C.I.B.-V.
 
     Mesdames, Messieurs les Présidents,
 
