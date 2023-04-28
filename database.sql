@@ -117,7 +117,7 @@ ALTER TABLE
 CREATE TABLE
     `actuality` (
         `id` INT NOT NULL AUTO_INCREMENT,
-        `title` VARCHAR(255) NOT NULL,
+        `title` VARCHAR(100) NOT NULL,
         `content` TEXT NULL,
         `creation_date` DATETIME NOT NULL DEFAULT NOW(),
         `image_path` VARCHAR(255) NULL,
@@ -158,7 +158,7 @@ VALUES (
 			
 			Pour participer à l''assembée générale, il faut être à jour de cotisation et adhérent depuis plus de 9 mois.',
         NOW(),
-        'assemblee-generale.jpg'
+        NULL
     ), (
         2,
         'Renouvellement Adhesion & Abonnement 2023',
@@ -172,7 +172,7 @@ VALUES (
          
     ',
         DATE_ADD(NOW(), INTERVAL -2 DAY),
-        'adhesion-association.jpg'
+        NULL
     ), (
         3,
         'La surdité & l''hémophilie chez le beauceron',
@@ -249,4 +249,43 @@ VALUES (
     ',
         DATE_ADD(NOW(), INTERVAL -8 DAY),
         NULL
+    );
+
+CREATE TABLE
+    `evenement`(
+        `id` INT NOT NULL AUTO_INCREMENT,
+        `title` VARCHAR(255) NOT NULL,
+        `date` DATE NOT NULL,
+        `place` VARCHAR(255) NOT NULL,
+        `description` TEXT NOT NULL,
+        PRIMARY KEY (`id`)
+    ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
+
+INSERT INTO
+    `evenement` (
+        `title`,
+        `date`,
+        `place`,
+        `description`
+    )
+VALUES (
+        'Beau-Dog: Concours de dégustation de hot dogs pour Beaucerons affamés!',
+        '2023-03-15',
+        'Stade de la Mâchoire Géante, Bordeaux, France',
+        'Les Beaucerons les plus gloutons se réunissent pour un concours de dégustation de hot dogs hors du commun! Les crocs acérés, les estomacs inépuisables et les langues pendantes seront de la partie pour cette compétition effrénée. Venez admirer ces champions de l\'appétit canin dévorer des hot dogs à une vitesse stupéfiante, dans une ambiance hilarante et décalée!'
+    ), (
+        'Les Joutes Canines: Un tournoi d\'adresse et de grâce pour nos Beaucerons chevaliers!',
+        '2023-07-12',
+        'Château de Chambord, Loir-et-Cher, France',
+        'Préparez-vous à un spectacle de joutes canines à couper le souffle, où nos Beaucerons se transformeront en de véritables chevaliers à quatre pattes! Armés de leur élégance naturelle et de leur adresse, nos participants s\'affronteront avec panache pour conquérir le titre de champion de la joute canine. Les mouvements gracieux des Beaucerons sur le terrain vous émerveilleront, et vous serez captivé par la manière dont ils manient leur lance en croquant dans les défis avec brio.'
+    ), (
+        'Beau-Rock: Concert en plein air pour Beaucerons fans de musique live!',
+        '2023-06-28',
+        'Parc du Grognement Énergique, Lyon, France',
+        'Préparez-vous à secouer la queue et à groover avec les Beaucerons passionnés de musique live! Ce concert en plein air mettra en vedette des groupes de rock spécialement sélectionnés pour leur capacité à faire bouger les pattes et à remuer les oreilles. Une ambiance déjantée, des snacks canins à gogo et du rock à volonté vous attendent pour cette soirée inoubliable!'
+    ), (
+        'Beau-Ciné: Soirée cinéma en plein air pour Beaucerons cinéphiles!',
+        '2023-08-12',
+        'Parc du Cinéma Canin, Marseille, France',
+        'Installez-vous confortablement avec votre Beauceron et profitez d\'une soirée cinéma en plein air sous les étoiles! Une sélection de films mettant en vedette des chiens et des animaux de compagnie sera projetée sur grand écran, avec des couvertures moelleuses et des snacks canins à déguster. Une soirée de détente et de divertissement pour les Beaucerons cinéphiles et leurs humains!'
     );
