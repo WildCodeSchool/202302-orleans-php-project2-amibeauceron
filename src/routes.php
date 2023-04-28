@@ -17,6 +17,7 @@ return [
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
     'beauceron' => ['DogController', 'beauceron'],
+    'beauceron/soin' => ['CareController', 'index',],
     'actualites'  => ['ActualityController', 'index'],
     'actualites/afficher'  => ['ActualityController', 'show', ['id']],
     'administration' => ['Admin\AdminController', 'index'],
@@ -24,5 +25,6 @@ return [
     'administration/actualites/ajouter' => ['AdminActualityController', 'add'],
     'administration/actualites/supprimer' => ['AdminActualityController', 'delete', ['id']],
     'administration/actualites/modifier' => ['AdminActualityController', 'edit', ['id']],
+    'connexion' => ['LoginController', 'login'],
     'evenements' => ['EventController', 'index'],
 ];

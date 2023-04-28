@@ -133,48 +133,43 @@ CREATE TABLE
 
 INSERT INTO
     `actuality` (
-        `id`,
         `title`,
         `content`,
         `creation_date`,
         `image_path`
     )
 VALUES (
-        1,
         'Convocation Assemblée Générale 2023',
         'L''assamblée générale du Club Les Amis du Beauceron aura lieux le samedi 06 mai 2023 à 18h00 à la mairie de Thoissey 8 rue de l''hôtel de ville salle des mariages.
      
-     L''ordre du jour sera le suivant :
+        L''ordre du jour sera le suivant :
 			
-			Ouverture de l''assamblée générale par la présidente.
+			  Ouverture de l''assamblée générale par la présidente.
 			
-			Compte rendu moral de l''année 2022 par la présidente.
-			Compte rendu financier de l''année 2022 par le trésorier.
-			Compte rendu des différentes commissions.
-			Approbation des comptes rendus.
-			Quitus au trésorier.
-			Question diverses.
-			Clôture de l''assembée générale.
+			  Compte rendu moral de l''année 2022 par la présidente.
+			  Compte rendu financier de l''année 2022 par le trésorier.
+			  Compte rendu des différentes commissions.
+			  Approbation des comptes rendus.
+			  Quitus au trésorier.
+			  Question diverses.
+			  Clôture de l''assembée générale.
 			
 			Pour participer à l''assembée générale, il faut être à jour de cotisation et adhérent depuis plus de 9 mois.',
         NOW(),
         NULL
     ), (
-        2,
         'Renouvellement Adhesion & Abonnement 2023',
         'Pensez a renouveller votre adhesion. La numéro 1 - 2023 va bientôt paraître
      
-     Vous trouverez les documents suivant pour votre inscription : 
+        Vous trouverez les documents suivant pour votre inscription : 
         
           - <a href="lettre adhesion au club 2023.pdf" border="0" alt="">LETTRE DE RENOUVELEMENT</a>
           - <a href="../club/club-adhesion.html" border="0" alt="">BULLETIN ADHESION</a>
           - <a href="RIB Crédit Agricole CAB.pdf" border="0" alt="">RIB bancaire</a>
-         
     ',
         DATE_ADD(NOW(), INTERVAL -2 DAY),
         NULL
     ), (
-        3,
         'La surdité & l''hémophilie chez le beauceron',
         'La surdité et l''hémophilie chez le beauceron, le beauceron arlequin. Description et génétique.
      Bonjour,
@@ -182,12 +177,12 @@ VALUES (
       Nous sommes heureux d’annoncer que grâce à la collaboration des amoureux du Beauceron, nous avons identifié la mutation de surdité !
       Un test ADN de dépistage vient juste d’être lancé : TEST ADN.
 
-      Cordialement, Marie Abitbol.
+        Cordialement, Marie Abitbol.
 
-      Marie ABITBOL : 
-      Pr en génétique Département des Sciences Fondamentales
-      VetAgro Sup, Campus vétérinaire de Lyon
-      1 avenue Bourgelat, 69280 Marcy l''Etoile
+        Marie ABITBOL : 
+        Pr en génétique Département des Sciences Fondamentales
+        VetAgro Sup, Campus vétérinaire de Lyon
+        1 avenue Bourgelat, 69280 Marcy l''Etoile
       
       Mail : marie.abitbol@vetagro-sup.fr
       Tel : 0478872566
@@ -200,7 +195,6 @@ VALUES (
         DATE_ADD(NOW(), INTERVAL -5 DAY),
         'perte-audition-chien.webp'
     ), (
-        4,
         'Titre de champion international de beaute',
         'TITRES DE CHAMPION INTERNATIONAL DE BEAUTE JEUNE & VETERAN DE LA FCI C.I.B.-J & C.I.B.-V.
 
@@ -235,7 +229,6 @@ VALUES (
         NOW(),
         NULL
     ), (
-        5,
         'Postes a pourvoir appel a candidature',
         'DELEGATIONS : 
       - ZONE 19 Départements 18-36-45. 
