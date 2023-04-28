@@ -7,8 +7,6 @@
 //          3. (optional) array of query string keys to send as parameter to the method
 // e.g route '/item/edit?id=1' will execute $itemController->edit(1)
 
-use App\Controller\ActualityController;
-
 return [
     '' => ['HomeController', 'index',],
     'items' => ['ItemController', 'index',],
@@ -25,5 +23,6 @@ return [
     'administration/actualites/supprimer' => ['AdminActualityController', 'delete'],
     'administration/actualites/modifier' => ['AdminActualityController', 'edit'],
     'evenements' => ['EventController', 'index'],
-    'administration/evenements/ajouter' => ['AdminEventController', 'add']
+    'administration/evenements' => ['AdminEventController', 'index'],
+    'administration/evenements/ajouter' => ['AdminEventController', 'add'],
 ];
