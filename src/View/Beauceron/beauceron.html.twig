@@ -2,6 +2,7 @@
 {% block stylesheet %}
 	{{ parent() }}
 	<link rel="stylesheet" href="/assets/css/history.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/genese.css" type="text/css">
 	<link rel="stylesheet" href="/assets/css/caractere.css" type="text/css">
 {% endblock %}
 {% block title %}
@@ -88,6 +89,7 @@
 				</p>
 			</div>
 		</div>
+		{% include "Beauceron/beauceron_genese.html.twig" %}
+		{% include "Beauceron/beauceron_caractere.html.twig" %}
 	</main>
-	{% include "Beauceron/beauceron_caractere.html.twig" %}
 {% endblock %}
