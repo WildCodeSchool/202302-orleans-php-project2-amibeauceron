@@ -1,5 +1,6 @@
 nav {
     position: fixed;
+    top: 0px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -7,6 +8,7 @@ nav {
     width: 100%;
     height: var(--navbar-height);
     background-color: var(--navbar-color);
+    z-index: 2;
 }
 
 nav a {
@@ -15,11 +17,11 @@ nav a {
     font-family: var(--font-text);
 }
 
-ul>li:last-child {
-    padding-right: calc(var(--spacing)*2);
+nav ul>li:last-child {
+    padding-right: calc(var(--spacing) * 2);
 }
 
-ul {
+nav ul {
     color: var(--secondary);
 }
 
@@ -31,38 +33,37 @@ nav li {
     margin: 0;
 }
 
-.brand {
+nav .brand {
     display: flex;
     align-items: center;
-
 }
 
-.brand img {
+nav .brand img {
     width: 80px;
     object-fit: cover;
     padding: 0;
 }
 
-.burger {
+nav .burger {
     display: none;
     align-items: center;
 }
 
-.burger svg {
+nav .burger svg {
     width: var(--burger-width);
     height: var(--burger-height);
 }
 
 @media screen and (width < 750px) {
-    .burger {
+    nav .burger {
         display: flex;
     }
 
-    .links {
+    nav .links {
         display: none;
     }
 
-    .links:target {
+    nav .links:target {
         display: flex;
         flex-direction: column;
         width: 100vh;
@@ -70,12 +71,14 @@ nav li {
     }
 
     nav a {
-        font-size: calc(var(--font-size)*1.5);
-
+        font-size: calc(var(--font-size) * 1.5);
     }
 
-    svg {
-        color: var(--secondary-light)
+    nav svg {
+        color: var(--secondary-light);
     }
 
+    .burger svg {
+        color: var(--secondary-light);
+    }
 }

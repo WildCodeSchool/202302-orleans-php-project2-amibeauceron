@@ -1,12 +1,8 @@
-{% extends 'layout.html.twig' %}
+{% extends 'admin.html.twig' %}
 {% block title %}
 	{{ parent() }}
-	| Gestion Actualités
+	| Actualités
 {% endblock %}
-{% block stylesheet %}
-	<link rel="stylesheet" href="/assets/css/admin.css" type="text/css">
-{% endblock %}
-
 {% block content %}
 	<main>
 		<div class="datas-container">
@@ -28,7 +24,7 @@
 							<td>{{ actuality.title }}</td>
 							<td>{{ actuality.creation_date|date("d/m/Y H:i:s", "Europe/Paris") }}</td>
 							<td>
-								<form action="/administration/actualites/supprimer" method="POST">
+								<form action="/administration/actualites/supprimer?id={{ actuality.id }}" method="POST">
 									<input type="hidden" id="id" name="id" value="{{ actuality.id }}">
 									<button class="primary outline" role="link">
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewbox="0 0 16 16">
@@ -39,7 +35,7 @@
 								</form>
 							</td>
 							<td>
-								<form action="/administration/actualites/modifier" method="POST">
+								<form action="/administration/actualites/modifier?id={{ actuality.id }}" method="POST">
 									<input type="hidden" id="id" name="id" value="{{ actuality.id }}">
 									<button class="primary outline" role="link">
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewbox="0 0 16 16">

@@ -1,19 +1,20 @@
-main {
+main.actuality-details,
+main.actuality {
     background-image: url("../images/empreintechienblanc.png");
     background-color: var(--light);
     background-repeat: repeat-y;
     background-size: 35%;
     background-position: 80% 30%;
-    padding-top: calc(var(--spacing) * 2);
+    margin-block-start: var(--navbar-height);
 }
 
-section > div {
+.actuality section > div {
     display: grid;
     gap: var(--spacing);
     grid-template-columns: 1fr;
 }
 
-section > header > h1 {
+.actuality section > header > h1 {
     font-size: clamp(1rem, 4vw, calc(var(--font-size) * 1.5));
     color: var(--primary);
     font-weight: 600;
@@ -21,7 +22,8 @@ section > header > h1 {
     text-align: center;
 }
 
-article {
+.actuality-details article,
+.actuality article {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -33,47 +35,55 @@ article {
     animation-iteration-count: 1;
 }
 
-article > header {
+.actuality article > header {
+    display: flex;
+    align-items: center;
     margin-bottom: calc(var(--block-spacing-vertical) * 1 / 3);
     padding: var(--spacing);
     background-color: var(--light);
 }
 
-img.info-sticker {
-    width: clamp(50px, 7vw, 90px);
-    padding-inline-end: var(--spacing);
-}
-
-article > header > h2 {
+.actuality article > header > h2 {
     margin-bottom: 0;
-    font-size: clamp(1.3rem, 1.9vw, var(--font-size));
+    font-size: clamp(1.2rem, 1.8vw, var(--font-size));
     color: var(--secondary);
     font-weight: 600;
 }
 
-article:nth-child(odd) {
+.actuality img.info-sticker {
+    width: clamp(50px, 7vw, 90px);
+    padding-inline-end: var(--spacing);
+}
+
+.actuality article:nth-child(odd) {
     justify-self: start;
 }
 
-article:nth-child(even) {
+.actuality article:nth-child(even) {
     justify-self: end;
 }
 
-article > footer {
-    margin-top: calc(var(--block-spacing-vertical) * 2 / 3);
-    padding: 0 0 0 calc(var(--spacing) * 2 / 3);
+.actuality article > footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     color: var(--light);
     background-color: var(--primary);
+    margin-top: calc(var(--block-spacing-vertical) * 2 / 3);
+    padding: 0 0 0 calc(var(--spacing) * 2 / 3);
+    flex-direction: var(--flex-direction, row-reverse);
+    padding-inline: var(--padding-start, 0) var(--padding-end, var(--spacing));
 }
 
-footer a[role="button"] {
+.actuality footer a[role="button"] {
     width: clamp(6rem, 10vw, 8rem);
     padding: calc(var(--spacing) / 3) calc(var(--spacing) / 3);
     border-radius: 0;
     font-size: calc(var(--font-size) * 3 / 4);
 }
 
-article > footer {
+.actuality article > footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -81,11 +91,54 @@ article > footer {
     padding-inline: var(--padding-start, 0) var(--padding-end, var(--spacing));
 }
 
-article:nth-child(odd) > footer {
+.actuality article:nth-child(odd) > footer {
     --direction: right;
     --padding-start: var(--spacing);
     --padding-end: 0;
     --flex-direction: row;
+}
+
+.actuality-details article > header {
+    display: flex;
+    justify-content: center;
+    background-color: var(--light);
+    text-align: center;
+}
+
+
+.actuality-details .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.actuality-details .img-actuality {
+    width: clamp(200px, 25vw, 600px);
+}
+
+.actuality-details article header > h2 {
+    margin: 0px;
+}
+
+.actuality-details article header > div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+}
+
+.actuality-details article div > p {
+    min-height: 40vh;
+    font-size: var(--font-size);
+}
+
+.actuality-details footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: var(--light);
+    padding-inline: 0 calc(var(--block-spacing-vertical) * 1 / 2);
+    padding-block: calc(var(--block-spacing-vertical) * 1 / 2);
+    background-color: var(--secondary);
 }
 
 @keyframes FadeInAnimation {
@@ -93,22 +146,25 @@ article:nth-child(odd) > footer {
         opacity: 0.3;
         transform: scale(0);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
     }
 }
 
-@media screen and (width <= 500px) {
-    article {
+@media screen and (width <=500px) {
+    .actuality article {
         width: 99%;
         justify-content: center;
+        margin: 0px;
     }
 
-    article:nth-child(odd) {
+    .actuality article:nth-child(odd) {
         justify-self: center;
     }
-    article:nth-child(even) {
+
+    .actuality article:nth-child(even) {
         justify-self: center;
     }
 }
