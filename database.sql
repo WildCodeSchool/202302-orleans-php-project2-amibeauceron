@@ -282,3 +282,43 @@ VALUES (
         'Parc du Cinéma Canin, Marseille, France',
         'Installez-vous confortablement avec votre Beauceron et profitez d\'une soirée cinéma en plein air sous les étoiles! Une sélection de films mettant en vedette des chiens et des animaux de compagnie sera projetée sur grand écran, avec des couvertures moelleuses et des snacks canins à déguster. Une soirée de détente et de divertissement pour les Beaucerons cinéphiles et leurs humains!'
     );
+
+/********************TABLE MEMBER LIST****************/
+
+CREATE TABLE
+    member(
+        id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+        lastname VARCHAR(50) NOT NULL,
+        firstname VARCHAR(50) NOT NULL,
+        job VARCHAR(50) NOT NULL,
+        email VARCHAR(50) NOT NULL,
+        photo VARCHAR(255)
+    );
+
+INSERT INTO
+    `member` (
+        `lastname`,
+        `firstname`,
+        `job`,
+        `email`,
+        `photo`
+    )
+VALUES (
+        'Scofield',
+        'Michael',
+        'Ingénieur',
+        'michael.scofield@gmail.com',
+        NULL
+    ), (
+        'Snow',
+        'Jon',
+        'Garde de nuit',
+        'jon.snow@gmail.com',
+        'profildefault.jpg'
+    ), (
+        'White',
+        'Walter',
+        'Professeur de physique-chimie',
+        'walter.white@gmail.com',
+        ''
+    ),
