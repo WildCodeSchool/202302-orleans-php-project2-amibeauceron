@@ -1,6 +1,6 @@
 body {
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 6fr;
     grid-template-rows: 100vh;
     gap: var(--spacing);
 }
@@ -8,21 +8,20 @@ body {
 main {
     align-self: stretch;
     grid-column-start: 2;
-}
-
-main > h1 {
-    font-size: clamp(0.8rem, 4vw, var(--font-size));
-    color: var(--primary);
-    font-weight: 600;
-    font-family: var(--font-text);
-    text-align: center;
+    margin-block-start: 0px;
+    padding-top: 0px;
+    --block-spacing-vertical: 0;
 }
 
 nav.admin-navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     grid-column-start: 1;
     align-self: stretch;
     padding-block-start: 10vh;
     background-color: var(--navbar-color);
+    gap: calc(var(--spacing)*4);
 }
 
 nav.admin-navbar .links {
@@ -47,6 +46,19 @@ nav.admin-navbar ul {
 nav.admin-navbar a:hover {
     color: var(--secondary);
 }
+
+nav .brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav .brand img {
+    width: 80px;
+    object-fit: cover;
+    padding: 0;
+}
+
 
 .datas-container {
     display: flex;
