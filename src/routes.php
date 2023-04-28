@@ -24,4 +24,5 @@ return [
     'administration/actualites/ajouter' => ['AdminActualityController', 'add'],
     'administration/actualites/supprimer' => ['AdminActualityController', 'delete'],
     'administration/actualites/modifier' => ['AdminActualityController', 'edit'],
+    'adhesion' => ['MembershipController', 'index'],
 ];
