@@ -23,8 +23,8 @@ return [
     'administration' => ['Admin\AdminController', 'index'],
     'administration/actualites'  => ['AdminActualityController', 'index'],
     'administration/actualites/ajouter' => ['AdminActualityController', 'add'],
-    'administration/actualites/supprimer' => ['AdminActualityController', 'delete'],
-    'administration/actualites/modifier' => ['AdminActualityController', 'edit'],
+    'administration/actualites/supprimer' => ['AdminActualityController', 'delete', ['id']],
+    'administration/actualites/modifier' => ['AdminActualityController', 'edit', ['id']],
     'connexion' => ['LoginController', 'login'],
     'evenements' => ['EventController', 'index'],
 ];
