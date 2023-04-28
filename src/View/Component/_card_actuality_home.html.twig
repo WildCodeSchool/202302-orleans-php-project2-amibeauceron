@@ -1,13 +1,14 @@
 <article class="small-card">
 	<header>
-		<img class='info-sticker' src="./assets/images/dog-information.webp" alt="image de patte de chien info">
+		<img class="img-actuality" alt="image de l'actualité" name="img" src="{{ (actuality.image_path is not empty ) ? '/uploads/' ~ actuality.image_path : "/assets/images/dog-information.webp"}}">
 	</header>
 	<div>
 		<small>{{ actuality.creation_date|date("d/m/Y", "Europe/Paris")  }}</small>
 		<h2>{{ actuality.title|title }}</h2>
 	</div>
 	<div class="content">
-		{{ actuality.content|length > 150 ? actuality.content|slice(0, 150) ~ '...' : actuality.content }}
+		{{ actuality.content|length > 150 ? actuality.content|slice(0, 90) : actuality.content }}
+		<br>...
 	</div>
 	<footer>
 		<a href="/actualites/afficher?id={{ actuality.id }}" role="button" class="secondary">DÉTAIL</a>
