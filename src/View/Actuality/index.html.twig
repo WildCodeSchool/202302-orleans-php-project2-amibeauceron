@@ -1,0 +1,24 @@
+{% extends 'layout.html.twig' %}
+{% block title %}
+	{{ parent() }}
+	| Actualités
+{% endblock %}
+{% block stylesheet %}
+	{{ parent() }}
+	<link rel="stylesheet" href="/assets/css/actuality.css" type="text/css">
+{% endblock %}
+
+{% block content %}
+	<main>
+		<section class="container">
+			<header>
+				<h1>Actualités</h1>
+			</header>
+			<div>
+				{% for actuality in actualities %}
+					{% include 'Component/_card_actuality.html.twig' %}
+				{% endfor %}
+			</div>
+		</section>
+	</main>
+{% endblock %}
