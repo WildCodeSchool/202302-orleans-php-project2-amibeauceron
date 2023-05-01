@@ -10,7 +10,7 @@
     --font-text: "Roboto", sans-serif;
     --font-title2: 'Cormorant Garamond';
     --border: 1px solid #FF7A00;
-    --border-radius: 1rem;
+    --border-radius: 0.3rem;
     --navbar-height: 75px;
     --navbar-color: rgba(var(--primary-color), 0.85);
     --text-shadow: 2px 2px 4px black;
@@ -19,11 +19,15 @@
     --primary-color: 23, 20, 20;
 }
 
+main {
+    margin-top: var(--navbar-height);
+}
+
 h1 {
     text-align: center;
-    font-family: var(--font-title);
+    font-family: var(--font-title2);
     font-size: calc(var(--font-size) * 2);
-    font-weight: 600;
+    font-weight: 700;
     color: var(--primary);
 }
 
