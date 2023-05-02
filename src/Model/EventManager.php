@@ -17,7 +17,7 @@ class EventManager extends AbstractManager
         );
 
         $statement->bindValue('title', $event['title'], PDO::PARAM_STR);
-        $statement->bindValue('date', $event['date'], PDO::PARAM_INT);
+        $statement->bindValue('date', $event['date'], PDO::PARAM_STR);
         $statement->bindValue('place', $event['place'], PDO::PARAM_STR);
         $statement->bindValue('description', $event['description'], PDO::PARAM_STR);
         $statement->execute();
