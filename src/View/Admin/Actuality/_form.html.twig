@@ -10,7 +10,8 @@
 				<img class="form-img" name="img" src="{{ '/uploads/' ~ actuality.image_path }}">
 			</div>
 		{% endif %}
-		<label for="image">Ajouter une image</label>
+		<label for="image">{{ actuality.image_path is empty ? 'Ajouter' : 'Editer' }}
+			une image</label>
 		<input type="file" id="image" name="image" accept="image/*" value="{{~ actuality.image_path ?? '' ~}}">
 		<button type="submit">Valider</button>
 	</form>

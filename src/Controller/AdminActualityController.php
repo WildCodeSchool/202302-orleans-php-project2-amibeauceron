@@ -46,10 +46,10 @@ class AdminActualityController extends AbstractController
 
                 // insertion
                 $actualityManager = new ActualityManager();
-                $id = $actualityManager->insert($actuality);
+                $actualityManager->insert($actuality);
 
                 // move upload if file not empty
-                if (!empty($_FILES['image']['tmp_name']) && $id > 0) {
+                if (!empty($_FILES['image']['tmp_name'])) {
                     move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/../../public/uploads/' . $imageName);
                 }
                 // redirection
@@ -65,8 +65,7 @@ class AdminActualityController extends AbstractController
         // We get back the acutality object from database
         $actualityManager = new ActualityManager();
         $actuality = $actualityManager->selectOneById($id);
-
-        // We get back the path of the image
+        // We get back the path of the image form db, is not returned by the FORM ! (we get back by $FILE)
         $lastImage = $actuality['image_path'];
         // init Errors
         $errors = [];
@@ -84,14 +83,15 @@ class AdminActualityController extends AbstractController
 
             if (empty($errors)) {
                 // insert
-                $actuality['id'] = $id;
                 $actuality['image_path'] = $lastImage;
 
                 // uniquement si on met un nouveau fichier en upload. Si on laisse le champ vide,
                 // on ne réécrase pas ce qu'il y a en base
                 if (!empty($_FILES['image']['tmp_name'])) {
                     // on efface l'ancien fichier (nom récupéré au début de la méthode)
-                    $this->deleteFile($lastImage);
+                    if (!empty($actuality['image_path'])) {
+                        $this->deleteFile($actuality['image_path']);
+                    }
 
                     // on créé un nouveau nom pour le nouveau fichier
                     $imageName = $this->generateImageName($_FILES['image']);
