@@ -1,4 +1,4 @@
-main {
+main.last-tree-actuality {
     background-image: url("../images/empreintechienblanc.png");
     background-color: var(--light);
     background-repeat: repeat-y;
@@ -7,73 +7,79 @@ main {
     padding-top: calc(var(--spacing) * 2);
 }
 
-section > div {
+.last-tree-actuality section > div {
     display: grid;
     gap: var(--spacing);
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
 
-section > header > h1 {
-    font-size: clamp(1rem, 4vw, calc(var(--font-size) * 1.5));
-    color: var(--primary);
-    font-weight: 600;
-    font-family: var(--font-title);
-    text-align: center;
-}
-
-article.small-card {
+.last-tree-actuality article.small-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: auto;
-    --block-spacing-horizontal: var(--spacing);
+    --block-spacing-horizontal: calc(var(--spacing)*2);
+
     --stagger-delay: 450ms;
     animation: 400ms FadeInAnimation var(--stagger-delay) ease-out;
     animation-fill-mode: backwards;
     animation-iteration-count: 1;
 }
 
-article.small-card header {
+.last-tree-actuality article.small-card header {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-block-end: var(--spacing);
+    height: 25vh;
+    object-fit: cover;
 }
 
-img.info-sticker {
+.last-tree-actuality section > header > h1 {
+    color: var(--primary);
+    font-family: var(--font-title);
+    text-align: center;
+}
+
+.last-tree-actuality article.small-card h2 {
+    font-size: clamp(1.2rem, 1.2vw, calc(var(--font-size)*3/2));
+    color: var(--secondary);
+    padding-block: var(--spacing);
+    margin-bottom: 0;
+    font-weight: 700;
+}
+
+.last-tree-actuality img.img-actuality {
     width: clamp(80px, 20vw, 200px);
 }
-article.small-card > div {
+
+.last-tree-actuality article.small-card > div {
     display: flex;
     flex-direction: column;
+    height: 15vh;
+    font-size: clamp(1.2rem, 1.2vw, calc(var(--font-size)*3/2));
 }
 
-article.small-card small {
+.last-tree-actuality article.small-card small {
     align-self: end;
 }
 
-article.small-card h2 {
-    font-size: clamp(1.4rem, 1.5vw, var(--font-size));
-    color: var(--secondary);
-    font-weight: 400;
-    padding-block: var(--spacing);
-    margin-bottom: 0;
+.last-tree-actuality article.small-card .content {
+    font-size: clamp(0.8rem, 1vw, var(--font-size));
+    font-style: var(--font-text);
+    height: 10vh;
 }
 
-article.small-card .content {
-    font-size: clamp(1.3rem, 1.5vw, var(--font-size));
-    font-weight: 300;
-}
-
-article.small-card > footer {
+.last-tree-actuality article.small-card > footer {
     display: flex;
     flex-direction: row-reverse;
     margin-top: var(--spacing);
     border-top: 0;
     --card-sectionning-background-color: white;
+    padding: calc(var(--block-spacing-vertical) * .4) var(--block-spacing-horizontal);
 }
 
-article.small-card > footer a[role="button"] {
+.last-tree-actuality article.small-card > footer a[role="button"] {
     width: clamp(6rem, 10vw, 8rem);
     padding: calc(var(--spacing) / 3) calc(var(--spacing) / 3);
     border-radius: 0;
@@ -85,6 +91,7 @@ article.small-card > footer a[role="button"] {
         opacity: 0.3;
         transform: scale(0);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
