@@ -48,6 +48,8 @@ SET time_zone = "+00:00";
 
 --
 
+DROP TABLE IF EXISTS item;
+
 CREATE TABLE
     `item` (
         `id` int(11) UNSIGNED NOT NULL,
@@ -113,6 +115,8 @@ ALTER TABLE
 -- Structure de la table `actuality`
 
 --
+
+DROP TABLE IF EXISTS actuality;
 
 CREATE TABLE
     `actuality` (
@@ -244,6 +248,8 @@ VALUES (
         NULL
     );
 
+DROP TABLE IF EXISTS evenement;
+
 CREATE TABLE
     `evenement`(
         `id` INT NOT NULL AUTO_INCREMENT,
@@ -285,6 +291,8 @@ VALUES (
 
 /********************TABLE MEMBER LIST****************/
 
+DROP TABLE IF EXISTS member;
+
 CREATE TABLE
     member(
         id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -321,10 +329,16 @@ VALUES (
         'Professeur de physique-chimie',
         'walter.white@gmail.com',
         ''
-    ),
-    --
-    -- Creation de la table `user`
-    --
+    );
+
+--
+
+-- Creation de la table `user`
+
+--
+
+DROP TABLE IF EXISTS user;
+
 CREATE TABLE
     `user` (
         `id` INT NOT NULL AUTO_INCREMENT,
@@ -353,6 +367,8 @@ VALUES (
 -- Creation de la table `dog`
 
 --
+
+DROP TABLE IF EXISTS dog;
 
 CREATE TABLE
     `dog` (
@@ -399,7 +415,7 @@ VALUES (
         DATE_ADD(NOW(), INTERVAL -31 DAY),
         1,
         '015156574949849',
-        'dog-1jpg',
+        'dog-1.jpg',
         'REBECCA-RUAH ARGENTEE DE SAINTE PETRONILLE (Arlequin) Cotation 2 Dys HD-A par SAMSON DES PLAINES DE LA SAINTE VICTOIRE Cotation 1 Dys HD-A. Note 2+1=3'
     ), (
         'M. JOURNAULT Eric',
@@ -410,7 +426,7 @@ VALUES (
         DATE_ADD(NOW(), INTERVAL -15 DAY),
         0,
         '015897574949849',
-        'dog-2jpg',
+        'dog-2.jpg',
         'OPALE LA COTE (Arlequin) Cotation 1 Dys HD-A par PHARO DES CONTES DE L\'ABREUVAGE Cotation 1 Dys HD-A. Note 1+1=2'
     ), (
         'M. COLAS David',
@@ -423,4 +439,4 @@ VALUES (
         '015897574949849',
         NULL,
         'OLYMPE ARGENTEE DU MONT DES CROISETTES (Arelquin) Cotation 2 Dys HD-A par LOOPING DE LA TERRE DES LIONS Cotation 1. Note 2+1=3'
-    )
+    );

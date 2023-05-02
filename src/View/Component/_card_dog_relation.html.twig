@@ -1,21 +1,25 @@
 <article>
 	<header>
-		<img class="img-dog" alt="image du chien" name="img" src="{{ (dog.image is not empty ) ? '/uploads/' ~ dog.image : "/assets/images/dog-information.webp"}}">
+		<img class="img-dog" alt="image du chien" name="img" src="{{ (dog.image is not empty) ? '/uploads/' ~ dog.image : "/assets/images/dog-information.webp"}}">
 	</header>
 	<h2>{{ dog.name|title }}</h2>
 	<div class="dog_info">
 		<div>
 			<span class="label">Genre :</span>
-			{{ dog.gender == 'M' ? 'Male' : 'Femmelle' }}</div>
+			{{ dog.gender == 'M' ? 'Male' : 'Femmelle' }}
+		</div>
 		<div>
-			<span class="label">Date de naissance :
-			</span>
-			{{ dog.birthdate|date("d/m/Y", "Europe/Paris")  }}</div>
+			<span class="label">Date de naissance :</span>
+			{{ dog.birthdate|date("d/m/Y", "Europe/Paris")  }}
+		</div>
 		<div>
-			<span class="label">LOF :</span>{ dog.is_lof == 1 ? 'Oui' : 'Non' }}</div>
+			<span class="label">LOF :</span>
+			{{ dog.is_lof == 1 ? 'Oui' : 'Non' }}
+		</div>
 		<div>
 			<span class="label">Identifiant :</span>
-			{{ dog.identity_number }}</div>
+			{{ dog.identity_number }}
+		</div>
 	</div>
 	<div class="content">
 		{{ dog.description }}
@@ -27,9 +31,15 @@
 			</svg>
 		</div>
 		<div class="owner_info">
-			<div>Propriétaire :{{ dog.owner|title }}</div>
-			<div>Ville :{{ dog.owner_city|title }}</div>
-			<div>Mail :{{ dog.owner_email }}</div>
+			<div>
+				<span class="label">Propriétaire :</span>
+				{{ dog.owner|title }}</div>
+			<div>
+				<span class="label">Ville :</span>
+				{{ dog.owner_city|title }}</div>
+			<div>
+				<span class="label">Mail :</span>
+				{{ dog.owner_email }}</div>
 		</div>
 	</footer>
 </article>
