@@ -5,6 +5,10 @@ section.login {
     align-items: center;
 }
 
+section.login header > h1 {
+    --typography-spacing-vertical: 0;
+}
+
 .login article {
     display: flex;
     flex-direction: column;
@@ -14,7 +18,7 @@ section.login {
     width: clamp(350px, 50vw, 600px);
     gap: var(--spacing);
     margin: var(--spacing);
-    padding-block-end: 0px;
+    padding-block-end: var(--spacing);
     --stagger-delay: 150ms;
     animation: 400ms FadeInAnimation var(--stagger-delay) ease-out;
     animation-fill-mode: backwards;
@@ -23,7 +27,7 @@ section.login {
 
 .login .icon-person-circle {
     align-self: center;
-    width: clamp(128px, 12vw, 224px);
+    width: clamp(120px, 13vw, 250px);
     height: auto;
     padding-inline: var(--spacing);
     color: var(--light);
@@ -43,7 +47,7 @@ section.login {
 }
 
 .login form {
-    margin-block-start: calc(var(--spacing)*2);
+    margin-block: var(--spacing);
 }
 
 .login form > div > label {
