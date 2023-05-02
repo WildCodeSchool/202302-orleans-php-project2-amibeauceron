@@ -8,14 +8,7 @@ class AdminEventController extends AbstractController
 {
     public const MAX_LENGTH = 255;
 
-    public function index(): string
-    {
-        $eventManager = new EventManager();
-        $events = $eventManager->selectAll('title');
-        return $this->twig->render('Admin/Event/index.html.twig', ['events' => $events]);
-    }
-
-    public function add(): ?string
+    public function add(): string
     {
         $errors = $event = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -28,7 +21,7 @@ class AdminEventController extends AbstractController
                 $id = $eventManager->insert($event);
 
                 header('Location:/Admin/Event/show?id=' . $id);
-                return null;
+                return '';
             }
         }
 
@@ -38,19 +31,19 @@ class AdminEventController extends AbstractController
     {
         $errors = [];
         if (empty($event['title'])) {
-            $errors[] = "Veuillez renseigner le titre, zone obligatoire.";
+            $errors[] = "Veuillez renseigner le titre, le champ est requis.";
         }
 
         if (empty($event['date'])) {
-            $errors[] = "Veuillez renseigner la date, zone obligatoire.";
+            $errors[] = "Veuillez renseigner la date, le champ est requis.";
         }
 
         if (empty($event['place'])) {
-            $errors[] = "Veuillez renseigner l'endroit, zone obligatoire.";
+            $errors[] = "Veuillez renseigner le lieu, le champ est requis.";
         }
 
         if (empty($event['description'])) {
-            $errors[] = "Veuillez renseigner la description, zone obligatoire.";
+            $errors[] = "Veuillez renseigner la description, le champ est requis.";
         }
 
         if (mb_strlen(($event['title'])) > self::MAX_LENGTH) {
