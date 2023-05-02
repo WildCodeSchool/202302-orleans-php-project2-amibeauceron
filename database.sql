@@ -250,3 +250,32 @@ VALUES (
         DATE_ADD(NOW(), INTERVAL -8 DAY),
         NULL
     );
+
+--
+
+-- Creation de la table `user`
+
+--
+
+CREATE TABLE
+    `user` (
+        `id` INT NOT NULL AUTO_INCREMENT,
+        `email` VARCHAR(100) NOT NULL,
+        `password` CHAR(60) NOT NULL,
+        PRIMARY KEY (`id`),
+        UNIQUE KEY unique_email (email),
+        UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE
+    ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
+
+--
+
+-- Contenu de la table `user`
+
+--
+
+INSERT INTO
+    `user` (`email`, `password`)
+VALUES (
+        'admin@wildcodeschool.fr',
+        '$2y$10$MlkN4ClnzqN6vjmaCELJ4uKYj0X85PkURYFASzFMTx77NZMB8JEZG'
+    );
