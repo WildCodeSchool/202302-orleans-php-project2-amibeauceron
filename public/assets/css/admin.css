@@ -121,5 +121,4 @@ form {
     box-shadow: var(--card-box-shadow);
     padding: calc(var(--spacing)*2);
     border-radius: var(--border-radius);
-
 }
