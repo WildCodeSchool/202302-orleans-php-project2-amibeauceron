@@ -112,6 +112,20 @@ tr.result-info th {
     border: 0px;
 }
 
-.img-actuality {
+.form-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+}
+
+.form-img {
     width: 30vw;
+    border-radius: var(--border-radius);
 }

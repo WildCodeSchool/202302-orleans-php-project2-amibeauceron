@@ -53,16 +53,68 @@ class AdminActualityController extends AbstractController
                     move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/../../public/uploads/' . $imageName);
                 }
                 // redirection
-                header('Location:/administration/actualites/afficher?id=' . $id);
+                header('Location:/administration/actualites');
                 exit();
             }
         }
         return $this->twig->render('Admin/Actuality/add.html.twig', ['actuality' => $actuality, 'errors' => $errors]);
     }
 
+    public function edit(int $id): string
+    {
+        // We get back the acutality object from database
+        $actualityManager = new ActualityManager();
+        $actuality = $actualityManager->selectOneById($id);
+
+        // We get back the path of the image
+        $lastImage = $actuality['image_path'];
+        // init Errors
+        $errors = [];
+
+        // Check Post request ask
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Clean datas
+            $actuality = array_map('trim', $_POST);
+
+            // Validation
+            $dataErrors = $this->validateData($actuality);
+            $uploadErrors = $this->validateUpload($_FILES);
+
+            $errors = array_merge($dataErrors, $uploadErrors);
+
+            if (empty($errors)) {
+                // insert
+                $actuality['id'] = $id;
+                $actuality['image_path'] = $lastImage;
+
+                // uniquement si on met un nouveau fichier en upload. Si on laisse le champ vide,
+                // on ne réécrase pas ce qu'il y a en base
+                if (!empty($_FILES['image']['tmp_name'])) {
+                    // on efface l'ancien fichier (nom récupéré au début de la méthode)
+                    $this->deleteFile($lastImage);
+
+                    // on créé un nouveau nom pour le nouveau fichier
+                    $imageName = $this->generateImageName($_FILES['image']);
+                    $actuality['image_path'] = $imageName;
+                    move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/../../public/uploads/'  . $imageName);
+                }
+
+                $actualityManager->update($actuality);
+
+                // redirection
+                header('Location: /administration/actualites');
+            }
+        }
+
+        return $this->twig->render('Admin/Actuality/edit.html.twig', [
+            'actuality' => $actuality,
+            'errors' => $errors,
+        ]);
+    }
     private function validateData(array $actuality): array
     {
         $errors = [];
+
         if (empty($actuality['title'])) {
             $errors[] = "Veuillez renseigner le Titre, zone obligatoire.";
         }
