@@ -49,7 +49,7 @@ class AdminActualityController extends AbstractController
                 $id = $actualityManager->insert($actuality);
 
                 // move upload if file not empty
-                if (!empty($_FILES['image']['tmp_name'])) {
+                if (!empty($_FILES['image']['tmp_name']) && $id > 0) {
                     move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/../../public/uploads/' . $imageName);
                 }
                 // redirection
