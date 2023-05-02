@@ -1,0 +1,114 @@
+main.dogs-relation {
+    background-image: url("../images/empreintechienblanc.png");
+    background-color: var(--light);
+    background-repeat: repeat-y;
+    background-size: 35%;
+    background-position: 80% 30%;
+    margin-block-start: var(--navbar-height);
+}
+
+.dogs-relation section > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--spacing);
+}
+
+.dogs-relation article{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: auto;
+    --block-spacing-horizontal: calc(var(--spacing)*2);
+    --stagger-delay: 450ms;
+    animation: 400ms FadeInAnimation var(--stagger-delay) ease-out;
+    animation-fill-mode: backwards;
+    animation-iteration-count: 1;
+}
+
+.dogs-relation section h1 {
+    color: var(--primary);
+    font-family: var(--font-title);
+    text-align: center;
+}
+
+.dogs-relation article header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-block-end: var(--spacing);
+    height: 30vh;
+    object-fit: cover;
+}
+
+.dogs-relation article h2 {
+    font-size: clamp(1.7rem, 6vw, calc(var(--font-size)*1.5));
+    color: var(--secondary);
+    padding-block: var(--spacing);
+    margin: 0;
+    align-self: center;
+}
+
+.dogs-relation article > div {
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(0.8rem, 1vw, calc(var(--font-size)*3/2));
+}
+
+.dogs-relation article .dog_info {
+    flex-direction: row;
+    gap:var(--spacing);
+    flex-wrap: wrap;
+    padding: var(--spacing);
+}
+.dogs-relation article .label {
+    color: var(--dark);
+}
+
+.dogs-relation article .content {
+    padding: var(--spacing);
+    font-style: var(--font-text);
+    height: 18vh;
+}
+
+.dogs-relation article img.img-dog {
+    width: clamp(80px, 20vw, 200px);
+}
+
+.dogs-relation article footer {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    margin-top: var(--spacing);
+}
+.dogs-relation article footer div {
+    align-self: center;
+    grid-row: 1/2;
+    color:var(--intermediate);
+}
+
+.dogs-relation article footer .owner_info {
+    flex-direction: column;
+    gap:var(--spacing);
+    padding: var(--spacing);
+    color: var(--primary);
+    font-size: clamp(0.8rem, 0.8vw, calc(var(--font-size)*3/2));
+}
+.dogs-relation article .people_icon {
+    align-self: center;
+    align-items: center;
+    color: var(--secondary);
+    height: clamp(30px, 13vw, 80px);
+    width: auto;
+    padding-inline: var(--spacing);
+}
+
+@keyframes FadeInAnimation {
+    from {
+        opacity: 0.3;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
