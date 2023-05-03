@@ -10,8 +10,6 @@ class MemberManager extends AbstractManager
 
     public function insert(array $member): void
     {
-
-
         $statement = $this->pdo->prepare(
             "INSERT INTO " . self::TABLE . " (`lastname`, `firstname`, `job`, `email`, `image`)
              VALUES (:lastname, :firstname, :job, :email, :image)"

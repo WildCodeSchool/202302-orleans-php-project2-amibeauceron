@@ -3,22 +3,16 @@
 	{{ parent() }}
 	| Ajouter
 {% endblock %}
-
 {% block stylesheet %}
-	<link rel="stylesheet" href="/assets/css/admin.css" type="text/css">
+	{{ parent() }}
+	<link rel="stylesheet" href="/assets/css/errors.css" type="text/css">
 {% endblock %}
-{% block navbar %}
-	{% include '/Component/Admin/_navbar.html.twig' %}
-{% endblock %}
-
 {% block content %}
 	<main>
 		<h1>Ajouter un membre</h1>
-		<ul>
-			{% for error in errors %}
-				<li>{{ error}}</li>
-			{% endfor %}
-		</ul>
+
+		{% include 'Component/_errors.html.twig' %}
+
 		<form action="" method="POST" enctype="multipart/form-data">
 			<label for="lastname">Nom</label>
 			<input type="text" name="lastname" id="lastname" required value="{{ member.lastname }}">
@@ -38,5 +32,4 @@
 			<button type="submit">Ajouter</button>
 		</form>
 	</main>
-
 {% endblock %}
