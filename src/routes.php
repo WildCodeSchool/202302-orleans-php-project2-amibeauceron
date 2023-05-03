@@ -26,4 +26,5 @@ return [
     'connexion' => ['LoginController', 'login'],
     'evenements' => ['EventController', 'index'],
     'administration/evenements/ajouter' => ['AdminEventController', 'add'],
+    'administration/evenements/modifier' => ['AdminEventController', 'update', ['id']],
 ];
