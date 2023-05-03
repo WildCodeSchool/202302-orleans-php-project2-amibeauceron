@@ -25,6 +25,8 @@ return [
     'administration/actualites/ajouter' => ['AdminActualityController', 'add'],
     'administration/actualites/supprimer' => ['AdminActualityController', 'delete', ['id']],
     'administration/actualites/modifier' => ['AdminActualityController', 'edit', ['id']],
+    'administration/membres'  => ['AdminMemberController', 'index'],
+    'administration/membres/ajouter'  => ['AdminMemberController', 'add'],
     'connexion' => ['LoginController', 'login'],
     'evenements' => ['EventController', 'index'],
 ];

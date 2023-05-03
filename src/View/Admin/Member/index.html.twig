@@ -9,6 +9,7 @@
 
 {% block content %}
 	<main>
+		Administration des membres
 		<table>
 			<thead>
 				<tr>
@@ -46,6 +47,8 @@
 					</tr>
 				{% endfor %}
 			</tbody>
-		</table>
-	</main>
-{% endblock %}
+		</tbody>
+	</table>
+	<a href="/administration/membres/ajouter" role=" button">Ajouter des membres</a>
+
+</main>{% endblock %}

@@ -48,6 +48,8 @@ SET time_zone = "+00:00";
 
 --
 
+DROP TABLE IF EXISTS item;
+
 CREATE TABLE
     `item` (
         `id` int(11) UNSIGNED NOT NULL,
@@ -113,6 +115,8 @@ ALTER TABLE
 -- Structure de la table `actuality`
 
 --
+
+DROP TABLE IF EXISTS actuality;
 
 CREATE TABLE
     `actuality` (
@@ -244,6 +248,8 @@ VALUES (
         NULL
     );
 
+DROP TABLE IF EXISTS evenement;
+
 CREATE TABLE
     `evenement`(
         `id` INT NOT NULL AUTO_INCREMENT,
@@ -285,6 +291,8 @@ VALUES (
 
 /********************TABLE MEMBER LIST****************/
 
+DROP TABLE IF EXISTS member;
+
 CREATE TABLE
     member(
         id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -292,7 +300,7 @@ CREATE TABLE
         firstname VARCHAR(50) NOT NULL,
         job VARCHAR(50) NOT NULL,
         email VARCHAR(50) NOT NULL,
-        photo VARCHAR(255)
+        image VARCHAR(255)
     );
 
 INSERT INTO
@@ -301,7 +309,7 @@ INSERT INTO
         `firstname`,
         `job`,
         `email`,
-        `photo`
+        `image`
     )
 VALUES (
         'Scofield',
@@ -321,4 +329,4 @@ VALUES (
         'Professeur de physique-chimie',
         'walter.white@gmail.com',
         ''
-    ),
+    );
