@@ -1,0 +1,24 @@
+{% extends 'layout.html.twig' %}
+{% block title %}
+	{{ parent() }}
+	| Nos Chiens
+{% endblock %}
+{% block stylesheet %}
+	{{ parent() }}
+	<link rel="stylesheet" href="/assets/css/dogs-relation.css" type="text/css">
+{% endblock %}
+
+{% block content %}
+	<main class="dogs-relation">
+		<section class="container">
+			<header>
+				<h1>Nos Chiens</h1>
+			</header>
+			<div>
+				{% for dog in dogs %}
+					{% include 'Component/_card_dog_relation.html.twig' %}
+				{% endfor %}
+			</div>
+		</section>
+	</main>
+{% endblock %}

@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Model\DogManager;
+
 class DogController extends AbstractController
 {
     /**
@@ -11,5 +13,12 @@ class DogController extends AbstractController
     public function beauceron(): string
     {
         return $this->twig->render('Beauceron/beauceron.html.twig');
+    }
+
+    public function index(): string
+    {
+        $dogManager = new DogManager();
+        $dogs = $dogManager->selectAll('name');
+        return $this->twig->render('Relation/index.html.twig', ['dogs' => $dogs]);
     }
 }

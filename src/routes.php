@@ -25,5 +25,6 @@ return [
     'administration/actualites/modifier' => ['AdminActualityController', 'edit', ['id']],
     'connexion' => ['LoginController', 'login'],
     'evenements' => ['EventController', 'index'],
+    'beauceron/nos-chiens' => ['DogController', 'index'],
     'administration/evenements/ajouter' => ['AdminEventController', 'add'],
 ];
