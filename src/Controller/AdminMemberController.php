@@ -19,26 +19,23 @@ class AdminMemberController extends AbstractController
         $errors = $member = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            //nettoyage
             $member = array_map('trim', $_POST);
 
-            $dataErrors = $this->validateData($member);
+            $emptyErrors = $this->validateEmpty($member);
+            $strlenErrors = $this->validateStrlen($member);
             $uploadErrors = $this->validateUpload($_FILES);
 
-            $errors = array_merge($dataErrors, $uploadErrors);
+            $errors = array_merge($emptyErrors, $strlenErrors, $uploadErrors);
 
             if (empty($errors)) {
-                // nom du fichier uploadé
                 $imageName = $this->generateImageName($_FILES['image']);
 
                 $member['image'] = $imageName;
-                // insertion
+
                 $memberManager = new MemberManager();
                 $memberManager->insert($member);
 
-                // move upload
                 move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/../../public/uploads/'  . $imageName);
-                // redirection
             }
             header('Location: /administration/membres');
         }
@@ -49,35 +46,39 @@ class AdminMemberController extends AbstractController
         ]);
     }
 
-    private function validateData(array $member): array
+    private function validateEmpty(array $member): array
     {
         $errors = [];
-        //validation
         if (empty($member['lastname'])) {
-            $errors[] = 'Le champ est obligatoire';
+            $errors[] = 'Le champ nom est obligatoire';
         }
         if (empty($member['firstname'])) {
-            $errors[] = 'Le champ est obligatoire';
+            $errors[] = 'Le champ prénom est obligatoire';
         }
         if (empty($member['job'])) {
-            $errors[] = 'Le champ est obligatoire';
+            $errors[] = 'Le champ post occupé est obligatoire';
         }
         if (empty($member['email'])) {
-            $errors[] = 'Le champ est obligatoire';
+            $errors[] = 'Le champ email est obligatoire';
         }
+        return $errors;
+    }
 
+    private function validateStrlen(array $member): array
+    {
+        $errors = [];
         $maxLength = 50;
         if (mb_strlen($member['firstname']) > $maxLength) {
-            $errors[] = 'Le champ doit faire moins de ' . $maxLength . ' caractères';
+            $errors[] = 'Le champ prénom doit faire moins de ' . $maxLength . ' caractères';
         }
         if (mb_strlen($member['lastname']) > $maxLength) {
-            $errors[] = 'Le champ doit faire moins de ' . $maxLength . ' caractères';
+            $errors[] = 'Le champ nom doit faire moins de ' . $maxLength . ' caractères';
         }
         if (mb_strlen($member['job']) > $maxLength) {
-            $errors[] = 'Le champ doit faire moins de ' . $maxLength . ' caractères';
+            $errors[] = 'Le champ poste occupé doit faire moins de ' . $maxLength . ' caractères';
         }
         if (mb_strlen($member['email']) > $maxLength) {
-            $errors[] = 'Le champ doit faire moins de ' . $maxLength . ' caractères';
+            $errors[] = 'Le champ email doit faire moins de ' . $maxLength . ' caractères';
         }
 
         return $errors;
@@ -102,6 +103,7 @@ class AdminMemberController extends AbstractController
 
         return $errors;
     }
+
     private function generateImageName(array $files)
     {
         $extension = pathinfo($files['name'], PATHINFO_EXTENSION);
