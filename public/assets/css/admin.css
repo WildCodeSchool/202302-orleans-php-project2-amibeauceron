@@ -127,5 +127,23 @@ tr.result-info th {
 
 .form-img {
     width: 30vw;
+}
+
+.container {
+    margin-bottom: 0;
+}
+
+.container.grid {
+    width: 60%;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 0;
+    gap: 0;
+}
+
+form {
+    margin-bottom: 0;
+    box-shadow: var(--card-box-shadow);
+    padding: calc(var(--spacing)*2);
     border-radius: var(--border-radius);
 }
