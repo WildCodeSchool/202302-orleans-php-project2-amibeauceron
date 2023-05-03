@@ -25,5 +25,6 @@ return [
     'administration/actualites/modifier' => ['AdminActualityController', 'edit', ['id']],
     'connexion' => ['LoginController', 'login'],
     'evenements' => ['EventController', 'index'],
+    'administration/evenements' => ['AdminEventController', 'index'],
     'administration/evenements/ajouter' => ['AdminEventController', 'add'],
 ];

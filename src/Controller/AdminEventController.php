@@ -8,6 +8,13 @@ class AdminEventController extends AbstractController
 {
     public const MAX_LENGTH = 255;
 
+    public function index(): string
+    {
+        $eventManager = new EventManager();
+        $events = $eventManager->selectAll('title');
+        return $this->twig->render('Admin/Event/index.html.twig', ['events' => $events]);
+    }
+
     public function add(): string
     {
         $errors = $event = [];
