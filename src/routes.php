@@ -26,5 +26,6 @@ return [
     'connexion' => ['LoginController', 'login'],
     'evenements' => ['EventController', 'index'],
     'administration/beauceron/nos-chiens' => ['Admin\AdminDogController', 'index'],
+    'beauceron/nos-chiens' => ['DogController', 'index'],
     'administration/evenements/ajouter' => ['AdminEventController', 'add'],
 ];
