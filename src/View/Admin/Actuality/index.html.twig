@@ -7,6 +7,9 @@
 	<main>
 		<div class="datas-container">
 			<h1>Gestion Des Actualités</h1>
+			<div class="btn-container">
+				<a class="secondary" role="button" href="/administration/actualites/ajouter">Ajouter</a>
+			</div>
 			<table role="grid">
 				<thead>
 					<tr>
@@ -35,7 +38,7 @@
 								</form>
 							</td>
 							<td>
-								<form action="/administration/actualites/modifier?id={{ actuality.id }}" method="POST">
+								<form action="/administration/actualites/modifier?id={{ actuality.id }}" method="GET">
 									<input type="hidden" id="id" name="id" value="{{ actuality.id }}">
 									<button class="primary outline" role="link">
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewbox="0 0 16 16">
