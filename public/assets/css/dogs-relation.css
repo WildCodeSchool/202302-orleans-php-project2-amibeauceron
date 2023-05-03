@@ -55,8 +55,7 @@ main.dogs-relation {
 
 .dogs-relation article .dog_info {
     border-top: 2px solid var(--secondary);
-    flex-direction: row;
-    gap:var(--spacing);
+    flex-direction: column;
     flex-wrap: wrap;
     padding: var(--spacing);
     letter-spacing: calc(var(--spacing)/9);
