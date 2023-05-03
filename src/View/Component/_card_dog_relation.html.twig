@@ -6,15 +6,15 @@
 	<div class="dog_info">
 		<div>
 			<span class="label">Genre :</span>
-			{{ dog.gender == 'M' ? 'Male' : 'Femmelle' }}
+			{{ dog.gender == 'M' ? 'Male' : 'Femelle' }}
 		</div>
 		<div>
 			<span class="label">Date de naissance :</span>
-			{{ dog.birthdate|date("d/m/Y", "Europe/Paris")  }}
+			{{ dog.birthdate|date("d/m/Y") }}
 		</div>
 		<div>
 			<span class="label">LOF :</span>
-			{{ dog.is_lof == 1 ? 'Oui' : 'Non' }}
+			{{ dog.is_lof ? 'Oui' : 'Non' }}
 		</div>
 		<div>
 			<span class="label">Identifiant :</span>
