@@ -8,6 +8,7 @@ nav {
     width: 100%;
     height: var(--navbar-height);
     background-color: var(--navbar-color);
+    z-index: 2;
 }
 
 nav a {
@@ -16,7 +17,7 @@ nav a {
     font-family: var(--font-text);
 }
 
-nav ul>li:last-child {
+nav ul > li:last-child {
     padding-right: calc(var(--spacing) * 2);
 }
 
