@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Admin;
+namespace App\Controller;
 
 use App\Controller\AbstractController;
 use App\Model\DogManager;
@@ -13,7 +13,7 @@ class AdminDogController extends AbstractController
     public function index(): string
     {
         $dogManager = new DogManager();
-        $dogs = $dogManager->selectAll();
+        $dogs = $dogManager->selectAll('name');
         return $this->twig->render('Admin/Relation/index.html.twig', ['dogs' => $dogs]);
     }
 }
