@@ -17,7 +17,7 @@ nav a {
     font-family: var(--font-text);
 }
 
-nav ul > li:last-child {
+nav ul>li:last-child {
     padding-right: calc(var(--spacing) * 2);
 }
 

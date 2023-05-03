@@ -1,12 +1,18 @@
-{% extends 'layout.html.twig' %}
-
+{% extends 'admin.html.twig' %}
+{% block stylesheet %}
+	{{ parent() }}
+	<link rel="stylesheet" href="/assets/css/errors.css" type="text/css">
+{% endblock %}
+{% block title %}
+	{{ parent() }}
+	| Modifier
+{% endblock %}
 {% block content %}
 	<main>
 		<section class="container">
 			<h1>Modification</h1>
 			{% include 'Component/_errors.html.twig' %}
 			{% include 'Admin/Actuality/_form.html.twig' %}
-			<a href="/administration/actualites/afficher?id={{ actuality.id }}">Back</a>
 		</section>
 	</main>
 {% endblock %}

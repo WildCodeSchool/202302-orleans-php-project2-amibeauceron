@@ -46,23 +46,75 @@ class AdminActualityController extends AbstractController
 
                 // insertion
                 $actualityManager = new ActualityManager();
-                $id = $actualityManager->insert($actuality);
+                $actualityManager->insert($actuality);
 
                 // move upload if file not empty
                 if (!empty($_FILES['image']['tmp_name'])) {
                     move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/../../public/uploads/' . $imageName);
                 }
                 // redirection
-                header('Location:/administration/actualites/afficher?id=' . $id);
+                header('Location:/administration/actualites');
                 exit();
             }
         }
         return $this->twig->render('Admin/Actuality/add.html.twig', ['actuality' => $actuality, 'errors' => $errors]);
     }
 
+    public function edit(int $id): string
+    {
+        // We get back the acutality object from database
+        $actualityManager = new ActualityManager();
+        $actuality = $actualityManager->selectOneById($id);
+        // We get back the path of the image form db, is not returned by the FORM ! (we get back by $FILE)
+        $lastImage = $actuality['image_path'];
+        // init Errors
+        $errors = [];
+
+        // Check Post request ask
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Clean datas
+            $actuality = array_map('trim', $_POST);
+
+            // Validation
+            $dataErrors = $this->validateData($actuality);
+            $uploadErrors = $this->validateUpload($_FILES);
+
+            $errors = array_merge($dataErrors, $uploadErrors);
+
+            if (empty($errors)) {
+                // insert
+                $actuality['image_path'] = $lastImage;
+
+                // uniquement si on met un nouveau fichier en upload. Si on laisse le champ vide,
+                // on ne réécrase pas ce qu'il y a en base
+                if (!empty($_FILES['image']['tmp_name'])) {
+                    // on efface l'ancien fichier (nom récupéré au début de la méthode)
+                    if (!empty($actuality['image_path'])) {
+                        $this->deleteFile($actuality['image_path']);
+                    }
+
+                    // on créé un nouveau nom pour le nouveau fichier
+                    $imageName = $this->generateImageName($_FILES['image']);
+                    $actuality['image_path'] = $imageName;
+                    move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/../../public/uploads/'  . $imageName);
+                }
+
+                $actualityManager->update($actuality);
+
+                // redirection
+                header('Location: /administration/actualites');
+            }
+        }
+
+        return $this->twig->render('Admin/Actuality/edit.html.twig', [
+            'actuality' => $actuality,
+            'errors' => $errors,
+        ]);
+    }
     private function validateData(array $actuality): array
     {
         $errors = [];
+
         if (empty($actuality['title'])) {
             $errors[] = "Veuillez renseigner le Titre, zone obligatoire.";
         }
@@ -121,5 +173,31 @@ class AdminActualityController extends AbstractController
         $extension = pathinfo($files['name'], PATHINFO_EXTENSION);
         $baseFilename = pathinfo($files['name'], PATHINFO_FILENAME);
         return uniqid($baseFilename, more_entropy: true) . '.' . $extension;
+    }
+
+    public function delete(int $id): void
+    {
+        // Check Post Resquest
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // delete en bdd
+            $actualityManager = new ActualityManager();
+            $actuality = $actualityManager->selectOneById($id);
+
+            // supprimer un fichier existant
+            $this->deleteFile($actuality['image_path']);
+            // delete row
+            $actualityManager->delete($id);
+
+            // redirec admin/pneus
+            header('Location: /admininistration/actualites');
+        }
+    }
+
+    // delete file (on delete and l'update)
+    private function deleteFile(?string $fileName)
+    {
+        if (!empty($fileName) && file_exists(__DIR__ . '/../../public/uploads/' . $fileName)) {
+            unlink(__DIR__ . '/../../public/uploads/' . $fileName);
+        }
     }
 }

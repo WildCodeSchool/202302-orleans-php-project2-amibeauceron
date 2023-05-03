@@ -1,0 +1,107 @@
+section.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section.login header > h1 {
+    --typography-spacing-vertical: 0;
+}
+
+.login article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgba(var(--primary-color), 0.2);
+    border-radius: var(--spacing);
+    width: clamp(350px, 50vw, 600px);
+    gap: var(--spacing);
+    margin: var(--spacing);
+    padding-block-end: var(--spacing);
+    --stagger-delay: 150ms;
+    animation: 400ms FadeInAnimation var(--stagger-delay) ease-out;
+    animation-fill-mode: backwards;
+    animation-iteration-count: 1;
+}
+
+.login .icon-person-circle {
+    align-self: center;
+    width: clamp(120px, 13vw, 250px);
+    height: auto;
+    padding-inline: var(--spacing);
+    color: var(--light);
+}
+
+.login form > div {
+    display: flex;
+    flex-direction: row;
+}
+
+.login form > div > input {
+    --border-color: var(--form-element-placeholder-color);
+    margin-block-start: var(--spacing);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    background-color: var(--light);
+    width: 85%;
+}
+
+.login form {
+    margin-block: var(--spacing);
+}
+
+.login form > div > label {
+    --background-color: var(--light);
+    --border-color: var(--form-element-placeholder-color);
+    --color: var(--form-element-placeholder-color);
+    margin-block-start: var(--spacing);
+    padding: var(--form-element-spacing-vertical) var(--form-element-spacing-horizontal);
+    border: var(--border-width) solid var(--border-color);
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    background-color: var(--background-color);
+    text-align: center;
+    color: var(--color);
+    height: calc(1rem * var(--line-height) + var(--form-element-spacing-vertical) * 2 + var(--border-width) * 2);
+    width: 15%;
+}
+
+.login form > div > label > svg {
+    width: clamp(20px, 1.7vw, 30px);
+    height: auto;
+}
+
+.login .container-button > button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-block-start: calc(var(--spacing)*3);
+    margin-block-end: var(--spacing);
+    font-size: calc(var(--font-size)*1.5);
+    font-weight: 600;
+}
+
+.login .container-button > button > svg {
+    position: relative;
+    right: 7vw;
+    width: clamp(24px, 1.8vw, 34px);
+    height: auto;
+}
+
+.login .info {
+    justify-content: end;
+    color: var(--intermediate);
+    font-size: calc(var(--font-size)*2/3);
+}
+
+@keyframes FadeInAnimation {
+    from {
+        opacity: 0.3;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
