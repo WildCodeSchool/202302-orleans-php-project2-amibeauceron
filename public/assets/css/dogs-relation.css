@@ -1,0 +1,156 @@
+main.dogs-relation {
+    background-image: url("../images/empreintechienblanc.png");
+    background-color: var(--light);
+    background-repeat: repeat-y;
+    background-size: 35%;
+    background-position: 80% 30%;
+    margin-block-start: var(--navbar-height);
+}
+
+.dogs-relation section > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--spacing);
+    padding: var(--spacing);
+}
+
+.dogs-relation article{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: auto;
+    --block-spacing-horizontal: calc(var(--spacing)*2);
+    --stagger-delay: 450ms;
+    animation: 400ms FadeInAnimation var(--stagger-delay) ease-out;
+    animation-fill-mode: backwards;
+    animation-iteration-count: 1;
+}
+
+.dogs-relation section h1 {
+    color: var(--primary);
+    font-family: var(--font-title);
+    text-align: center;
+}
+
+.dogs-relation article header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-block-end: var(--spacing);
+}
+
+.dogs-relation article h2 {
+    font-size: clamp(1.4rem, 4vw, calc(var(--font-size)*1.5));
+    color: var(--secondary);
+    padding: 0;
+    margin: 0;
+    align-self: center;
+}
+
+.dogs-relation article > div {
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(0.8rem, 1vw, calc(var(--font-size)*3/2));
+}
+
+.dogs-relation article .dog_info {
+    border-top: 2px solid var(--secondary);
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: var(--spacing);
+    letter-spacing: calc(var(--spacing)/9);
+}
+
+.dogs-relation article .label {
+    color: var(--dark);
+    font-weight: 900;
+    font-size: clamp(0.8rem, 0.9vw, calc(var(--font-size)*3/2));
+}
+
+.dogs-relation article .content {
+    padding: var(--spacing);
+    font-style: var(--font-text);
+    height: 16vh;
+}
+
+.dogs-relation article img.img-dog {
+    height: clamp(180px, 35vh, 800px);
+}
+
+.dogs-relation article footer {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    margin-top: var(--spacing);
+    padding: var(--spacing);
+    letter-spacing: calc(var(--spacing)/9);
+}
+.dogs-relation article footer div {
+    align-self: center;
+    grid-row: 1/2;
+    color:var(--intermediate);
+}
+
+.dogs-relation article footer .owner_info {
+    flex-direction: column;
+    gap:var(--spacing);
+    padding: var(--spacing);
+    color: var(--primary);
+    font-size: clamp(0.8rem, 0.8vw, calc(var(--font-size)*3/2));
+}
+.dogs-relation article .people_icon {
+    align-self: center;
+    align-items: center;
+    color: var(--secondary);
+    height: clamp(30px, 13vw, 80px);
+    width: auto;
+    padding-inline: var(--spacing);
+}
+
+@keyframes FadeInAnimation {
+    from {
+        opacity: 0.3;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media screen and (width <=500px) {
+    .dogs-relation section > div {
+        grid-template-columns: 1fr;
+    }
+
+    .dogs-relation article img.img-dog {
+        height: clamp(80px, 25vh, 350px);
+    }
+
+    .dogs-relation article .people_icon {
+        display: none;
+    }
+
+    .dogs-relation article footer {
+        grid-template-columns: 1fr;
+        letter-spacing: 0;
+    }
+
+    .dogs-relation article footer div {
+        grid-row: auto;
+    }
+
+    .dogs-relation article footer .owner_info div {
+        display: flex;
+        gap: calc(var(--spacing)/2);
+        padding: calc(var(--spacing)/4);
+    }
+
+    .dogs-relation article .dog_info {
+        gap: calc(var(--spacing)/2);
+    }
+
+    .dogs-relation article .dog_info > div {
+        letter-spacing: 0;
+    }
+}

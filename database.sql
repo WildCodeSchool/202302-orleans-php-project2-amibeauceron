@@ -329,4 +329,117 @@ VALUES (
         'Professeur de physique-chimie',
         'walter.white@gmail.com',
         ''
+<<<<<<< HEAD
+=======
+    );
+
+--
+
+-- Creation de la table `user`
+
+--
+
+DROP TABLE IF EXISTS user;
+
+CREATE TABLE
+    `user` (
+        `id` INT NOT NULL AUTO_INCREMENT,
+        `email` VARCHAR(100) NOT NULL,
+        `password` CHAR(60) NOT NULL,
+        PRIMARY KEY (`id`),
+        UNIQUE KEY unique_email (email),
+        UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE
+    ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
+
+--
+
+-- Contenu de la table `user`
+
+--
+
+INSERT INTO
+    `user` (`email`, `password`)
+VALUES (
+        'admin@wildcodeschool.fr',
+        '$2y$10$MlkN4ClnzqN6vjmaCELJ4uKYj0X85PkURYFASzFMTx77NZMB8JEZG'
+    );
+
+--
+
+-- Creation de la table `dog`
+
+--
+
+DROP TABLE IF EXISTS dog;
+
+CREATE TABLE
+    `dog` (
+        `id` INT NOT NULL AUTO_INCREMENT,
+        `owner` VARCHAR(45) NOT NULL,
+        `owner_city` VARCHAR(45) NULL,
+        `owner_email` VARCHAR(45) NOT NULL,
+        `name` VARCHAR(45) NOT NULL,
+        `gender` CHAR(1) NOT NULL DEFAULT 'M',
+        `birthdate` DATE NULL,
+        `is_lof` TINYINT NOT NULL DEFAULT 1,
+        `identity_number` VARCHAR(45) NOT NULL,
+        `image` VARCHAR(255) NULL,
+        `description` TEXT NOT NULL,
+        PRIMARY KEY (`id`),
+        UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE
+    ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
+
+--
+
+-- Contenu de la table `dog`
+
+--
+
+INSERT INTO
+    `dog` (
+        `owner`,
+        `owner_city`,
+        `owner_email`,
+        `name`,
+        `gender`,
+        `birthdate`,
+        `is_lof`,
+        `identity_number`,
+        `image`,
+        `description`
+    )
+VALUES (
+        'Mme GERBAC Christine',
+        'AIGUILLON (47190)',
+        'christine-gerbac@gmail.com',
+        'RIRI',
+        'F',
+        DATE_ADD(NOW(), INTERVAL -31 DAY),
+        1,
+        '015156574949849',
+        'dog-1.jpg',
+        'REBECCA-RUAH ARGENTEE DE SAINTE PETRONILLE (Arlequin) Cotation 2 Dys HD-A par SAMSON DES PLAINES DE LA SAINTE VICTOIRE Cotation 1 Dys HD-A. Note 2+1=3'
+    ), (
+        'M. JOURNAULT Eric',
+        'BEDDES (18370)',
+        'journault-eric@outlook.com',
+        'FIFI',
+        'M',
+        DATE_ADD(NOW(), INTERVAL -15 DAY),
+        0,
+        '015897574949849',
+        'dog-2.jpg',
+        'OPALE LA COTE (Arlequin) Cotation 1 Dys HD-A par PHARO DES CONTES DE L\'ABREUVAGE Cotation 1 Dys HD-A. Note 1+1=2'
+    ), (
+        'M. COLAS David',
+        'ANGERVILLE (91670)',
+        'colas-david@gmail.com',
+        'LOULOU',
+        'M',
+        DATE_ADD(NOW(), INTERVAL -15 DAY),
+        0,
+        '015897574949849',
+        NULL,
+        'OLYMPE ARGENTEE DU MONT DES CROISETTES (Arelquin) Cotation 2 Dys HD-A par LOOPING DE LA TERRE DES LIONS Cotation 1. Note 2+1=3'
+>>>>>>> dev
     );
