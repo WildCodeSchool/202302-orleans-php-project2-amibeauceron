@@ -30,5 +30,6 @@ return [
     'administration/nos-chiens' => ['AdminDogController', 'index'],
     'nos-chiens' => ['DogController', 'index'],
     'administration/evenements/ajouter' => ['AdminEventController', 'add'],
+    'administration/evenements/modifier' => ['AdminEventController', 'update', ['id']],
     'association'  => ['MemberController', 'index'],
 ];
