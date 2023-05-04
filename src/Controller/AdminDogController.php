@@ -28,7 +28,7 @@ class AdminDogController extends AbstractController
      */
     public function add(): string
     {
-        $dog = $errors = $dataEmptyErrors = $dataFormatErrors = $uploadErrors = [];
+        $dog = $errors = $dataExistErrors = $dataFormatErrors = $dataLengthErrors = $uploadErrors = [];
         $imageName = null;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -36,14 +36,15 @@ class AdminDogController extends AbstractController
             $dog = array_map('trim', $_POST);
 
             // Validations
-            $dataEmptyErrors = $this->validateEmptyData($dog);
-            $dataFormatErrors = $this->validateFormatData($dog);
+            $dataExistErrors = $this->validateDataExist($dog);
+            $dataLengthErrors = $this->validateDataLength($dog);
+            $dataFormatErrors = $this->validateDataFormat($dog);
 
             // Validation upload
             $uploadErrors = $this->validateUpload($_FILES);
 
             // Merge des tableaux d'erreurs sous un seul array
-            $errors = array_merge($dataEmptyErrors, $dataFormatErrors, $uploadErrors);
+            $errors = array_merge($dataExistErrors, $dataLengthErrors, $dataFormatErrors, $uploadErrors);
 
             // if validation is ok, insert and redirection
             if (empty($errors)) {
@@ -81,11 +82,31 @@ class AdminDogController extends AbstractController
             ['dog' => $dog, 'errors' => $errors, 'lengthFields' => $lengthFields]
         );
     }
-
-    private function validateFormatData(array $dog): array
+    private function validateDataFormat(array $dog): array
     {
         $errors = [];
         $genders = ['F', 'M'];
+
+        if (
+            !filter_var($dog['owner_email'], FILTER_VALIDATE_EMAIL) ||
+            !filter_var($dog['owner_email'], FILTER_SANITIZE_EMAIL)
+        ) {
+            $errors[] = "Le format du mail est incorrect";
+        }
+
+        if (!in_array($dog['gender'], $genders)) {
+            $errors[] = "Le genre " . $dog['gender'] . " est incorrect, il doit correspondre " .
+                "à l'une des valeurs suivantes : " . implode(', ', $genders);
+        }
+        if (!is_numeric($dog['identity_number'])) {
+            $errors[] = "Le numéro d'identification du chien doit être une valeur numérique";
+        }
+
+        return $errors;
+    }
+    private function validateDataLength(array $dog): array
+    {
+        $errors = [];
 
         if (mb_strlen($dog['owner']) > self::MAX_LENGTH_OWNER) {
             $errors[] = "Le nom du propriétaire doit faire un maximum de " . self::MAX_LENGTH_OWNER .
@@ -107,31 +128,15 @@ class AdminDogController extends AbstractController
                 " caractères (actuellement: " . mb_strlen($dog['owner_email']) . ")";
         }
 
-        if (
-            !filter_var($dog['owner_email'], FILTER_VALIDATE_EMAIL) ||
-            !filter_var($dog['owner_email'], FILTER_SANITIZE_EMAIL)
-        ) {
-            $errors[] = "Le format du mail est incorrect";
-        }
-
-        if (!in_array($dog['gender'], $genders)) {
-            $errors[] = "Le genre " . $dog['gender'] . " est incorrect, il doit correspondre " .
-                "à l'une des valeurs suivantes : " . implode(', ', $genders);
-        }
-
         // Numero icad = 15 chiffres qui identifie votre animal
         if (mb_strlen($dog['identity_number']) != self::LENGTH_DOG_NUMBER) {
             $errors[] = "Le numéro d'identification du chien doit faire " . self::LENGTH_DOG_NUMBER .
                 " caractères (actuellement: " . mb_strlen($dog['identity_number']) . ")";
         }
-
-        if (!is_numeric($dog['identity_number'])) {
-            $errors[] = "Le numéro d'identification du chien doit être une valeur numérique";
-        }
         return $errors;
     }
 
-    private function validateEmptyData(array $dog): array
+    private function validateDataExist(array $dog): array
     {
         $errors = [];
 
