@@ -296,11 +296,11 @@ DROP TABLE IF EXISTS member;
 CREATE TABLE
     member(
         id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-        lastname VARCHAR(50) NOT NULL,
-        firstname VARCHAR(50) NOT NULL,
-        job VARCHAR(50) NOT NULL,
-        email VARCHAR(50) NOT NULL,
-        photo VARCHAR(255)
+        lastname VARCHAR(100) NOT NULL,
+        firstname VARCHAR(100) NOT NULL,
+        job VARCHAR(100) NOT NULL,
+        email VARCHAR(100) NOT NULL,
+        image VARCHAR(255)
     );
 
 INSERT INTO
@@ -309,7 +309,7 @@ INSERT INTO
         `firstname`,
         `job`,
         `email`,
-        `photo`
+        `image`
     )
 VALUES (
         'Scofield',
@@ -329,6 +329,8 @@ VALUES (
         'Professeur de physique-chimie',
         'walter.white@gmail.com',
         ''
+<<<<<<< HEAD
+=======
     );
 
 --
@@ -439,4 +441,5 @@ VALUES (
         '015897574949849',
         NULL,
         'OLYMPE ARGENTEE DU MONT DES CROISETTES (Arelquin) Cotation 2 Dys HD-A par LOOPING DE LA TERRE DES LIONS Cotation 1. Note 2+1=3'
+>>>>>>> dev
     );
