@@ -6,7 +6,6 @@ use App\Model\MemberManager;
 
 class MemberController extends AbstractController
 {
-
     public function index(): string
     {
         $memberManager = new MemberManager();
