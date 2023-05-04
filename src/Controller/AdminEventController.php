@@ -71,7 +71,7 @@ class AdminEventController extends AbstractController
 
             $authorizedMimes = ['image/jpeg', 'image/png', 'image/webp'];
             if (!in_array(mime_content_type($files['image']['tmp_name']), $authorizedMimes)) {
-                $errors[] = 'Le type de fichier est incorrect. Types autorisées : ' . implode(', ', $authorizedMimes);
+                $errors[] = 'Le type de fichier est incorrect. Types autorisés : ' . implode(', ', $authorizedMimes);
             }
         }
 
