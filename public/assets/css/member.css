@@ -1,5 +1,4 @@
-main.last-tree-actuality {
-    background-image: url("../images/empreintechienblanc.png");
+main {
     background-color: var(--light);
     background-repeat: repeat-y;
     background-size: 20%;
@@ -7,13 +6,13 @@ main.last-tree-actuality {
     padding-top: calc(var(--spacing) * 2);
 }
 
-.last-tree-actuality section > div {
+section > div {
     display: grid;
     gap: var(--spacing);
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
 
-.last-tree-actuality article.small-card {
+article.small-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -26,7 +25,7 @@ main.last-tree-actuality {
     animation-iteration-count: 1;
 }
 
-.last-tree-actuality article.small-card header {
+article.small-card header {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,13 +34,13 @@ main.last-tree-actuality {
     object-fit: cover;
 }
 
-.last-tree-actuality section > header > h1 {
+section > header > h1 {
     color: var(--primary);
     font-family: var(--font-title);
     text-align: center;
 }
 
-.last-tree-actuality article.small-card h2 {
+article.small-card h2 {
     font-size: clamp(1.2rem, 1.2vw, calc(var(--font-size)*3/2));
     color: var(--secondary);
     padding-block: var(--spacing);
@@ -49,28 +48,24 @@ main.last-tree-actuality {
     font-weight: 700;
 }
 
-.last-tree-actuality img.img-actuality {
+img.img-member {
     width: clamp(80px, 20vw, 200px);
 }
 
-.last-tree-actuality article.small-card > div {
+article.small-card > div {
     display: flex;
     flex-direction: column;
     height: 15vh;
     font-size: clamp(1.2rem, 1.2vw, calc(var(--font-size)*3/2));
 }
 
-.last-tree-actuality article.small-card small {
-    align-self: end;
-}
-
-.last-tree-actuality article.small-card .content {
+article.small-card .job-member {
     font-size: clamp(0.8rem, 1vw, var(--font-size));
     font-style: var(--font-text);
     height: 10vh;
 }
 
-.last-tree-actuality article.small-card > footer {
+article.small-card > footer {
     display: flex;
     flex-direction: row-reverse;
     margin-top: var(--spacing);
@@ -79,7 +74,7 @@ main.last-tree-actuality {
     padding: calc(var(--block-spacing-vertical) * .4) var(--block-spacing-horizontal);
 }
 
-.last-tree-actuality article.small-card > footer a[role="button"] {
+article.small-card > footer a[role="button"] {
     width: clamp(6rem, 10vw, 8rem);
     padding: calc(var(--spacing) / 3) calc(var(--spacing) / 3);
     border-radius: 0;
