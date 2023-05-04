@@ -380,7 +380,7 @@ CREATE TABLE
         `gender` CHAR(1) NOT NULL DEFAULT 'M',
         `birthdate` DATE NULL,
         `is_lof` TINYINT NOT NULL DEFAULT 1,
-        `identity_number` VARCHAR(45) NOT NULL,
+        `identity_number` CHAR(15) NOT NULL,
         `image` VARCHAR(255) NULL,
         `description` TEXT NOT NULL,
         PRIMARY KEY (`id`),
