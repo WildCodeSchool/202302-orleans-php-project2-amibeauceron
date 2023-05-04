@@ -68,7 +68,7 @@ class AdminDogController extends AbstractController
             }
         }
 
-        $LengthFields = [
+        $lengthFields = [
             'MAX_LENGTH_OWNER' => self::MAX_LENGTH_OWNER,
             'MAX_LENGTH_OWNER_CITY' => self::MAX_LENGTH_OWNER_CITY,
             'MAX_LENGTH_OWNER_EMAIL' => self::MAX_LENGTH_OWNER_EMAIL,
@@ -78,7 +78,7 @@ class AdminDogController extends AbstractController
 
         return $this->twig->render(
             'Admin/Relation/add.html.twig',
-            ['dog' => $dog, 'errors' => $errors, 'LengthFields' => $LengthFields]
+            ['dog' => $dog, 'errors' => $errors, 'lengthFields' => $lengthFields]
         );
     }
 
@@ -107,12 +107,11 @@ class AdminDogController extends AbstractController
                 " caractères (actuellement: " . mb_strlen($dog['owner_email']) . ")";
         }
 
-        if (!filter_var($dog['owner_email'], FILTER_VALIDATE_EMAIL)) {
+        if (
+            !filter_var($dog['owner_email'], FILTER_VALIDATE_EMAIL) ||
+            !filter_var($dog['owner_email'], FILTER_SANITIZE_EMAIL)
+        ) {
             $errors[] = "Le format du mail est incorrect";
-        }
-
-        if (!filter_var($dog['owner_email'], FILTER_SANITIZE_EMAIL)) {
-            $errors[] = "Le mail est incorrect, il contient des caractères invalides";
         }
 
         if (!in_array($dog['gender'], $genders)) {
@@ -120,10 +119,14 @@ class AdminDogController extends AbstractController
                 "à l'une des valeurs suivantes : " . implode(', ', $genders);
         }
 
-        // Numero icad = 15 chiffres qui identifie votre animal 
+        // Numero icad = 15 chiffres qui identifie votre animal
         if (mb_strlen($dog['identity_number']) != self::LENGTH_DOG_NUMBER) {
             $errors[] = "Le numéro d'identification du chien doit faire " . self::LENGTH_DOG_NUMBER .
                 " caractères (actuellement: " . mb_strlen($dog['identity_number']) . ")";
+        }
+
+        if (!is_numeric($dog['identity_number'])) {
+            $errors[] = "Le numéro d'identification du chien doit être une valeur numérique";
         }
         return $errors;
     }
