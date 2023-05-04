@@ -35,12 +35,6 @@ main.last-tree-actuality {
     object-fit: cover;
 }
 
-.last-tree-actuality section > header > h1 {
-    color: var(--primary);
-    font-family: var(--font-title);
-    text-align: center;
-}
-
 .last-tree-actuality article.small-card h2 {
     font-size: clamp(1.2rem, 1.2vw, calc(var(--font-size)*3/2));
     color: var(--secondary);
