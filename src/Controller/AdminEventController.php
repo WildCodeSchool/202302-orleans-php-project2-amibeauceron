@@ -61,18 +61,19 @@ class AdminEventController extends AbstractController
     private function validateUpload(array $files): array
     {
         $errors = [];
-        if ($files['image']['name'] && $files['image']['error'] !== 0) {
-            $errors[] = 'Problème avec l\'upload, veuillez réessayer';
-        } elseif ($files['image']['name']) {
-            $limitFileSize = '1000000';
-            if ($files['image']['size'] > $limitFileSize) {
-                $errors[] = 'Le fichier doit faire moins de ' . $limitFileSize / 1000000 . 'Mo';
-            }
+        $limitFileSize = '1000000';
+        $authorizedMimes = ['image/jpeg', 'image/png', 'image/webp'];
 
-            $authorizedMimes = ['image/jpeg', 'image/png', 'image/webp'];
-            if (!in_array(mime_content_type($files['image']['tmp_name']), $authorizedMimes)) {
-                $errors[] = 'Le type de fichier est incorrect. Types autorisés : ' . implode(', ', $authorizedMimes);
-            }
+        if ($files['image']['error'] !== 0) {
+            $errors[] = 'Problème avec l\'upload, veuillez réessayer';
+        }
+
+        if ($files['image']['size'] > $limitFileSize) {
+            $errors[] = 'Le fichier doit faire moins de ' . $limitFileSize / 1000000 . 'Mo';
+        }
+
+        if (!in_array(mime_content_type($files['image']['tmp_name']), $authorizedMimes)) {
+            $errors[] = 'Le type de fichier est incorrect. Types autorisés : ' . implode(', ', $authorizedMimes);
         }
 
         return $errors;
