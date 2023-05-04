@@ -8,7 +8,7 @@
 		<div class="datas-container">
 			<h1>Gestion Des Chiens Du Club</h1>
 			<div class="btn-container">
-				<a class="secondary" role="button" href="/administration/beauceron/nos-chiens/ajouter">Ajouter</a>
+				<a class="secondary" role="button" href="/administration/nos-chiens/ajouter">Ajouter</a>
 			</div>
 			<table role="grid">
 				<thead>
@@ -32,7 +32,7 @@
 							<td>{{ dog.is_lof }}</td>
 							<td>{{ dog.birthdate|date("d/m/Y") }}</td>
 							<td>
-								<form action="/administration/beauceron/nos-chiens/supprimer?id={{ dog.id }}" method="POST">
+								<form action="/administration/nos-chiens/supprimer?id={{ dog.id }}" method="POST">
 									<input type="hidden" id="id" name="id" value="{{ dog.id }}">
 									<button class="primary outline" role="link">
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewbox="0 0 16 16">
@@ -43,7 +43,7 @@
 								</form>
 							</td>
 							<td>
-								<form action="/administration/beauceron/nos-chiens/modifier?id={{ dog.id }}" method="GET">
+								<form action="/administration/nos-chiens/modifier?id={{ dog.id }}" method="GET">
 									<input type="hidden" id="id" name="id" value="{{ dog.id }}">
 									<button class="primary outline" role="link">
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewbox="0 0 16 16">

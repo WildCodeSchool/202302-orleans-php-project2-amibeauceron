@@ -3,22 +3,22 @@
 		<input type="hidden" value="{{ dog.id }}" name="id">
 
 		<label for="owner">Propriétaire</label>
-		<input type="text" name="owner" id="owner" maxlength="{{ lengthFields.MAX_LENGTH_OWNER }}" size="{{ lengthFields.MAX_LENGTH_OWNER }}" placeholder='Nom du propri&nbsp;taire...' value="{{ dog.owner ?? '' }}" required>
+		<input type="text" name="owner" id="owner" maxlength="{{ constant('App\\Controller\\AdminDogController::MAX_LENGTH_OWNER') }}" placeholder='Nom du propri&nbsp;taire...' value=" {{ dog.owner ?? '' }} " required>
 
-		<label for="owner_city">Ville</label>
-		<input type="text" name="owner_city" id="owner_city" maxlength="{{ lengthFields.MAX_LENGTH_OWNER_CITY }}" size="{{ lengthFields.MAX_LENGTH_OWNER_CITY }}" placeholder='Ville du propri&nbsp;taire...' value="{{ dog.owner_city ?? '' }}">
+		<label for=" owner_city">Ville</label>
+		<input type="text" name="owner_city" id="owner_city" maxlength="{{ constant('App\\Controller\\AdminDogController::MAX_LENGTH_OWNER_CITY') }}" placeholder='Ville du propri&nbsp;taire...' value="{{ dog.owner_city ?? '' }}">
 
 		<label for="owner_email">Mail</label>
-		<input type="email" name="owner_email" id="owner_email" maxlength="{{ lengthFields.MAX_LENGTH_OWNER_EMAIL }}" size="{{ lengthFields.MAX_LENGTH_OWNER_EMAIL }}" pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}" placeholder='Mail du propri&nbsp;taire...' value="{{ dog.owner_email ?? '' }}" required>
+		<input type="email" name="owner_email" id="owner_email" maxlength="{{ constant('App\\Controller\\AdminDogController::MAX_LENGTH_OWNER_EMAIL') }}" pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}" placeholder='Mail du propri&nbsp;taire...' value="{{ dog.owner_email ?? '' }}" required>
 
 		<label for="name">Nom du chien</label>
-		<input type="text" name="name" id="name" maxlength="{{ lengthFields.MAX_LENGTH_DOG_NAME }}" size="{{ lengthFields.MAX_LENGTH_DOG_NAME }}" placeholder='Nom du chien...' value="{{ dog.name ?? '' }}" required>
+		<input type="text" name="name" id="name" maxlength="{{ constant('App\\Controller\\AdminDogController::MAX_LENGTH_DOG_NAME') }}" placeholder='Nom du chien...' value="{{ dog.name ?? '' }}" required>
 
 		<label for="birthdate">Date de chien</label>
 		<input type="date" name="birthdate" id="birthdate" pattern="\d{4}-\d{2}-\d{2}" value="{{ dog.birthdate ?? '' }}">
 
 		<label for="identity_number">Numéro I-CAD</label>
-		<input type="text" name="identity_number" id="identity_number" minlength="{{ lengthFields.LENGTH_DOG_NUMBER }}" maxlength="{{ lengthFields.LENGTH_DOG_NUMBER }}" placeholder='Numéro I-CAD...' value="{{ dog.identity_number ?? '' }}" required>
+		<input type="text" name="identity_number" id="identity_number" minlength="{{ constant('App\\Controller\\AdminDogController::LENGTH_DOG_NUMBER') }}" maxlength="{{ constant('App\\Controller\\AdminDogController::LENGTH_DOG_NUMBER') }}" placeholder='Numéro I-CAD...' value="{{ dog.identity_number ?? '' }}" required>
 
 		<label for="is_lof" class="option-label">L.O.F</label>
 		<div class="option-container">
@@ -50,5 +50,5 @@
 	</form>
 </div>
 <div>
-	<a href="/administration/beauceron/nos-chiens">Back</a>
+	<a href="/administration/nos-chiens">Back</a>
 </div>

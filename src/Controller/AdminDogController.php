@@ -69,17 +69,9 @@ class AdminDogController extends AbstractController
             }
         }
 
-        $lengthFields = [
-            'MAX_LENGTH_OWNER' => self::MAX_LENGTH_OWNER,
-            'MAX_LENGTH_OWNER_CITY' => self::MAX_LENGTH_OWNER_CITY,
-            'MAX_LENGTH_OWNER_EMAIL' => self::MAX_LENGTH_OWNER_EMAIL,
-            'MAX_LENGTH_DOG_NAME' => self::MAX_LENGTH_DOG_NAME,
-            'LENGTH_DOG_NUMBER' => self::LENGTH_DOG_NUMBER,
-        ];
-
         return $this->twig->render(
             'Admin/Relation/add.html.twig',
-            ['dog' => $dog, 'errors' => $errors, 'lengthFields' => $lengthFields]
+            ['dog' => $dog, 'errors' => $errors]
         );
     }
     private function validateDataFormat(array $dog): array

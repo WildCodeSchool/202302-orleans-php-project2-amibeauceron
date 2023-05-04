@@ -25,8 +25,8 @@ return [
     'administration/actualites/modifier' => ['AdminActualityController', 'edit', ['id']],
     'connexion' => ['LoginController', 'login'],
     'evenements' => ['EventController', 'index'],
-    'administration/beauceron/nos-chiens' => ['AdminDogController', 'index'],
-    'beauceron/nos-chiens' => ['DogController', 'index'],
+    'administration/nos-chiens' => ['AdminDogController', 'index'],
+    'nos-chiens' => ['DogController', 'index'],
     'administration/evenements/ajouter' => ['AdminEventController', 'add'],
-    'administration/beauceron/nos-chiens/ajouter' => ['AdminDogController', 'add'],
+    'administration/nos-chiens/ajouter' => ['AdminDogController', 'add'],
 ];
