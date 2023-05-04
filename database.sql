@@ -47,6 +47,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `item`
 
 --
+DROP TABLE IF EXISTS item;
 
 CREATE TABLE
     `item` (
@@ -113,6 +114,7 @@ ALTER TABLE
 -- Structure de la table `actuality`
 
 --
+DROP TABLE IF EXISTS actuality;
 
 CREATE TABLE
     `actuality` (
@@ -244,6 +246,8 @@ VALUES (
         NULL
     );
 
+DROP TABLE IF EXISTS evenement;
+
 CREATE TABLE
     `evenement`(
         `id` INT NOT NULL AUTO_INCREMENT,
@@ -290,6 +294,8 @@ VALUES (
     );
 
 /********************TABLE MEMBER LIST****************/
+
+DROP TABLE IF EXISTS member;
 
 CREATE TABLE
     member(
