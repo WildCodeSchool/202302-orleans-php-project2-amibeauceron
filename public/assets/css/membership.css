@@ -2,10 +2,21 @@
     display: flex;
     flex-direction: column;
     gap: calc(var(--spacing)*3);
+
 }
 
-header {
+body>header {
     display: flex;
     justify-content: center;
-    padding: 0;
+    --block-spacing-vertical: 0;
 }
+
+button {
+    color: var(--secondary);
+    background-color: black;
+    border-radius: 1vw;
+    width: 12rem;
+}
+
+
+
