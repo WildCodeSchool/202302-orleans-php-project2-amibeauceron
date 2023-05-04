@@ -24,12 +24,12 @@
 			<input type="text" name="job" id="job" required value="{{ member.job }}">
 
 			<label for="email">Email</label>
-			<input type="text" name="email" id="email" required value="{{ member.email }}">
+			<input type="email" name="email" id="email" required value="{{ member.email }}">
 
 			<label for="image">Ajouter une photo</label>
 			<input type="file" id="image" name="image" accept="image/*" required>
 
-			<button type="submit">Ajouter</button>
+			<button>Ajouter</button>
 		</form>
 	</main>
 {% endblock %}

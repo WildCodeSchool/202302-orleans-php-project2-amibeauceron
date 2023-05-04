@@ -67,7 +67,7 @@ class AdminMemberController extends AbstractController
     private function validateStrlen(array $member): array
     {
         $errors = [];
-        $maxLength = 50;
+        $maxLength = 100;
         if (mb_strlen($member['firstname']) > $maxLength) {
             $errors[] = 'Le champ prénom doit faire moins de ' . $maxLength . ' caractères';
         }

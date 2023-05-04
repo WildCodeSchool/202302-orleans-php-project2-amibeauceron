@@ -13,7 +13,6 @@
 			<table role="grid">
 				<thead>
 					<tr>
-						<th scope="col">id</th>
 						<th scope="col">Nom</th>
 						<th scope="col">Prénom</th>
 						<th scope="col">Fonction</th>
@@ -24,7 +23,6 @@
 				<tbody>
 					{% for member in members %}
 						<tr>
-							<td scope="row">{{ member.id }}</td>
 							<td>{{ member.firstname }}</td>
 							<td>{{ member.lastname }}</td>
 							<td>{{ member.job }}</td>
