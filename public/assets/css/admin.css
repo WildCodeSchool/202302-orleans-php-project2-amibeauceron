@@ -20,7 +20,7 @@ nav.admin-navbar {
     padding-block-start: 10vh;
     background-color: var(--navbar-color);
     gap: calc(var(--spacing)*4);
-    height: 100vh;
+    min-height: 100vh
 }
 
 nav.admin-navbar .links {
