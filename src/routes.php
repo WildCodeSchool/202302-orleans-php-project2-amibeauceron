@@ -27,8 +27,9 @@ return [
     'administration/membres/ajouter'  => ['AdminMemberController', 'add'],
     'connexion' => ['LoginController', 'login'],
     'evenements' => ['EventController', 'index'],
-    'administration/beauceron/nos-chiens' => ['Admin\AdminDogController', 'index'],
-    'beauceron/nos-chiens' => ['DogController', 'index'],
+    'administration/nos-chiens' => ['AdminDogController', 'index'],
+    'nos-chiens' => ['DogController', 'index'],
     'administration/evenements/ajouter' => ['AdminEventController', 'add'],
     'association'  => ['MemberController', 'index'],
+    'administration/nos-chiens/supprimer' => ['AdminDogController', 'delete', ['id']],
 ];
