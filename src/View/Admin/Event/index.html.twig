@@ -27,10 +27,10 @@
 							<td>{{ event.date | date("d/m/Y H:i:s", "Europe/Paris")}}</td>
 							<td>{{ event.title }}</td>
 							<td>
-								<a href="/administration/evenements/supprimer"></a>
+								<a href="/administration/evenements/supprimer?id={{ event.id }}"></a>
 							</td>
 							<td>
-								<a href="/administration/evenements/modifier"></a>
+								<a href="/administration/evenements/modifier?id={{ event.id }}"></a>
 
 							</td>
 						</tr>
