@@ -102,7 +102,6 @@ class AdminEventController extends AbstractController
 
             if (empty($errors)) {
                 $eventManager = new EventManager();
-                $event['id'] = $id;
                 $event['image'] = $lastImage;
 
                 if (!empty($_FILES['image']['tmp_name'])) {
