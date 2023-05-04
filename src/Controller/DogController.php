@@ -17,8 +17,12 @@ class DogController extends AbstractController
 
     public function index(): string
     {
+        $search = array_map('trim', $_GET);
         $dogManager = new DogManager();
-        $dogs = $dogManager->selectAll('name');
-        return $this->twig->render('Relation/index.html.twig', ['dogs' => $dogs]);
+        $dogs = $dogManager->findDogs($search);
+        return $this->twig->render('Relation/index.html.twig', [
+            'dogs' => $dogs,
+            'search' => $search,
+        ]);
     }
 }
