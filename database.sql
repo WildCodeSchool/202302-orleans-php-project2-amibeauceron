@@ -328,7 +328,7 @@ VALUES (
         'Walter',
         'Professeur de physique-chimie',
         'walter.white@gmail.com',
-        '' << << << < HEAD = = = = = = =
+        ''
     );
 
 --
@@ -438,5 +438,5 @@ VALUES (
         0,
         '015897574949849',
         NULL,
-        'OLYMPE ARGENTEE DU MONT DES CROISETTES (Arelquin) Cotation 2 Dys HD-A par LOOPING DE LA TERRE DES LIONS Cotation 1. Note 2+1=3' >> >> >> > dev
+        'OLYMPE ARGENTEE DU MONT DES CROISETTES (Arelquin) Cotation 2 Dys HD-A par LOOPING DE LA TERRE DES LIONS Cotation 1. Note 2+1=3'
     );
