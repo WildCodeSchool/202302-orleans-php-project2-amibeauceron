@@ -87,7 +87,7 @@ class AdminDogController extends AbstractController
         }
 
         if (!in_array($dog['gender'], $genders)) {
-            $errors[] = "Le genre est incorrect, il doit correspondre " .
+            $errors[] = "Le genre " . $dog['gender'] . " est incorrect, il doit correspondre " .
                 "à l'une des valeurs suivantes : " . implode(', ', $genders);
         }
         if (!is_numeric($dog['identity_number'])) {
