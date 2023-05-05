@@ -4,9 +4,16 @@ namespace App\Controller;
 
 use App\Model\EventManager;
 
-class AdminEventController extends AbstractController
+class AdminEventController extends AbstractAdminController
 {
     public const MAX_LENGTH = 255;
+
+    public function index(): string
+    {
+        $eventManager = new EventManager();
+        $events = $eventManager->selectAll('title');
+        return $this->twig->render('Admin/Event/index.html.twig', ['events' => $events]);
+    }
 
     public function add(): string
     {
@@ -58,6 +65,18 @@ class AdminEventController extends AbstractController
 
         return $errors;
     }
+
+    public function delete(int $id): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $eventManager = new EventManager();
+
+            $eventManager->delete($id);
+
+            header('Location: /administration/evenements');
+        }
+    }
+
     private function validateUpload(array $files): array
     {
         $errors = [];

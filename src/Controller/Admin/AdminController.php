@@ -2,9 +2,10 @@
 
 namespace App\Controller\Admin;
 
+use App\Controller\AbstractAdminController;
 use App\Controller\AbstractController;
 
-class AdminController extends AbstractController
+class AdminController extends AbstractAdminController
 {
     /**
      * Display Admin home page

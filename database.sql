@@ -47,6 +47,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `item`
 
 --
+
 DROP TABLE IF EXISTS item;
 
 DROP TABLE IF EXISTS item;
@@ -116,6 +117,7 @@ ALTER TABLE
 -- Structure de la table `actuality`
 
 --
+
 DROP TABLE IF EXISTS actuality;
 
 DROP TABLE IF EXISTS actuality;
@@ -269,7 +271,7 @@ INSERT INTO
         `date`,
         `place`,
         `description`,
-        `image`  
+        `image`
     )
 VALUES (
         'Beau-Dog: Concours de dégustation de hot dogs pour Beaucerons affamés!',
@@ -337,8 +339,6 @@ VALUES (
         'Professeur de physique-chimie',
         'walter.white@gmail.com',
         ''
-<<<<<<< HEAD
-=======
     );
 
 --
@@ -390,7 +390,7 @@ CREATE TABLE
         `gender` CHAR(1) NOT NULL DEFAULT 'M',
         `birthdate` DATE NULL,
         `is_lof` TINYINT NOT NULL DEFAULT 1,
-        `identity_number` VARCHAR(45) NOT NULL,
+        `identity_number` CHAR(15) NOT NULL,
         `image` VARCHAR(255) NULL,
         `description` TEXT NOT NULL,
         PRIMARY KEY (`id`),
@@ -449,5 +449,4 @@ VALUES (
         '015897574949849',
         NULL,
         'OLYMPE ARGENTEE DU MONT DES CROISETTES (Arelquin) Cotation 2 Dys HD-A par LOOPING DE LA TERRE DES LIONS Cotation 1. Note 2+1=3'
->>>>>>> dev
     );
