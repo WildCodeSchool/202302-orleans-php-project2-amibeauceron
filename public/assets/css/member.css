@@ -1,0 +1,93 @@
+main.member {
+    background-color: var(--light);
+    background-repeat: repeat-y;
+    background-size: 20%;
+    background-position: 85% 30%;
+    padding-top: calc(var(--spacing) * 2);
+}
+
+.member section > div {
+    display: grid;
+    gap: var(--spacing);
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+.member article.small-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: auto;
+    --block-spacing-horizontal: calc(var(--spacing)*2);
+    --stagger-delay: 450ms;
+    animation: 400ms FadeInAnimation var(--stagger-delay) ease-out;
+    animation-fill-mode: backwards;
+    animation-iteration-count: 1;
+}
+
+.member article.small-card header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-block-end: var(--spacing);
+    height: 25vh;
+    object-fit: cover;
+}
+
+.member section > header > h1 {
+    color: var(--primary);
+    font-family: var(--font-title);
+    text-align: center;
+}
+
+.member article.small-card h2 {
+    font-size: clamp(1.2rem, 1.2vw, calc(var(--font-size)*3/2));
+    color: var(--secondary);
+    padding-block: var(--spacing);
+    margin-bottom: 0;
+    font-weight: 700;
+}
+
+img.img-member {
+    width: clamp(80px, 20vw, 200px);
+}
+
+.member article.small-card > div {
+    display: flex;
+    flex-direction: column;
+    height: 15vh;
+    font-size: clamp(1.2rem, 1.2vw, calc(var(--font-size)*3/2));
+}
+
+article.small-card .job-member {
+    font-size: clamp(0.8rem, 1vw, var(--font-size));
+    font-style: var(--font-text);
+    height: 10vh;
+}
+
+.member article.small-card > footer {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: var(--spacing);
+    border-top: 0;
+    --card-sectionning-background-color: white;
+    padding: calc(var(--block-spacing-vertical) * .4) var(--block-spacing-horizontal);
+}
+
+.member article.small-card > footer a[role="button"] {
+    width: clamp(6rem, 10vw, 8rem);
+    padding: calc(var(--spacing) / 3) calc(var(--spacing) / 3);
+    border-radius: 0;
+    font-size: calc(var(--font-size) * 3 / 4);
+}
+
+@keyframes FadeInAnimation {
+    from {
+        opacity: 0.3;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
