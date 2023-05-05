@@ -34,8 +34,6 @@ main.member {
 }
 
 .member section > header > h1 {
-    color: var(--primary);
-    font-family: var(--font-title);
     text-align: center;
 }
 

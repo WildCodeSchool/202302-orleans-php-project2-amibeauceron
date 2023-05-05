@@ -27,8 +27,6 @@ main.dogs-relation {
 }
 
 .dogs-relation section h1 {
-    color: var(--primary);
-    font-family: var(--font-title);
     text-align: center;
 }
 
