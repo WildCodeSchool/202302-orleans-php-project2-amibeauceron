@@ -11,10 +11,15 @@ nav {
     z-index: 2;
 }
 
+.links {
+    gap: var(--spacing);
+}
+
 nav a {
     color: var(--light);
     text-shadow: var(--text-shadow);
     font-family: var(--font-text);
+    font-size: clamp(calc(var(--font-size)/3), 1.4vw, calc(var(--font-size)*3/2));
 }
 
 nav ul>li:last-child {
@@ -39,9 +44,9 @@ nav .brand {
 }
 
 nav .brand img {
-    width: 80px;
     object-fit: cover;
-    padding: 0;
+    width: clamp(60px, 10vw, 80px);
+    padding:0;
 }
 
 nav .burger {

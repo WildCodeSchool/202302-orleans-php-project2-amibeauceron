@@ -1,0 +1,35 @@
+{% extends 'admin.html.twig' %}
+{% block title %}
+	{{ parent() }}
+	| Ajouter
+{% endblock %}
+{% block stylesheet %}
+	{{ parent() }}
+	<link rel="stylesheet" href="/assets/css/errors.css" type="text/css">
+{% endblock %}
+{% block content %}
+	<main>
+		<h1>Ajouter un membre</h1>
+
+		{% include 'Component/_errors.html.twig' %}
+
+		<form action="" method="POST" enctype="multipart/form-data">
+			<label for="lastname">Nom</label>
+			<input type="text" name="lastname" id="lastname" required value="{{ member.lastname }}">
+
+			<label for="firstname">Prénom</label>
+			<input type="text" name="firstname" id="firstname" required value="{{ member.firstname }}">
+
+			<label for="job">Poste occupé</label>
+			<input type="text" name="job" id="job" required value="{{ member.job }}">
+
+			<label for="email">Email</label>
+			<input type="email" name="email" id="email" required value="{{ member.email }}">
+
+			<label for="image">Ajouter une photo</label>
+			<input type="file" id="image" name="image" accept="image/*" required>
+
+			<button>Ajouter</button>
+		</form>
+	</main>
+{% endblock %}
