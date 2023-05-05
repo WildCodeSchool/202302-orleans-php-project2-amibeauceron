@@ -23,7 +23,6 @@ return [
     'administration/actualites/ajouter' => ['AdminActualityController', 'add'],
     'administration/actualites/supprimer' => ['AdminActualityController', 'delete', ['id']],
     'administration/actualites/modifier' => ['AdminActualityController', 'edit', ['id']],
-    'association' => ['MemberController', 'index'],
     'administration/membres' => ['AdminMemberController', 'index'],
     'administration/membres/ajouter' => ['AdminMemberController', 'add'],
     'connexion' => ['LoginController', 'login'],
@@ -31,6 +30,8 @@ return [
     'administration/nos-chiens' => ['AdminDogController', 'index'],
     'nos-chiens' => ['DogController', 'index'],
     'administration/evenements/ajouter' => ['AdminEventController', 'add'],
+    'association'  => ['MemberController', 'index'],
+    'administration/evenements/supprimer' => ['AdminEventController', 'delete', ['id']],
     'administration/evenements/modifier' => ['AdminEventController', 'update', ['id']],
     'administration/nos-chiens/supprimer' => ['AdminDogController', 'delete', ['id']],
 ];
