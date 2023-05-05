@@ -74,6 +74,65 @@ class AdminDogController extends AbstractAdminController
             ['dog' => $dog, 'errors' => $errors]
         );
     }
+
+    public function edit(int $id): ?string
+    {
+        $dog = $errors = $dataExistErrors = $dataFormatErrors = $dataLengthErrors = $uploadErrors = [];
+
+        // We get back the acutality object from database
+        $dogManager = new DogManager();
+        $dog = $dogManager->selectOneById($id);
+
+        // We get back the path of the image form db, is not returned by the FORM ! (we get back by $FILE)
+        $lastImage = $dog['image'];
+
+        // Check Post request ask
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Clean datas
+            $dog = array_map('trim', $_POST);
+
+            // Validations
+            $dataExistErrors = $this->validateDataExist($dog);
+            $dataLengthErrors = $this->validateDataLength($dog);
+            $dataFormatErrors = $this->validateDataFormat($dog);
+            $uploadErrors = $this->validateUpload($_FILES);
+
+            // Merge des tableaux d'erreurs sous un seul array
+            $errors = array_merge($dataExistErrors, $dataLengthErrors, $dataFormatErrors, $uploadErrors);
+
+            if (empty($errors)) {
+                // insert
+                $dog['image'] = $lastImage;
+
+                // uniquement si on met un nouveau fichier en upload. Si on laisse le champ vide,
+                // on ne réécrase pas ce qu'il y a en base
+                if (!empty($_FILES['image']['tmp_name'])) {
+                    // on efface l'ancien fichier (nom récupéré au début de la méthode)
+                    if (!empty($dog['image'])) {
+                        $this->deleteFile($dog['image']);
+                    }
+
+                    // on créé un nouveau nom pour le nouveau fichier
+                    $imageName = $this->generateImageName($_FILES['image']);
+                    $dog['image'] = $imageName;
+                    move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/../../public/uploads/'  . $imageName);
+                }
+
+                $dogManager->update($dog);
+
+                // redirection
+                header('Location: /administration/nos-chiens');
+                // we are redirecting so we don't want any content rendered
+                return null;
+            }
+        }
+
+        return $this->twig->render('Admin/Relation/edit.html.twig', [
+            'dog' => $dog,
+            'errors' => $errors,
+        ]);
+    }
+
     private function validateDataFormat(array $dog): array
     {
         $errors = [];
@@ -202,14 +261,6 @@ class AdminDogController extends AbstractAdminController
         return uniqid($baseFilename, more_entropy: true) . '.' . $extension;
     }
 
-    // delete file (on delete and l'update)
-    private function deleteFile(?string $fileName)
-    {
-        if (!empty($fileName) && file_exists(__DIR__ . '/../../public/uploads/' . $fileName)) {
-            unlink(__DIR__ . '/../../public/uploads/' . $fileName);
-        }
-    }
-
     public function delete(int $id): void
     {
         // Check Post Resquest
@@ -225,6 +276,14 @@ class AdminDogController extends AbstractAdminController
 
             // redirec admin/pneus
             header('Location:/administration/nos-chiens');
+        }
+    }
+
+    // delete file (on delete and l'update)
+    private function deleteFile(?string $fileName)
+    {
+        if (!empty($fileName) && file_exists(__DIR__ . '/../../public/uploads/' . $fileName)) {
+            unlink(__DIR__ . '/../../public/uploads/' . $fileName);
         }
     }
 }
