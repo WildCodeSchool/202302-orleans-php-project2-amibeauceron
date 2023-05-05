@@ -6,11 +6,11 @@
     --secondary-light: #ffce6d;
     --intermediate: #444242;
     --light: #f3f3f3;
-    --font-title: "Cinzel", cursive;
+    --font-title: "Cinzel Decorative", cursive;
     --font-text: "Roboto", sans-serif;
     --font-title2: 'Cormorant Garamond';
     --border: 1px solid #FF7A00;
-    --border-radius: 1rem;
+    --border-radius: 0.3rem;
     --navbar-height: 75px;
     --navbar-color: rgba(var(--primary-color), 0.85);
     --text-shadow: 2px 2px 4px black;
@@ -19,18 +19,22 @@
     --primary-color: 23, 20, 20;
 }
 
+main {
+    margin-top: var(--navbar-height);
+}
+
 h1 {
     text-align: center;
-    font-family: var(--font-title);
-    font-size: calc(var(--font-size) * 2);
-    font-weight: 600;
+    font-family: var(--font-title2);
+    font-size: clamp(2.5rem, 7vw, calc(var(--font-size) * 3));
+    font-weight: 700;
     color: var(--primary);
 }
 
 h2 {
     font-family: var(--font-title2);
     font-weight: 400;
-    font-size: calc(var(--font-size) * 1.5);
+    font-size: clamp(1.8rem, 4vw, calc(var(--font-size) * 2)); 
     color: var(--secondary)
 }
 
