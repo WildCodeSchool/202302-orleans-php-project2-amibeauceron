@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Model\EventManager;
 
-class AdminEventController extends AbstractController
+class AdminEventController extends AbstractAdminController
 {
     public const MAX_LENGTH = 255;
 

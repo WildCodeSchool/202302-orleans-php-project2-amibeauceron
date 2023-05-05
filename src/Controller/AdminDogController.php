@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Controller\AbstractController;
 use App\Model\DogManager;
 
-class AdminDogController extends AbstractController
+class AdminDogController extends AbstractAdminController
 {
     /**
      * Display Admin home page
