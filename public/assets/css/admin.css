@@ -1,16 +1,14 @@
 body {
     display: grid;
     grid-template-columns: 1fr 6fr;
-    grid-template-rows: 100vh;
     gap: var(--spacing);
 }
 
-main {
+body > main {
     align-self: stretch;
     grid-column-start: 2;
-    margin-block-start: 0px;
-    padding-top: 0px;
-    --block-spacing-vertical: 0;
+    --block-spacing-vertical: 1rem;
+    --navbar-height:0;
 }
 
 nav.admin-navbar {
@@ -22,6 +20,7 @@ nav.admin-navbar {
     padding-block-start: 10vh;
     background-color: var(--navbar-color);
     gap: calc(var(--spacing)*4);
+    min-height: 100vh
 }
 
 nav.admin-navbar .links {
@@ -146,4 +145,21 @@ form {
     box-shadow: var(--card-box-shadow);
     padding: calc(var(--spacing)*2);
     border-radius: var(--border-radius);
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    font-size: clamp(1.3rem, 3vw, calc(var(--font-size) * 2));
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+    font-size: clamp(1rem, 2vw, calc(var(--font-size) * 1.5));
+}
+
+.datas-container {
+    padding-top: 0;
+    margin-top: 0;
 }

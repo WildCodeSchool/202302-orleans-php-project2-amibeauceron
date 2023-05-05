@@ -28,5 +28,9 @@ return [
     'administration/membres/ajouter' => ['AdminMemberController', 'add'],
     'connexion' => ['LoginController', 'login'],
     'evenements' => ['EventController', 'index'],
+    'administration/nos-chiens' => ['AdminDogController', 'index'],
+    'nos-chiens' => ['DogController', 'index'],
     'administration/evenements/ajouter' => ['AdminEventController', 'add'],
+    'administration/evenements/modifier' => ['AdminEventController', 'update', ['id']],
+    'administration/nos-chiens/supprimer' => ['AdminDogController', 'delete', ['id']],
 ];

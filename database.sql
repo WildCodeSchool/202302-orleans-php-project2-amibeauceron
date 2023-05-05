@@ -47,6 +47,9 @@ SET time_zone = "+00:00";
 -- Structure de la table `item`
 
 --
+DROP TABLE IF EXISTS item;
+
+DROP TABLE IF EXISTS item;
 
 CREATE TABLE
     `item` (
@@ -113,6 +116,9 @@ ALTER TABLE
 -- Structure de la table `actuality`
 
 --
+DROP TABLE IF EXISTS actuality;
+
+DROP TABLE IF EXISTS actuality;
 
 CREATE TABLE
     `actuality` (
@@ -244,6 +250,8 @@ VALUES (
         NULL
     );
 
+DROP TABLE IF EXISTS evenement;
+
 CREATE TABLE
     `evenement`(
         `id` INT NOT NULL AUTO_INCREMENT,
@@ -251,6 +259,7 @@ CREATE TABLE
         `date` DATE NOT NULL,
         `place` VARCHAR(255) NOT NULL,
         `description` TEXT NOT NULL,
+        `image` VARCHAR(255),
         PRIMARY KEY (`id`)
     ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
 
@@ -259,40 +268,47 @@ INSERT INTO
         `title`,
         `date`,
         `place`,
-        `description`
+        `description`,
+        `image`  
     )
 VALUES (
         'Beau-Dog: Concours de dégustation de hot dogs pour Beaucerons affamés!',
         '2023-03-15',
         'Stade de la Mâchoire Géante, Bordeaux, France',
-        'Les Beaucerons les plus gloutons se réunissent pour un concours de dégustation de hot dogs hors du commun! Les crocs acérés, les estomacs inépuisables et les langues pendantes seront de la partie pour cette compétition effrénée. Venez admirer ces champions de l\'appétit canin dévorer des hot dogs à une vitesse stupéfiante, dans une ambiance hilarante et décalée!'
+        'Les Beaucerons les plus gloutons se réunissent pour un concours de dégustation de hot dogs hors du commun! Les crocs acérés, les estomacs inépuisables et les langues pendantes seront de la partie pour cette compétition effrénée. Venez admirer ces champions de l\'appétit canin dévorer des hot dogs à une vitesse stupéfiante, dans une ambiance hilarante et décalée!',
+        'hotdogs.jpg'
     ), (
         'Les Joutes Canines: Un tournoi d\'adresse et de grâce pour nos Beaucerons chevaliers!',
         '2023-07-12',
         'Château de Chambord, Loir-et-Cher, France',
-        'Préparez-vous à un spectacle de joutes canines à couper le souffle, où nos Beaucerons se transformeront en de véritables chevaliers à quatre pattes! Armés de leur élégance naturelle et de leur adresse, nos participants s\'affronteront avec panache pour conquérir le titre de champion de la joute canine. Les mouvements gracieux des Beaucerons sur le terrain vous émerveilleront, et vous serez captivé par la manière dont ils manient leur lance en croquant dans les défis avec brio.'
+        'Préparez-vous à un spectacle de joutes canines à couper le souffle, où nos Beaucerons se transformeront en de véritables chevaliers à quatre pattes! Armés de leur élégance naturelle et de leur adresse, nos participants s\'affronteront avec panache pour conquérir le titre de champion de la joute canine. Les mouvements gracieux des Beaucerons sur le terrain vous émerveilleront, et vous serez captivé par la manière dont ils manient leur lance en croquant dans les défis avec brio.',
+        'hotdogs.jpg'
     ), (
         'Beau-Rock: Concert en plein air pour Beaucerons fans de musique live!',
         '2023-06-28',
         'Parc du Grognement Énergique, Lyon, France',
-        'Préparez-vous à secouer la queue et à groover avec les Beaucerons passionnés de musique live! Ce concert en plein air mettra en vedette des groupes de rock spécialement sélectionnés pour leur capacité à faire bouger les pattes et à remuer les oreilles. Une ambiance déjantée, des snacks canins à gogo et du rock à volonté vous attendent pour cette soirée inoubliable!'
+        'Préparez-vous à secouer la queue et à groover avec les Beaucerons passionnés de musique live! Ce concert en plein air mettra en vedette des groupes de rock spécialement sélectionnés pour leur capacité à faire bouger les pattes et à remuer les oreilles. Une ambiance déjantée, des snacks canins à gogo et du rock à volonté vous attendent pour cette soirée inoubliable!',
+        'hotdogs.jpg'
     ), (
         'Beau-Ciné: Soirée cinéma en plein air pour Beaucerons cinéphiles!',
         '2023-08-12',
         'Parc du Cinéma Canin, Marseille, France',
-        'Installez-vous confortablement avec votre Beauceron et profitez d\'une soirée cinéma en plein air sous les étoiles! Une sélection de films mettant en vedette des chiens et des animaux de compagnie sera projetée sur grand écran, avec des couvertures moelleuses et des snacks canins à déguster. Une soirée de détente et de divertissement pour les Beaucerons cinéphiles et leurs humains!'
+        'Installez-vous confortablement avec votre Beauceron et profitez d\'une soirée cinéma en plein air sous les étoiles! Une sélection de films mettant en vedette des chiens et des animaux de compagnie sera projetée sur grand écran, avec des couvertures moelleuses et des snacks canins à déguster. Une soirée de détente et de divertissement pour les Beaucerons cinéphiles et leurs humains!',
+        'hotdogs.jpg'
     );
 
 /********************TABLE MEMBER LIST****************/
 
+DROP TABLE IF EXISTS member;
+
 CREATE TABLE
     member(
         id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-        lastname VARCHAR(50) NOT NULL,
-        firstname VARCHAR(50) NOT NULL,
-        job VARCHAR(50) NOT NULL,
-        email VARCHAR(50) NOT NULL,
-        photo VARCHAR(255)
+        lastname VARCHAR(100) NOT NULL,
+        firstname VARCHAR(100) NOT NULL,
+        job VARCHAR(100) NOT NULL,
+        email VARCHAR(100) NOT NULL,
+        image VARCHAR(255)
     );
 
 INSERT INTO
@@ -301,7 +317,7 @@ INSERT INTO
         `firstname`,
         `job`,
         `email`,
-        `photo`
+        `image`
     )
 VALUES (
         'Scofield',
@@ -321,10 +337,18 @@ VALUES (
         'Professeur de physique-chimie',
         'walter.white@gmail.com',
         ''
-    ),
-    --
-    -- Creation de la table `user`
-    --
+<<<<<<< HEAD
+=======
+    );
+
+--
+
+-- Creation de la table `user`
+
+--
+
+DROP TABLE IF EXISTS user;
+
 CREATE TABLE
     `user` (
         `id` INT NOT NULL AUTO_INCREMENT,
@@ -346,4 +370,84 @@ INSERT INTO
 VALUES (
         'admin@wildcodeschool.fr',
         '$2y$10$MlkN4ClnzqN6vjmaCELJ4uKYj0X85PkURYFASzFMTx77NZMB8JEZG'
+    );
+
+--
+
+-- Creation de la table `dog`
+
+--
+
+DROP TABLE IF EXISTS dog;
+
+CREATE TABLE
+    `dog` (
+        `id` INT NOT NULL AUTO_INCREMENT,
+        `owner` VARCHAR(45) NOT NULL,
+        `owner_city` VARCHAR(45) NULL,
+        `owner_email` VARCHAR(45) NOT NULL,
+        `name` VARCHAR(45) NOT NULL,
+        `gender` CHAR(1) NOT NULL DEFAULT 'M',
+        `birthdate` DATE NULL,
+        `is_lof` TINYINT NOT NULL DEFAULT 1,
+        `identity_number` VARCHAR(45) NOT NULL,
+        `image` VARCHAR(255) NULL,
+        `description` TEXT NOT NULL,
+        PRIMARY KEY (`id`),
+        UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE
+    ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
+
+--
+
+-- Contenu de la table `dog`
+
+--
+
+INSERT INTO
+    `dog` (
+        `owner`,
+        `owner_city`,
+        `owner_email`,
+        `name`,
+        `gender`,
+        `birthdate`,
+        `is_lof`,
+        `identity_number`,
+        `image`,
+        `description`
+    )
+VALUES (
+        'Mme GERBAC Christine',
+        'AIGUILLON (47190)',
+        'christine-gerbac@gmail.com',
+        'RIRI',
+        'F',
+        DATE_ADD(NOW(), INTERVAL -31 DAY),
+        1,
+        '015156574949849',
+        'dog-1.jpg',
+        'REBECCA-RUAH ARGENTEE DE SAINTE PETRONILLE (Arlequin) Cotation 2 Dys HD-A par SAMSON DES PLAINES DE LA SAINTE VICTOIRE Cotation 1 Dys HD-A. Note 2+1=3'
+    ), (
+        'M. JOURNAULT Eric',
+        'BEDDES (18370)',
+        'journault-eric@outlook.com',
+        'FIFI',
+        'M',
+        DATE_ADD(NOW(), INTERVAL -15 DAY),
+        0,
+        '015897574949849',
+        'dog-2.jpg',
+        'OPALE LA COTE (Arlequin) Cotation 1 Dys HD-A par PHARO DES CONTES DE L\'ABREUVAGE Cotation 1 Dys HD-A. Note 1+1=2'
+    ), (
+        'M. COLAS David',
+        'ANGERVILLE (91670)',
+        'colas-david@gmail.com',
+        'LOULOU',
+        'M',
+        DATE_ADD(NOW(), INTERVAL -15 DAY),
+        0,
+        '015897574949849',
+        NULL,
+        'OLYMPE ARGENTEE DU MONT DES CROISETTES (Arelquin) Cotation 2 Dys HD-A par LOOPING DE LA TERRE DES LIONS Cotation 1. Note 2+1=3'
+>>>>>>> dev
     );
