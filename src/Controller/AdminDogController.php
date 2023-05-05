@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Controller\AbstractController;
 use App\Model\DogManager;
 
-class AdminDogController extends AbstractController
+class AdminDogController extends AbstractAdminController
 {
     public const MAX_LENGTH_OWNER = 45;
     public const MAX_LENGTH_OWNER_CITY = 45;
@@ -39,6 +39,8 @@ class AdminDogController extends AbstractController
             $dataExistErrors = $this->validateDataExist($dog);
             $dataLengthErrors = $this->validateDataLength($dog);
             $dataFormatErrors = $this->validateDataFormat($dog);
+
+            // Validation upload
             $uploadErrors = $this->validateUpload($_FILES);
 
             // Merge des tableaux d'erreurs sous un seul array
@@ -258,6 +260,7 @@ class AdminDogController extends AbstractController
         $baseFilename = pathinfo($files['name'], PATHINFO_FILENAME);
         return uniqid($baseFilename, more_entropy: true) . '.' . $extension;
     }
+
     public function delete(int $id): void
     {
         // Check Post Resquest

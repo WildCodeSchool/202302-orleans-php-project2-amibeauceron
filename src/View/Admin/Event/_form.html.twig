@@ -1,0 +1,21 @@
+<div class="container grid">
+	<form method="post" enctype="multipart/form-data" novalidate>
+		<input type="hidden" value="{{ event.id }}" name="id">
+		<label for="title">Titre</label>
+		<input type="text" value="{{ event.title }}" name="title" id="title" maxlength="100" placeholder='Titre de l&#39;evenement...' required value={{ event.title ?? '' }}>
+		<label for="content">Texte</label>
+		<textarea type="text" name="content" id="content" rows="7" placeholder='Text de l&#39;evenement...' spellcheck required>{{~ event.content ?? '' ~}}</textarea>
+		{% if event.image is not empty %}
+			<div class="form-img-container">
+				<img class="form-img" name="img" src="{{ '/uploads/' ~ event.image }}">
+			</div>
+		{% endif %}
+		<label for="image">{{ event.image is empty ? 'Ajouter' : 'Modifier' }}
+			une image</label>
+		<input type="file" id="image" name="image" accept="image/*" value="{{~ event.image ?? '' ~}}">
+		<button type="submit">Valider</button>
+	</form>
+</div>
+<div>
+	<a href="/administration/evenement" role="button">Back</a>
+</div>

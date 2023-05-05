@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Model\ActualityManager;
 use Exception;
 
-class AdminActualityController extends AbstractController
+class AdminActualityController extends AbstractAdminController
 {
     public const MAX_LENGTH_TITLE = 100;
     public const MAX_LENGTH_CONTENT = 65535;
