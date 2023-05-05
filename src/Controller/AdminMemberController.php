@@ -18,7 +18,7 @@ class AdminMemberController extends AbstractController
     {
         $memberManager = new MemberManager();
         $member = $memberManager->selectOneById($id);
-        $lastImage = $member['image_path'];
+        $lastImage = $member['image'];
 
         $errors = [];
 
@@ -33,23 +33,26 @@ class AdminMemberController extends AbstractController
 
             if (empty($errors)) {
                 // insert
-                $member['image_path'] = $lastImage;
+                $member['image'] = $lastImage;
 
                 // uniquement si on met un nouveau fichier en upload. Si on laisse le champ vide,
                 // on ne réécrase pas ce qu'il y a en base
                 if (!empty($_FILES['image']['tmp_name'])) {
                     // on efface l'ancien fichier (nom récupéré au début de la méthode)
-                    if (!empty($member['image_path'])) {
-                        $this->deleteFile($member['image_path']);
+                    if (!empty($member['image'])) {
+                        $this->deleteFile($member['image']);
                     }
+
 
                     // on créé un nouveau nom pour le nouveau fichier
                     $imageName = $this->generateImageName($_FILES['image']);
-                    $member['image_path'] = $imageName;
+                    $member['image'] = $imageName;
                     move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/../../public/uploads/'  . $imageName);
                 }
+
                 $memberManager->update($member);
             }
+            //redirection
             header('Location: /administration/membres');
         }
 
@@ -57,6 +60,7 @@ class AdminMemberController extends AbstractController
             'member' => $member,
         ]);
     }
+
     public function add(): string
     {
         $errors = $member = [];
