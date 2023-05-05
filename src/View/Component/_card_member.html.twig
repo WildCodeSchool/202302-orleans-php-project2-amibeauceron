@@ -1,0 +1,16 @@
+<article class="small-card">
+	<header>
+		<img class="img-member" src="{{ member.image ?? 'assets/images/profildefault.jpg' }}">
+	</header>
+	<div>
+		<h2>{{ member.firstname ~ ' ' ~ member.lastname }}</h2>
+	</div>
+	<div class="job-member">
+		{{ member.job }}
+	</div>
+	<footer>
+		<div class="email-member">
+			{{ member.email }}
+		</div>
+	</footer>
+</article>
