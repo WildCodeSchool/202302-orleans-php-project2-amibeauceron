@@ -32,4 +32,5 @@ return [
     'administration/evenements/ajouter' => ['AdminEventController', 'add'],
     'administration/evenements/modifier' => ['AdminEventController', 'update', ['id']],
     'association'  => ['MemberController', 'index'],
+    'administration/nos-chiens/supprimer' => ['AdminDogController', 'delete', ['id']],
 ];
