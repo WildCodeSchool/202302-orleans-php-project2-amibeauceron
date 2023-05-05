@@ -18,33 +18,30 @@
 			</div>
 			<div>
 				<label for="prenom">Prenom:</label>
-				<input type="text" id="prenom" name="user_name"><br><br>
+				<input type="text" id="prenom" name="user_name">
 			</div>
 
 			<div>
-				<label for="adresse postale">adresse :</label>
-				<input type="text" id="adresse" name="user_adresse"><br><br>
+				<label for="adresse" postale>adresse :</label>
+				<input type="text" id="adresse" name="user_adresse">
 			</div>
 			<div>
 				<label for="telephone">Telephone :</label>
-				<input type="telephone" id="telephone" name="telephone"><br><br>
+				<input type="tel" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" ; id="telephone" name="telephone">
 			</div>
 			<div>
 				<label for="courriel">Courriel :</label>
-				<input type="email" id="courriel" name="user_email"><br><br>
+				<input type="email" id="courriel" name="user_email">
 			</div>
 			<div>
-				<h2>Abonnements et tarifs</h2>
-
-				<input type="radio" id="adhesionsimple" name="abonnements" value="Adhesion simple 50 euros">
-				<label for="adhésion simple 25 euros">Adhesion simple: 50€</label><br><br>
-				<input type="radio" id="abonnement trimestriel" name="abonnements" value="Abonnement trimestriel 70 euros">
-				<label for="abonnement trimestriel">Abonnement trimestriel: 70€</label><br><br>
-				<input type="radio" id="abonnement couple" name="abonnements" value="abonnement couple 100 euros">
-				<label for="abonnement couple">Abonnement couple: 100€</label><br><br>
-				<div class="button">
-					<button type="submit">Validation</button><br><br>
-				</div>
-			</form>
-		</main>
-	{% endblock %}
+				<h2>
+					Abonnement
+				</h2>
+				<textarea name="message" rows="4" cols="8">Désire adhérer au club les Amis du Beauceron: 50€</textarea>
+			</div>
+			<button type="submit">
+				Envoyer
+			</button>
+		</div>
+	</form>
+</main>{% endblock %}
