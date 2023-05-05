@@ -14,6 +14,39 @@ class AdminMemberController extends AbstractController
         return $this->twig->render('Admin/Member/index.html.twig', ['members' => $members]);
     }
 
+    public function update(int $id): string
+    {
+        $memberManager = new MemberManager;
+        $member = $memberManager->selectOneById($id);
+
+        $errors = [];
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $member = array_map('trim', $_POST);
+
+            $emptyErrors = $this->validateEmpty($member);
+            $strlenErrors = $this->validateStrlen($member);
+            $uploadErrors = $this->validateUpload($_FILES);
+
+            $errors = array_merge($emptyErrors, $strlenErrors, $uploadErrors);
+
+            if (empty($errors)) {
+                $imageName = $this->generateImageName($_FILES['image']);
+
+                $member['image'] = $imageName;
+
+                $memberManager = new MemberManager();
+                $memberManager->update($member);
+
+                move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/../../public/uploads/'  . $imageName);
+            }
+            header('Location: /administration/membres');
+        }
+
+        return $this->twig->render('Admin/Member/update.html.twig', [
+            'member' => $member,
+        ]);
+    }
     public function add(): string
     {
         $errors = $member = [];
