@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Model\MemberManager;
 
-class AdminMemberController extends AbstractController
+class AdminMemberController extends AbstractAdminController
 {
     public function index(): string
     {

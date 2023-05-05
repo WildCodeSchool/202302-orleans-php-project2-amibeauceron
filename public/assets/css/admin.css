@@ -1,7 +1,6 @@
 body {
     display: grid;
     grid-template-columns: 1fr 6fr;
-    grid-template-rows: 100vh;
     gap: var(--spacing);
 }
 
@@ -21,6 +20,7 @@ nav.admin-navbar {
     padding-block-start: 10vh;
     background-color: var(--navbar-color);
     gap: calc(var(--spacing)*4);
+    min-height: 100vh
 }
 
 nav.admin-navbar .links {
@@ -133,7 +133,7 @@ tr.result-info th {
 }
 
 .container.grid {
-    width: 60%;
+    width: 80%;
     align-items: center;
     margin: auto;
     margin-bottom: 0;
@@ -162,4 +162,28 @@ h2 {
 .datas-container {
     padding-top: 0;
     margin-top: 0;
+}
+
+input[type="date"] {
+    padding: var(--spacing);
+    color:var(--light);
+    background-color:var(--intermediate);
+}
+
+.option-container {
+    display: flex;
+    flex-direction: row;
+    gap : var(--spacing);
+    margin-block: calc(var(--spacing)*2);
+    padding-block-end: calc(var(--spacing)*2/3);
+    accent-color: var(--secondary);
+    border-bottom: solid 2px var(--intermediate);
+}
+
+.option-label {
+    background-color:var(--light);
+    color:var(--dark);
+    padding-block: calc(var(--spacing)*2/3);
+    border-bottom: dashed 1px var(--primary);
+    padding-inline: calc(var(--spacing)*2/3);;
 }
