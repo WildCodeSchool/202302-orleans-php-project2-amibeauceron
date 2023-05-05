@@ -26,7 +26,7 @@
 					<div class="option-container">
 						<input type="radio" name="is_lof" id="is_lof_oui" value='1' {{ (search.is_lof ?? '1') == '1' ? 'checked' : '' }}><label for="is_lof_oui">Oui</label>
 						<input type="radio" name="is_lof" id="is_lof_non" value='0' {{ (search.is_lof ?? '1') == '0' ? 'checked' : '' }}><label for="is_lof_non">Non</label>
-						<input type="radio" name="is_lof" id="is_lof_non" value='' {{ (search.is_lof ?? '') == '' ? 'checked' : '' }}><label for="is_lof_non">Tous</label>
+						<input type="radio" name="is_lof" id="is_lof_all" value='' {{ (search.is_lof ?? '') == '' ? 'checked' : '' }}><label for="is_lof_all">Tous</label>
 					</div>
 					<div class="container-button">
 						<button class="secondary">Rechercher
