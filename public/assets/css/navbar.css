@@ -45,7 +45,7 @@ nav .brand {
 
 nav .brand img {
     object-fit: cover;
-    width: clamp(40px, 9vh, 80px);
+    width: clamp(60px, 10vw, 80px);
     padding:0;
 }
 
