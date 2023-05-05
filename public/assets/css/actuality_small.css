@@ -10,7 +10,7 @@ main.last-tree-actuality {
 .last-tree-actuality section > div {
     display: grid;
     gap: var(--spacing);
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
 
 .last-tree-actuality article.small-card {
@@ -41,6 +41,7 @@ main.last-tree-actuality {
     padding-block: var(--spacing);
     margin-bottom: 0;
     font-weight: 700;
+    border-bottom: 2px solid var(--intermediate);
 }
 
 .last-tree-actuality img.img-actuality {
@@ -50,7 +51,7 @@ main.last-tree-actuality {
 .last-tree-actuality article.small-card > div {
     display: flex;
     flex-direction: column;
-    height: 15vh;
+    height: 17vh;
     font-size: clamp(1.2rem, 1.2vw, calc(var(--font-size)*3/2));
 }
 
@@ -59,7 +60,8 @@ main.last-tree-actuality {
 }
 
 .last-tree-actuality article.small-card .content {
-    font-size: clamp(0.8rem, 1vw, var(--font-size));
+    padding-block:  var(--spacing);
+    font-size: clamp(0.7rem, 0.9vw, var(--font-size));
     font-style: var(--font-text);
     height: 10vh;
 }
@@ -89,5 +91,20 @@ main.last-tree-actuality {
     to {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@media screen and (width < 400px) {
+    .last-tree-actuality section > div {
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap:0;
+    }
+
+    .last-tree-actuality article.small-card {
+        --block-spacing-horizontal: calc(var(--spacing)*2/3);
+    }
+
+    .container, .container-fluid {
+        padding-inline: calc(var(--spacing)*2/3);
     }
 }
