@@ -25,7 +25,8 @@ class MemberManager extends AbstractManager
     public function update(array $member): void
     {
         $statement = $this->pdo->prepare(
-            "UPDATE " . self::TABLE . " SET(`lastname`=:lastname, `firstname`=:firstname, `job`=:job, `email`=:email, `image`=:image)
+            "UPDATE " . self::TABLE . " SET(`lastname`=:lastname, `firstname`=:firstname,
+             `job`=:job, `email`=:email, `image`=:image)
             WHERE id=:id"
         );
         $statement->bindValue('lastname', $member['lastname'], PDO::PARAM_STR);

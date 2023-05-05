@@ -16,7 +16,7 @@ class AdminMemberController extends AbstractController
 
     public function update(int $id): string
     {
-        $memberManager = new MemberManager;
+        $memberManager = new MemberManager();
         $member = $memberManager->selectOneById($id);
 
         $errors = [];
