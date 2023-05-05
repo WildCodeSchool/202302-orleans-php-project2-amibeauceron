@@ -31,4 +31,5 @@ return [
     'beauceron/nos-chiens' => ['DogController', 'index'],
     'administration/evenements/ajouter' => ['AdminEventController', 'add'],
     'association'  => ['MemberController', 'index'],
+    'administration/evenements/supprimer' => ['AdminEventController', 'delete', ['id']],
 ];
