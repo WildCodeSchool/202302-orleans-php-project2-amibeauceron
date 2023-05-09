@@ -21,9 +21,9 @@
     font-weight: 400;
     font-size: calc(var(--font-size))*2/3;
     color: var(--intermediate);
-    width: 80%;
     margin: auto;
     text-align: justify;
+    width: 90%;
 }
 
 .caractere>img {
@@ -36,7 +36,6 @@
 .part6 {
     display: flex;
     align-items: center;
-    width: 85%;
     margin: auto;
     gap: calc(var(--spacing)*2);
     padding: calc(var(--spacing)*2);

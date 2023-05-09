@@ -11,9 +11,9 @@
     font-weight: 400;
     font-size: calc(var(--font-size))*2/3;
     color: var(--intermediate);
-    width: 80%;
     margin: auto;
     text-align: justify;
+    width: 90%;
 }
 
 .genese>h2 {

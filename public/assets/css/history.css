@@ -19,7 +19,6 @@
     line-height: calc(var(--spacing)*1.5);
     color: var(--intermediate);
     text-align: justify;
-    width: 90%;
     margin: auto;
 }
 
