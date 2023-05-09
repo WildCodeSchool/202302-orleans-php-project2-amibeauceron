@@ -35,7 +35,6 @@ class MemberManager extends AbstractManager
         $statement->bindValue('email', $member['email'], PDO::PARAM_STR);
         $statement->bindValue('image', $member['image'], PDO::PARAM_STR);
         $statement->bindValue('id', $member['id'], PDO::PARAM_STR);
-
         $statement->execute();
     }
 }

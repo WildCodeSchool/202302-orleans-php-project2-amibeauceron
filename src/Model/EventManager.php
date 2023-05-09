@@ -20,7 +20,7 @@ class EventManager extends AbstractManager
         $statement->bindValue('date', $event['date'], PDO::PARAM_STR);
         $statement->bindValue('place', $event['place'], PDO::PARAM_STR);
         $statement->bindValue('description', $event['description'], PDO::PARAM_STR);
-        $statement->bindValue('image', $event['image'], PDO::PARAM_STR);
+        $statement->bindValue('image', ($event['image'] ?? null), PDO::PARAM_STR);
         $statement->execute();
         return (int)$this->pdo->lastInsertId();
     }

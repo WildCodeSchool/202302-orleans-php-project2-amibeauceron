@@ -18,6 +18,7 @@ section.login header > h1 {
     width: clamp(350px, 50vw, 600px);
     gap: var(--spacing);
     margin: var(--spacing);
+    padding: calc(var(--block-spacing-vertical)*0.4) calc(var(--block-spacing-horizontal)*3/2);
     padding-block-end: var(--spacing);
     --stagger-delay: 150ms;
     animation: 400ms FadeInAnimation var(--stagger-delay) ease-out;
@@ -75,7 +76,7 @@ section.login header > h1 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-block-start: calc(var(--spacing)*3);
+    margin-block-start: calc(var(--spacing)*3/2);
     margin-block-end: var(--spacing);
     font-size: calc(var(--font-size)*1.5);
     font-weight: 600;

@@ -166,4 +166,22 @@ class AdminMemberController extends AbstractAdminController
             unlink(__DIR__ . '/../../public/uploads/' . $fileName);
         }
     }
+
+    public function delete(int $id): void
+    {
+        // Check Post Resquest
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // delete en bdd
+            $memberManager = new MemberManager();
+            $member = $memberManager->selectOneById($id);
+
+            // supprimer un fichier existant
+            $this->deleteFile($member['image']);
+            // delete row
+            $memberManager->delete($id);
+
+            // redirec admin/pneus
+            header('Location: /admininistration/membres');
+        }
+    }
 }

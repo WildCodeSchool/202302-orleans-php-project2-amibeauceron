@@ -1,6 +1,6 @@
 <article class="small-card">
 	<header>
-		<img class="img-member" src="{{ member.image ?? 'assets/images/profildefault.jpg' }}">
+		<img class="img-member" src="{{ member.image ? 'uploads/' ~ member.image : 'assets/images/profildefault.jpg' }}">
 	</header>
 	<div>
 		<h2>{{ member.firstname ~ ' ' ~ member.lastname }}</h2>
