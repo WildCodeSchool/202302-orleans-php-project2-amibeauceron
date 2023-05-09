@@ -38,4 +38,5 @@ return [
     'administration/nos-chiens/modifier' => ['AdminDogController', 'edit', ['id']],
     'administration/evenements/supprimer' => ['AdminEventController', 'delete', ['id']],
     'administration/evenements/modifier' => ['AdminEventController', 'update', ['id']],
+    'administration/membres/supprimer' => ['AdminMemberController', 'delete', ['id']],
 ];
