@@ -29,7 +29,7 @@ main.member {
     align-items: center;
     justify-content: center;
     margin-block-end: var(--spacing);
-    height: 25vh;
+    height: 30vh;
     object-fit: cover;
 }
 
@@ -38,7 +38,7 @@ main.member {
 }
 
 .member article.small-card h2 {
-    font-size: clamp(1.2rem, 1.2vw, calc(var(--font-size)*3/2));
+    font-size: clamp(1.5rem, 1.5vw, calc(var(--font-size)*3/2));
     color: var(--secondary);
     padding-block: var(--spacing);
     margin-bottom: 0;
@@ -46,7 +46,8 @@ main.member {
 }
 
 img.img-member {
-    width: clamp(80px, 20vw, 200px);
+    height: clamp(150px, 25vh, 300px);
+    width: 100%;
 }
 
 .member article.small-card > div {
