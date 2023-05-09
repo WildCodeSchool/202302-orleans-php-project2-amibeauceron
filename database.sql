@@ -326,19 +326,19 @@ VALUES (
         'Michael',
         'Ingénieur',
         'michael.scofield@gmail.com',
-        NULL
+        'michaelscofield.jpg'
     ), (
         'Snow',
         'Jon',
         'Garde de nuit',
         'jon.snow@gmail.com',
-        'profildefault.jpg'
+        'jonsnow.jpg'
     ), (
         'White',
         'Walter',
         'Professeur de physique-chimie',
         'walter.white@gmail.com',
-        ''
+        'walterwhite.jpg'
     );
 
 --
