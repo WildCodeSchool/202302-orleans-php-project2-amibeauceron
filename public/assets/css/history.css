@@ -19,7 +19,6 @@
     line-height: calc(var(--spacing)*1.5);
     color: var(--intermediate);
     text-align: justify;
-    width: 90%;
     margin: auto;
 }
 
@@ -37,7 +36,7 @@
 }
 
 .beauceron>div {
-    width: 85%;
+    width: 95%;
     margin: auto;
     margin-bottom: calc(var(--spacing)*2);
 }
