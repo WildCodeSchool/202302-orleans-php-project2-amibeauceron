@@ -33,6 +33,7 @@ return [
     'administration/nos-chiens/ajouter' => ['AdminDogController', 'add'],
     'administration/evenements' => ['AdminEventController', 'index'],
     'association'  => ['MemberController', 'index'],
+    'administration/membres/modifier' => ['AdminMemberController', 'update', ['id']],
     'administration/nos-chiens/supprimer' => ['AdminDogController', 'delete', ['id']],
     'administration/nos-chiens/modifier' => ['AdminDogController', 'edit', ['id']],
     'administration/evenements/supprimer' => ['AdminEventController', 'delete', ['id']],

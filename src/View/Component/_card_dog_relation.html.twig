@@ -17,7 +17,7 @@
 			{{ dog.is_lof ? 'Oui' : 'Non' }}
 		</div>
 		<div>
-			<span class="label">Identifiant I-CAD :</span>
+			<span class="label">N°I-CAD :</span>
 			{{ dog.identity_number }}
 		</div>
 	</div>
@@ -32,14 +32,11 @@
 		</div>
 		<div class="owner_info">
 			<div>
-				<span class="label">Propriétaire :</span>
-				{{ dog.owner|title }}</div>
-			<div>
-				<span class="label">Ville :</span>
-				{{ dog.owner_city|title }}</div>
-			<div>
-				<span class="label">Mail :</span>
-				{{ dog.owner_email }}</div>
+				<span class="label">Propriétaire</span>
+			</div>
+			<div>{{ dog.owner|title }}</div>
+			<div>{{ dog.owner_city|title }}</div>
+			<div>{{ dog.owner_email }}</div>
 		</div>
 	</footer>
 </article>

@@ -105,10 +105,9 @@ tr.result-info th {
     padding: 0px;
 }
 
-.datas-container table form button[role="link"] {
-    padding: 0px;
+
+.datas-container table form :is(button, [type="submit"], [type="button"], [type="reset"], [role="button"]), a[role="button"] {
     margin: 0px;
-    border: 0px;
 }
 
 .form-img-container {

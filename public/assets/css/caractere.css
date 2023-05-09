@@ -23,6 +23,7 @@
     color: var(--intermediate);
     width: 80%;
     margin: auto;
+    text-align: justify;
 }
 
 .caractere>img {
@@ -35,7 +36,7 @@
 .part6 {
     display: flex;
     align-items: center;
-    width: 90%;
+    width: 85%;
     margin: auto;
     gap: calc(var(--spacing)*2);
     padding: calc(var(--spacing)*2);

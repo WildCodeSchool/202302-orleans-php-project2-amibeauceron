@@ -14,6 +14,53 @@ class AdminMemberController extends AbstractAdminController
         return $this->twig->render('Admin/Member/index.html.twig', ['members' => $members]);
     }
 
+    public function update(int $id): string
+    {
+        $memberManager = new MemberManager();
+        $member = $memberManager->selectOneById($id);
+        $lastImage = $member['image'];
+
+        $errors = [];
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $member = array_map('trim', $_POST);
+
+            $emptyErrors = $this->validateEmpty($member);
+            $strlenErrors = $this->validateStrlen($member);
+            $uploadErrors = $this->validateUpload($_FILES);
+
+            $errors = array_merge($emptyErrors, $strlenErrors, $uploadErrors);
+
+            if (empty($errors)) {
+                // insert
+                $member['image'] = $lastImage;
+
+                // uniquement si on met un nouveau fichier en upload. Si on laisse le champ vide,
+                // on ne réécrase pas ce qu'il y a en base
+                if (!empty($_FILES['image']['tmp_name'])) {
+                    // on efface l'ancien fichier (nom récupéré au début de la méthode)
+                    if (!empty($member['image'])) {
+                        $this->deleteFile($member['image']);
+                    }
+
+
+                    // on créé un nouveau nom pour le nouveau fichier
+                    $imageName = $this->generateImageName($_FILES['image']);
+                    $member['image'] = $imageName;
+                    move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/../../public/uploads/'  . $imageName);
+                }
+
+                $memberManager->update($member);
+            }
+            //redirection
+            header('Location: /administration/membres');
+        }
+
+        return $this->twig->render('Admin/Member/update.html.twig', [
+            'member' => $member,
+        ]);
+    }
+
     public function add(): string
     {
         $errors = $member = [];
@@ -35,7 +82,9 @@ class AdminMemberController extends AbstractAdminController
                 $memberManager = new MemberManager();
                 $memberManager->insert($member);
 
-                move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/../../public/uploads/'  . $imageName);
+                if (!empty($_FILES['image']['tmp_name'])) {
+                    move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/../../public/uploads/' . $imageName);
+                }
             }
             header('Location: /administration/membres');
         }
@@ -109,5 +158,12 @@ class AdminMemberController extends AbstractAdminController
         $extension = pathinfo($files['name'], PATHINFO_EXTENSION);
         $baseFilename = pathinfo($files['name'], PATHINFO_FILENAME);
         return uniqid($baseFilename, more_entropy: true) . '.' . $extension;
+    }
+
+    private function deleteFile(?string $fileName)
+    {
+        if (!empty($fileName) && file_exists(__DIR__ . '/../../public/uploads/' . $fileName)) {
+            unlink(__DIR__ . '/../../public/uploads/' . $fileName);
+        }
     }
 }
