@@ -14,10 +14,6 @@ main.actuality {
     grid-template-columns: 1fr;
 }
 
-.actuality section > header > h1 {
-  
-}
-
 .actuality-details article,
 .actuality article {
     display: flex;
@@ -25,10 +21,6 @@ main.actuality {
     justify-content: space-between;
     width: clamp(360px, 85%, 95vw);
     margin: var(--spacing);
-    --stagger-delay: 150ms;
-    animation: 400ms FadeInAnimation var(--stagger-delay) ease-out;
-    animation-fill-mode: backwards;
-    animation-iteration-count: 1;
 }
 
 .actuality article > header {
@@ -57,6 +49,12 @@ main.actuality {
 
 .actuality article:nth-child(even) {
     justify-self: end;
+}
+
+.actuality article .news-content {
+    height: 15vh;
+    font-family: var(--font-text);
+    color: var(--intermediate);
 }
 
 .actuality article > footer {
@@ -132,18 +130,6 @@ main.actuality {
     padding-inline: 0 calc(var(--block-spacing-vertical) * 1 / 2);
     padding-block: calc(var(--block-spacing-vertical) * 1 / 2);
     background-color: var(--secondary);
-}
-
-@keyframes FadeInAnimation {
-    from {
-        opacity: 0.3;
-        transform: scale(0);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
 }
 
 @media screen and (width <=500px) {
