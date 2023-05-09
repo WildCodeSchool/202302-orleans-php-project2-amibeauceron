@@ -19,7 +19,8 @@
     --primary-color: 23, 20, 20;
 }
 
-main {
+body > main {
+    padding: 0;
     margin-top: var(--navbar-height);
 }
 
