@@ -51,11 +51,20 @@
     margin-top: calc(var(--spacing)*2);
     text-align: right;
     font-style: italic;
+    margin-bottom: calc(var(--spacing)*2);
 }
 
 @media screen and (max-width: 1000px) {
 
     .part6 {
         flex-direction: column;
+    }
+
+    .part6 img {
+        width: 100%;
+    }
+
+    .caractere p {
+        width: 100%;
     }
 }
