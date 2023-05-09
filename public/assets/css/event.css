@@ -27,15 +27,22 @@
     flex-wrap: wrap;
     max-width: 70%;
     margin: auto;
-    transform: translate(-12.5rem);
-    opacity: 0;
-    transition: transform 0.5s ease-in-out,
-        opacity 0.5s ease-in-out;
+    --stagger-delay: 450ms;
+    animation: 400ms FadeInAnimation var(--stagger-delay) ease-out;
+    animation-fill-mode: backwards;
+    animation-iteration-count: 1;
 }
 
-.slide-article.active {
-    transform: translateX(0%);
-    opacity: 1;
+@keyframes FadeInAnimation {
+    from {
+        opacity: 0.3;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .article-container {
