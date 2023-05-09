@@ -90,6 +90,7 @@ nav .brand img {
 
 .datas-container table th {
     color: var(--contrast-hover);
+    font-weight: 600;
 }
 
 tr.result-info th {
@@ -108,6 +109,9 @@ tr.result-info th {
 
 .datas-container table form :is(button, [type="submit"], [type="button"], [type="reset"], [role="button"]), a[role="button"] {
     margin: 0px;
+    padding: calc(var(--form-element-spacing-vertical)*0.4) var(--form-element-spacing-horizontal);
+    text-decoration: none;
+    font-size : calc(var(--font-size)*0.8);
 }
 
 .form-img-container {
