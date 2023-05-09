@@ -20,7 +20,7 @@
     color: var(--secondary);
     font-family: var(--font-title2);
     font-weight: 500;
-    font-size: calc(var(--spacing)*3);
+    font-size: clamp(1rem, 4vw, calc(var(--font-size) * 1.8));
     display: block;
     margin: 0;
     margin-left: calc(var(--spacing)*5);
@@ -63,5 +63,14 @@
     .part4,
     .part5 {
         flex-direction: column;
+    }
+
+    .part5 img,
+    .part4 img {
+        width: 80%;
+    }
+
+    .genese p {
+        width: 100%;
     }
 }
