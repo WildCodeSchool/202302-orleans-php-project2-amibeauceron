@@ -169,9 +169,7 @@ class AdminMemberController extends AbstractAdminController
 
     public function delete(): void
     {
-        // Check Post Resquest
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
             if (!empty($_POST['id'])) {
                 $id = $_POST['id'];
                 // delete en bdd
