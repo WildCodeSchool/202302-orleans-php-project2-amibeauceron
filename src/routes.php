@@ -18,7 +18,7 @@ return [
     'beauceron/soin' => ['CareController', 'index',],
     'actualites'  => ['ActualityController', 'index'],
     'actualites/afficher'  => ['ActualityController', 'show', ['id']],
-    'administration' => ['Admin\AdminController', 'index'],
+    'administration' => ['AdminActualityController', 'index'],
     'administration/actualites'  => ['AdminActualityController', 'index'],
     'administration/actualites/ajouter' => ['AdminActualityController', 'add'],
     'administration/actualites/supprimer' => ['AdminActualityController', 'delete'],
