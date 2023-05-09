@@ -18,6 +18,9 @@
     font-size: calc(var(--font-size))*2/3;
     line-height: calc(var(--spacing)*1.5);
     color: var(--intermediate);
+    text-align: justify;
+    width: 90%;
+    margin: auto;
 }
 
 .beauceron .part2:last-child p {
@@ -28,15 +31,15 @@
     color: var(--secondary);
     font-family: 'Cormorant Garamond';
     font-weight: 500;
-    font-size: calc(var(--spacing)*3);
+    font-size: calc(var(--spacing)*2.5);
     display: block;
     margin: 0;
 }
 
 .beauceron>div {
-    width: 90%;
+    width: 85%;
     margin: auto;
-    margin-bottom: calc(var(--spacing)*4);
+    margin-bottom: calc(var(--spacing)*2);
 }
 
 .beauceron>.pawsContainer {
