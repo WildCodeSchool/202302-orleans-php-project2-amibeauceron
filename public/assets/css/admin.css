@@ -104,14 +104,23 @@ tr.result-info th {
 .datas-container table form {
     margin: 0px;
     padding: 0px;
+    box-shadow: none;
+    border-radius: 0;
 }
 
+.datas-container table tr :is(td, th).col-button {
+    padding: 0px;
+    width: min-content;
+    text-align: center;
+}
 
 .datas-container table form :is(button, [type="submit"], [type="button"], [type="reset"], [role="button"]), a[role="button"] {
     margin: 0px;
     padding: calc(var(--form-element-spacing-vertical)*0.4) var(--form-element-spacing-horizontal);
     text-decoration: none;
     font-size : calc(var(--font-size)*0.8);
+    width: fit-content;
+    min-width: clamp(85px, 20vw, 120px);
 }
 
 .form-img-container {
