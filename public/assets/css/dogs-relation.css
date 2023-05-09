@@ -9,9 +9,8 @@ main.dogs-relation {
 
 .dogs-relation section > div {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: var(--spacing);
-    padding: var(--spacing);
 }
 
 .dogs-relation article{
@@ -38,11 +37,11 @@ main.dogs-relation {
 }
 
 .dogs-relation article h2 {
-    font-size: clamp(1.4rem, 4vw, calc(var(--font-size)*1.5));
+    font-size: clamp(1.2rem, 1.2vw, calc(var(--font-size)*3/2));
     color: var(--secondary);
     padding: 0;
     margin: 0;
-    align-self: center;
+    font-weight: 700;
 }
 
 .dogs-relation article > div {
@@ -56,12 +55,10 @@ main.dogs-relation {
     flex-direction: column;
     flex-wrap: wrap;
     padding: var(--spacing);
-    letter-spacing: calc(var(--spacing)/9);
 }
 
 .dogs-relation article .label {
-    color: var(--dark);
-    font-weight: 900;
+    font-weight: 500;
     font-size: clamp(0.8rem, 0.9vw, calc(var(--font-size)*3/2));
 }
 
@@ -72,7 +69,7 @@ main.dogs-relation {
 }
 
 .dogs-relation article img.img-dog {
-    height: clamp(180px, 35vh, 800px);
+    height: clamp(80px, 30vh, 250px); 
 }
 
 .dogs-relation article footer {
@@ -80,7 +77,7 @@ main.dogs-relation {
     grid-template-columns: 1fr 4fr;
     margin-top: var(--spacing);
     padding: var(--spacing);
-    letter-spacing: calc(var(--spacing)/9);
+    height: 20vh;
 }
 .dogs-relation article footer div {
     align-self: center;
@@ -89,17 +86,15 @@ main.dogs-relation {
 }
 
 .dogs-relation article footer .owner_info {
-    flex-direction: column;
-    gap:var(--spacing);
-    padding: var(--spacing);
+    padding-inline-start: var(--spacing);
     color: var(--primary);
-    font-size: clamp(0.8rem, 0.8vw, calc(var(--font-size)*3/2));
+    font-size: clamp(0.6rem, 0.8vw, calc(var(--font-size)*3/2));
 }
 .dogs-relation article .people_icon {
     align-self: center;
     align-items: center;
     color: var(--secondary);
-    height: clamp(30px, 13vw, 80px);
+    height: clamp(20px, 2vw, 40px);
     width: auto;
     padding-inline: var(--spacing);
 }

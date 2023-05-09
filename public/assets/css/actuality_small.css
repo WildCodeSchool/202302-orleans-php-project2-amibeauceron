@@ -10,7 +10,7 @@ main.last-tree-actuality {
 .last-tree-actuality section > div {
     display: grid;
     gap: var(--spacing);
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
 
 .last-tree-actuality article.small-card {
@@ -31,8 +31,6 @@ main.last-tree-actuality {
     align-items: center;
     justify-content: center;
     margin-block-end: var(--spacing);
-    height: 25vh;
-    object-fit: cover;
 }
 
 .last-tree-actuality article.small-card h2 {
@@ -41,11 +39,10 @@ main.last-tree-actuality {
     padding-block: var(--spacing);
     margin-bottom: 0;
     font-weight: 700;
-    border-bottom: 2px solid var(--intermediate);
 }
 
 .last-tree-actuality img.img-actuality {
-    width: clamp(80px, 20vw, 200px);
+    height: clamp(80px, 30vh, 180px); 
 }
 
 .last-tree-actuality article.small-card > div {
@@ -63,7 +60,7 @@ main.last-tree-actuality {
     padding-block:  var(--spacing);
     font-size: clamp(0.7rem, 0.9vw, var(--font-size));
     font-style: var(--font-text);
-    height: 10vh;
+    border-top: 2px solid var(--secondary);
 }
 
 .last-tree-actuality article.small-card > footer {
@@ -72,7 +69,7 @@ main.last-tree-actuality {
     margin-top: var(--spacing);
     border-top: 0;
     --card-sectionning-background-color: white;
-    padding: calc(var(--block-spacing-vertical) * .4) var(--block-spacing-horizontal);
+    padding: calc(var(--block-spacing-vertical) * .2) calc(var(--block-spacing-horizontal)* .2);
 }
 
 .last-tree-actuality article.small-card > footer a[role="button"] {
