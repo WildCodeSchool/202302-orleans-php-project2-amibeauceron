@@ -21,13 +21,28 @@ class AdminEventController extends AbstractAdminController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $event = array_map('trim', $_POST);
 
-            $errors = $this->validate($event);
+            $validateErrors = $this->validate($event);
+            $uploadErrors = [];
+
+            if (!empty($_FILES)) {
+                $uploadErrors = $this->validateUpload($_FILES);
+            }
+
+            $errors = array_merge($uploadErrors, $validateErrors);
 
             if (empty($errors)) {
                 $eventManager = new EventManager();
-                $id = $eventManager->insert($event);
+            }
+            if (!empty($_FILES['image']['tmp_name'])) {
+                $imageName = $this->generateImageName($_FILES['image']);
+                $event['image'] = $imageName;
+                move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/../../public/uploads/'  . $imageName);
+            }
+            if (empty($errors)) {
+                $eventManager = new EventManager();
+                $eventManager->insert($event);
 
-                header('Location:/Admin/Event/show?id=' . $id);
+                header('Location: /administration/evenements');
                 return '';
             }
         }
@@ -38,19 +53,19 @@ class AdminEventController extends AbstractAdminController
     {
         $errors = [];
         if (empty($event['title'])) {
-            $errors[] = "Veuillez renseigner le titre, le champ est requis.";
+            $errors[] = "Veuillez renseigner le titre.";
         }
 
         if (empty($event['date'])) {
-            $errors[] = "Veuillez renseigner la date, le champ est requis.";
+            $errors[] = "Veuillez renseigner la date.";
         }
 
         if (empty($event['place'])) {
-            $errors[] = "Veuillez renseigner le lieu, le champ est requis.";
+            $errors[] = "Veuillez renseigner le lieu.";
         }
 
         if (empty($event['description'])) {
-            $errors[] = "Veuillez renseigner la description, le champ est requis.";
+            $errors[] = "Veuillez renseigner la description.";
         }
 
         if (mb_strlen(($event['title'])) > self::MAX_LENGTH) {
@@ -59,49 +74,64 @@ class AdminEventController extends AbstractAdminController
         }
 
         if (mb_strlen(($event['place'])) > self::MAX_LENGTH) {
-            $errors[] = "L'endroit doit faire un maximum de " . self::MAX_LENGTH .
+            $errors[] = "Le lieu doit faire un maximum de " . self::MAX_LENGTH .
                 " caractères (actuellement: " . mb_strlen($event['place']) . ")";
         }
 
         return $errors;
     }
 
-    public function delete(int $id): void
+    public function delete(): ?string
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $eventManager = new EventManager();
+            if (!empty($_POST)) {
+                $id = $_POST['id'];
+                $eventManager = new EventManager();
+                $event = $eventManager->selectOneById($id);
 
-            $eventManager->delete($id);
+                $this->deleteFile($event['image']);
 
-            header('Location: /administration/evenements');
+                $eventManager->delete($id);
+            }
         }
+        header('Location: /administration/evenements');
+        return '';
     }
 
-    private function validateUpload(array $files): array
+    private function validateUpload(array $image): array
     {
         $errors = [];
         $limitFileSize = '1000000';
-        $authorizedMimes = ['image/jpeg', 'image/png', 'image/webp'];
+        $uploadCodesErrors = [
+            0 => 'Il n\'y a pas d\'erreur, le fichier a été téléchargé avec succès',
+            1 => 'Le fichier téléchargé dépasse la directive upload_max_filesize dans php.ini',
+            2 => 'Le fichier téléchargé dépasse la directive MAX_FILE_SIZE spécifiée dans le formulaire HTML',
+            3 => 'Le fichier téléchargé n\'a été que partiellement téléchargé',
+            4 => 'Aucun fichier n\'a été téléchargé',
+            6 => 'Il manque un dossier temporaire',
+            7 => 'Impossible d\'écrire le fichier sur le disque.',
+            8 => 'Une extension PHP a arrêté le téléchargement du fichier.',
+        ];
 
-        if ($files['image']['error'] !== 0) {
-            $errors[] = 'Problème avec l\'upload, veuillez réessayer';
+        if (!empty($image['image']['name']) && $image['image']['error'] !== 0) {
+            $errors[] = "Problème avec l\'upload, veuillez réessayer." .
+                "Erreur code :{$image['image']['error']}" . " Message :{$uploadCodesErrors[$image['image']['error']]}.";
+        } elseif (is_uploaded_file($image['image']['tmp_name'])) {
+            if ($image['image']['size'] > $limitFileSize) {
+                $errors[] = 'Le fichier doit faire moins de ' . $limitFileSize / 1000000 . 'Mo';
+            }
+            $authorizedMimes = ['image/jpeg', 'image/png', 'image/webp'];
+            if (!in_array(mime_content_type($image['image']['tmp_name']), $authorizedMimes)) {
+                $errors[] = 'Le type de fichier est incorrect. Types autorisées : ' . implode(', ', $authorizedMimes);
+            }
         }
-
-        if ($files['image']['size'] > $limitFileSize) {
-            $errors[] = 'Le fichier doit faire moins de ' . $limitFileSize / 1000000 . 'Mo';
-        }
-
-        if (!in_array(mime_content_type($files['image']['tmp_name']), $authorizedMimes)) {
-            $errors[] = 'Le type de fichier est incorrect. Types autorisés : ' . implode(', ', $authorizedMimes);
-        }
-
         return $errors;
     }
 
-    private function generateImageName(array $files)
+    private function generateImageName(array $image)
     {
-        $extension = pathinfo($files['name'], PATHINFO_EXTENSION);
-        $baseFilename = pathinfo($files['name'], PATHINFO_FILENAME);
+        $extension = pathinfo($image['name'], PATHINFO_EXTENSION);
+        $baseFilename = pathinfo($image['name'], PATHINFO_FILENAME);
         return uniqid($baseFilename, more_entropy: true) . '.' . $extension;
     }
 
@@ -109,7 +139,7 @@ class AdminEventController extends AbstractAdminController
     {
         $eventManager = new EventManager();
         $event = $eventManager->selectOneById($id);
-        $lastImage = $event['image'];
+        $image = $event['image'];
 
         $errors = [];
 
@@ -122,10 +152,10 @@ class AdminEventController extends AbstractAdminController
 
             if (empty($errors)) {
                 $eventManager = new EventManager();
-                $event['image'] = $lastImage;
+                $event['image'] = $image;
 
                 if (!empty($_FILES['image']['tmp_name'])) {
-                    $this->deleteFile($lastImage);
+                    $this->deleteFile($image);
 
                     $imageName = $this->generateImageName($_FILES['image']);
                     $event['image'] = $imageName;

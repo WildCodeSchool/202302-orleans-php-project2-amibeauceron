@@ -3,19 +3,23 @@
 		<input type="hidden" value="{{ event.id }}" name="id">
 		<label for="title">Titre</label>
 		<input type="text" value="{{ event.title }}" name="title" id="title" maxlength="100" placeholder='Titre de l&#39;evenement...' required value={{ event.title ?? '' }}>
-		<label for="content">Texte</label>
-		<textarea type="text" name="content" id="content" rows="7" placeholder='Text de l&#39;evenement...' spellcheck required>{{~ event.content ?? '' ~}}</textarea>
+		<label for="date">Date</label>
+		<input type="date" value="{{ event.date }}" id="date" name="date" required value={{ event.title ?? '' }}>
+		<label for="place">Localisation</label>
+		<input type="text" value="{{ event.place }}" name="place" id="place" maxlength="255" placeholder='Localisation de l&#39;evenement...' required value={{ event.place ?? '' }}>
+		<label for="content">Description</label>
+		<textarea type="text" name="description" id="description" rows="7" placeholder='Description de l&#39;evenement...' required>{{~ event.description ?? '' ~}}</textarea>
 		{% if event.image is not empty %}
 			<div class="form-img-container">
-				<img class="form-img" name="img" src="{{ '/uploads/' ~ event.image }}">
+				<img class="form-img" src="{{ '/uploads/' ~ event.image }}">
 			</div>
 		{% endif %}
 		<label for="image">{{ event.image is empty ? 'Ajouter' : 'Modifier' }}
-			une image</label>
+			l'image</label>
 		<input type="file" id="image" name="image" accept="image/*" value="{{~ event.image ?? '' ~}}">
 		<button type="submit">Valider</button>
 	</form>
 </div>
 <div>
-	<a href="/administration/evenement" role="button">Back</a>
+	<a href="/administration/evenements" role="button">Back</a>
 </div>
