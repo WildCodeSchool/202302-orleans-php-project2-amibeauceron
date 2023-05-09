@@ -11,7 +11,7 @@
     font-weight: 400;
     font-size: calc(var(--font-size))*2/3;
     color: var(--intermediate);
-    width: 80%;
+    width: 95%;
     margin: auto;
     text-align: justify;
 }
@@ -20,7 +20,7 @@
     color: var(--secondary);
     font-family: var(--font-title2);
     font-weight: 500;
-    font-size: calc(var(--spacing)*3);
+    font-size: clamp(1rem, 4vw, calc(var(--font-size) * 1.8));
     display: block;
     margin: 0;
     margin-left: calc(var(--spacing)*5);
@@ -29,7 +29,6 @@
 .part4 {
     display: flex;
     align-items: center;
-    width: 85%;
     margin: auto;
     gap: calc(var(--spacing)*2);
     padding: calc(var(--spacing)*2);
@@ -43,7 +42,6 @@
 .part5 {
     display: flex;
     align-items: center;
-    width: 85%;
     margin: auto;
     gap: calc(var(--spacing)*2);
     padding: calc(var(--spacing)*2);
@@ -63,5 +61,22 @@
     .part4,
     .part5 {
         flex-direction: column;
+        width: 100%;
+    }
+
+    .part5 img {
+        width: 80%;
+    }
+
+    .part4 img {
+        width: 70%;
+    }
+
+    .genese p {
+        width: 100%;
+    }
+
+    .genese h2 {
+        margin-left: 0;
     }
 }

@@ -55,3 +55,13 @@
         margin-left: 0;
     }
 }
+
+@media screen and (width < 800px) {
+    .pagecare section:nth-child(odd) {
+        background-image: none;
+    }
+
+    .pagecare section:nth-child(even) {
+        background-image: none;
+    }
+}
