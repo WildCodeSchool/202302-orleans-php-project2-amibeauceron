@@ -20,12 +20,14 @@
 						<img class="img-actuality" src="{{ actuality.image_path ?? '/assets/images/dog-information.webp' }}" alt="image de l'actualité">
 					</div>
 					<p>{{ actuality.content ?? '' }}</p>
+					<a href="#" role="button" target=" _self" onclick=" window.history.go(-1); return false;">Retour...</a>
 				</div>
 				<footer>
 					<small>
 						<span>{{ actuality.creation_date|date("d/m/Y", "Europe/Paris")  }}</span>
 					</small>
 				</footer>
+
 			</article>
 		</section>
 	</main>
