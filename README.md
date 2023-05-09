@@ -25,6 +25,11 @@ define('APP_DB_PASSWORD', 'your_db_password');
 6. Go to `localhost:8000` with your favorite browser.
 7. From this starter kit, create your own web application.
 
+### Login for acces to administration
+
+login :<admin@wildcodeschool.fr>
+pwd :Beauceron@2023
+
 ### Windows Users
 
 If you develop on Windows, you should edit you git configuration to change your end of line rules with this command :
@@ -35,12 +40,12 @@ If you develop on Windows, you should edit you git configuration to change your 
 
 An example (a basic list of items) is provided (you can load the _simple-mvc.sql_ file in a test database). The accessible URLs are :
 
--   Home page at [localhost:8000/](localhost:8000/)
--   Items list at [localhost:8000/items](localhost:8000/items)
--   Item details [localhost:8000/items/show?id=:id](localhost:8000/item/show?id=2)
--   Item edit [localhost:8000/items/edit?id=:id](localhost:8000/items/edit?id=2)
--   Item add [localhost:8000/items/add](localhost:8000/items/add)
--   Item deletion [localhost:8000/items/delete?id=:id](localhost:8000/items/delete?id=2)
+- Home page at [localhost:8000/](localhost:8000/)
+- Items list at [localhost:8000/items](localhost:8000/items)
+- Item details [localhost:8000/items/show?id=:id](localhost:8000/item/show?id=2)
+- Item edit [localhost:8000/items/edit?id=:id](localhost:8000/items/edit?id=2)
+- Item add [localhost:8000/items/add](localhost:8000/items/add)
+- Item deletion [localhost:8000/items/delete?id=:id](localhost:8000/items/delete?id=2)
 
 You can find all these routes declared in the file `src/routes.php`. This is the very same file where you'll add your own new routes to the application.
 
@@ -48,7 +53,7 @@ You can find all these routes declared in the file `src/routes.php`. This is the
 
 ![simple_MVC.png](.tours/simple_MVC.png)
 
-## Ask for a tour !
+## Ask for a tour
 
 <img src="./.tours/photo-1632178151697-fd971baa906f.jpg" alt="Guided tour" width="150"/>
 
