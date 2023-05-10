@@ -113,6 +113,7 @@ main.actuality {
 
 .actuality-details .img-actuality {
     width: clamp(200px, 25vw, 600px);
+    max-height: 50vh;
 }
 
 .actuality-details article header {
@@ -142,7 +143,7 @@ main.actuality {
 
 .actuality-details article div > p {
     min-height: 40vh;
-    font-size: clamp(0.8rem, 1vw, 1.4rem);
+    font-size: clamp(0.8rem, 0.7vw, 1.4rem);
     overflow-y: auto;
     padding: calc(var(--spacing)*2);
 }

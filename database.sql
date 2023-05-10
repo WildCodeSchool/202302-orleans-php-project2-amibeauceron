@@ -235,7 +235,7 @@ VALUES (
     Races de la FCI, inscrits dans le livre des origines reconnu par la FCI (cela signifie que les inscriptions
     ',
         NOW(),
-        NULL
+        'dog-5.jpg'
     ), (
         'Postes a pourvoir appel a candidature',
         'DELEGATIONS : 
@@ -249,7 +249,7 @@ VALUES (
     33200 BORDEAUX
     ',
         DATE_ADD(NOW(), INTERVAL -8 DAY),
-        NULL
+        'poste_a_pourvoir.jpg'
     );
 
 DROP TABLE IF EXISTS evenement;
@@ -447,6 +447,6 @@ VALUES (
         DATE_ADD(NOW(), INTERVAL -15 DAY),
         0,
         '015897574949849',
-        NULL,
+        'dog-3.jpeg',
         'OLYMPE ARGENTEE DU MONT DES CROISETTES (Arelquin) Cotation 2 Dys HD-A par LOOPING DE LA TERRE DES LIONS Cotation 1. Note 2+1=3'
     );
