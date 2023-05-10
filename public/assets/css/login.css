@@ -20,10 +20,6 @@ section.login header > h1 {
     margin: var(--spacing);
     padding: calc(var(--block-spacing-vertical)*0.4) calc(var(--block-spacing-horizontal)*3/2);
     padding-block-end: var(--spacing);
-    --stagger-delay: 150ms;
-    animation: 400ms FadeInAnimation var(--stagger-delay) ease-out;
-    animation-fill-mode: backwards;
-    animation-iteration-count: 1;
 }
 
 .login .icon-person-circle {
@@ -93,16 +89,4 @@ section.login header > h1 {
     justify-content: end;
     color: var(--intermediate);
     font-size: calc(var(--font-size)*2/3);
-}
-
-@keyframes FadeInAnimation {
-    from {
-        opacity: 0.3;
-        transform: scale(0);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
 }
