@@ -148,7 +148,7 @@ INSERT INTO
     )
 VALUES (
         'Convocation Assemblée Générale 2023',
-        'L''assamblée générale du Club Les Amis du Beauceron aura lieux le samedi 06 mai 2023 à 18h00 à la mairie de Thoissey 8 rue de l''hôtel de ville salle des mariages.
+        'L''assemblée générale du Club Les Amis du Beauceron aura lieu le samedi 06 mai 2023 à 18h00 à la mairie de Thoissey 8 rue de l''hôtel de ville salle des mariages.
      
         L''ordre du jour sera le suivant :
 			
@@ -166,15 +166,8 @@ VALUES (
         NOW(),
         'assemblee-generale.jpg'
     ), (
-        'Renouvellement Adhesion & Abonnement 2023',
-        'Pensez a renouveller votre adhesion. La numéro 1 - 2023 va bientôt paraître
-     
-        Vous trouverez les documents suivant pour votre inscription : 
-        
-          - <a href="lettre adhesion au club 2023.pdf" border="0" alt="">LETTRE DE RENOUVELEMENT</a>
-          - <a href="../club/club-adhesion.html" border="0" alt="">BULLETIN ADHESION</a>
-          - <a href="RIB Crédit Agricole CAB.pdf" border="0" alt="">RIB bancaire</a>
-    ',
+        'Renouvellement Adhésion & Abonnement 2023',
+        'Pensez a renouveler votre adhésion. La numéro 1 - 2023 va bientôt paraître',
         DATE_ADD(NOW(), INTERVAL -2 DAY),
         'adhesion-association.jpg'
     ), (
@@ -203,8 +196,8 @@ VALUES (
         DATE_ADD(NOW(), INTERVAL -5 DAY),
         'perte-audition-chien.webp'
     ), (
-        'Titre de champion international de beaute',
-        'Titres de champion international de beaute jeune & veteran de la FCI C.I.B.-J & C.I.B.-V.
+        'Titre de champion international de beauté',
+        'Titres de champion international de beauté jeune & vétéran de la FCI C.I.B.-J & C.I.B.-V.
 
     Mesdames, Messieurs les Présidents,
 
@@ -235,7 +228,7 @@ VALUES (
     Races de la FCI, inscrits dans le livre des origines reconnu par la FCI (cela signifie que les inscriptions
     ',
         NOW(),
-        NULL
+        'dog-5.jpg'
     ), (
         'Postes a pourvoir appel a candidature',
         'DELEGATIONS : 
@@ -249,7 +242,7 @@ VALUES (
     33200 BORDEAUX
     ',
         DATE_ADD(NOW(), INTERVAL -8 DAY),
-        NULL
+        'poste_a_pourvoir.jpg'
     );
 
 DROP TABLE IF EXISTS evenement;
@@ -284,19 +277,19 @@ VALUES (
         '2023-07-12',
         'Château de Chambord, Loir-et-Cher, France',
         'Préparez-vous à un spectacle de joutes canines à couper le souffle, où nos Beaucerons se transformeront en de véritables chevaliers à quatre pattes! Armés de leur élégance naturelle et de leur adresse, nos participants s\'affronteront avec panache pour conquérir le titre de champion de la joute canine. Les mouvements gracieux des Beaucerons sur le terrain vous émerveilleront, et vous serez captivé par la manière dont ils manient leur lance en croquant dans les défis avec brio.',
-        'hotdogs.jpg'
+        'chevalier.webp'
     ), (
         'Beau-Rock: Concert en plein air pour Beaucerons fans de musique live!',
         '2023-06-28',
         'Parc du Grognement Énergique, Lyon, France',
         'Préparez-vous à secouer la queue et à groover avec les Beaucerons passionnés de musique live! Ce concert en plein air mettra en vedette des groupes de rock spécialement sélectionnés pour leur capacité à faire bouger les pattes et à remuer les oreilles. Une ambiance déjantée, des snacks canins à gogo et du rock à volonté vous attendent pour cette soirée inoubliable!',
-        'hotdogs.jpg'
+        'beer.png'
     ), (
         'Beau-Ciné: Soirée cinéma en plein air pour Beaucerons cinéphiles!',
         '2023-08-12',
         'Parc du Cinéma Canin, Marseille, France',
         'Installez-vous confortablement avec votre Beauceron et profitez d\'une soirée cinéma en plein air sous les étoiles! Une sélection de films mettant en vedette des chiens et des animaux de compagnie sera projetée sur grand écran, avec des couvertures moelleuses et des snacks canins à déguster. Une soirée de détente et de divertissement pour les Beaucerons cinéphiles et leurs humains!',
-        'hotdogs.jpg'
+        'cine.jpg'
     );
 
 /********************TABLE MEMBER LIST****************/
@@ -339,6 +332,18 @@ VALUES (
         'Professeur de physique-chimie',
         'walter.white@gmail.com',
         'walterwhite.jpg'
+    ), (
+        'RENAUX',
+        'Danièle',
+        'Présidente - pour toutes les affaires importantes',
+        'dr.renaux@orange.fr',
+        'DanieleRenaux.png'
+    ), (
+        'LEGUEDE',
+        'Didier',
+        'Trésorier Adjoint - responsable des mensurateurs de la boutique & du matériel',
+        'leguede.didier@neuf.fr',
+        'LeguedeDidier.png'
     );
 
 --
@@ -447,6 +452,6 @@ VALUES (
         DATE_ADD(NOW(), INTERVAL -15 DAY),
         0,
         '015897574949849',
-        NULL,
+        'dog-3.jpeg',
         'OLYMPE ARGENTEE DU MONT DES CROISETTES (Arelquin) Cotation 2 Dys HD-A par LOOPING DE LA TERRE DES LIONS Cotation 1. Note 2+1=3'
     );

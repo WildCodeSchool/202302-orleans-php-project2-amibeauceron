@@ -16,7 +16,7 @@
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     justify-content: center;
-    gap : calc(var(--spacing)*2);
+    gap: calc(var(--spacing)*2);
     padding: var(--spacing);
     margin: var(--spacing);
 }
@@ -31,7 +31,6 @@
 .follows {
     grid-row: 1;
     grid-column: 3/4;
-    align-items: center;
     text-align: center;
 }
 
@@ -48,17 +47,17 @@
 }
 
 .facebook {
-    height: clamp(15px , 2vw, 40px);
+    height: clamp(15px, 2vw, 40px);
     width: auto;
 }
 
 .instagram {
-    height: clamp(15px , 2vw, 40px);
+    height: clamp(15px, 2vw, 40px);
     width: auto;
 }
 
 .entt {
-    height: clamp(15px , 2vw, 40px);
+    height: clamp(15px, 2vw, 40px);
     width: auto;
 }
 
@@ -78,13 +77,6 @@
     background-color: var(--primary);
 }
 
-.main-footer a[role="button"] {
-    width: clamp(6rem, 10vw, 8rem);
-    padding: calc(var(--spacing) / 3) calc(var(--spacing) / 3);
-    border-radius: 0;
-    font-size: calc(var(--font-size) * 3 / 4);
-}
-
 .administrateur img {
     width: clamp(50px, 10vw, 120px);
     border-radius: var(--border-radius);
@@ -97,6 +89,33 @@
 
 .logos svg {
     width: clamp(18px, 10vw, 64px);
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-block: 15vh;
+    gap: var(--spacing);
+}
+
+.login-container > a {
+    --background-color: var(--secondary);
+    text-shadow: 1px 1px 2px var(--intermediate);
+    font-family: var(--font-text);
+    width: clamp(80px, 20vw, 200px);
+    font-size: clamp(0.6rem, 4vw, 1.2rem);
+    box-shadow: 1px 1px 2px var(--intermediate);
+    color: var(--light);
+    border-radius: var(--border-radius);
+    padding: 0.5rem;
+    text-align: center;
+    background-color: var(--background-color);
+}
+
+.login-container > a:hover {
+    --background-color: var(--light);
+    color: var(--secondary);
 }
 
 @media screen and (width <=1080px) {

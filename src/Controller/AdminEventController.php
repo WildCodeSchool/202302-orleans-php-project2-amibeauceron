@@ -135,7 +135,7 @@ class AdminEventController extends AbstractAdminController
         return uniqid($baseFilename, more_entropy: true) . '.' . $extension;
     }
 
-    public function update(int $id): string
+    public function update($id): string
     {
         $eventManager = new EventManager();
         $event = $eventManager->selectOneById($id);
