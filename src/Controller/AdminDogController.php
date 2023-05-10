@@ -64,7 +64,7 @@ class AdminDogController extends AbstractAdminController
                     move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/../../public/uploads/' . $imageName);
                 }
                 // redirection
-                header('Location:/administration/beauceron/nos-chiens');
+                header('Location:/administration/nos-chiens');
                 exit();
             }
         }
