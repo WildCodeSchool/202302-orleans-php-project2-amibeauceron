@@ -5,19 +5,38 @@
 	<h2>{{ dog.name|title }}</h2>
 	<div class="dog_info">
 		<div>
-			<span class="label">Genre :</span>
+			{% if dog.gender == 'M' %}
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gender-male" viewbox="0 0 16 16">
+					<path fill-rule="evenodd" d="M9.5 2a.5.5 0 0 1 0-1h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V2.707L9.871 6.836a5 5 0 1 1-.707-.707L13.293 2H9.5zM6 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/>
+				</svg>
+			{% else %}
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gender-female" viewbox="0 0 16 16">
+					<path fill-rule="evenodd" d="M8 1a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM3 5a5 5 0 1 1 5.5 4.975V12h2a.5.5 0 0 1 0 1h-2v2.5a.5.5 0 0 1-1 0V13h-2a.5.5 0 0 1 0-1h2V9.975A5 5 0 0 1 3 5z"/>
+				</svg>
+			{% endif %}
+		</div>
+		<div>
 			{{ dog.gender == 'M' ? 'Male' : 'Femelle' }}
 		</div>
 		<div>
-			<span class="label">Date de naissance :</span>
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-check" viewbox="0 0 16 16">
+				<path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+				<path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+			</svg>
+		</div>
+		<div>
 			{{ dog.birthdate|date("d/m/Y") }}
 		</div>
 		<div>
-			<span class="label">LOF :</span>
+			<span class="label">LOF</span>
+		</div>
+		<div>
 			{{ dog.is_lof ? 'Oui' : 'Non' }}
 		</div>
 		<div>
-			<span class="label">N°I-CAD :</span>
+			<span class="label">N°I-CAD</span>
+		</div>
+		<div>
 			{{ dog.identity_number }}
 		</div>
 	</div>
