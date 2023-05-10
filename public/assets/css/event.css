@@ -27,15 +27,7 @@
     flex-wrap: wrap;
     max-width: 70%;
     margin: auto;
-    transform: translate(-12.5rem);
-    opacity: 0;
-    transition: transform 0.5s ease-in-out,
-        opacity 0.5s ease-in-out;
-}
-
-.slide-article.active {
-    transform: translateX(0%);
-    opacity: 1;
+    --block-spacing-vertical: calc(var(--spacing) * 1.5);
 }
 
 .article-container {

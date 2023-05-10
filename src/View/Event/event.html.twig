@@ -14,7 +14,7 @@
 			<div class="slide-article">
 				{% for event in events %}
 					<article class="article-container">
-						<img src="/assets/images/event/hotdogs.jpg" alt="Hot Dogs" class="article-image">
+						<img src="{{(event.image is not empty) ? '/uploads/' ~ event.image : '/assets/images/event/hotdogs.jpg'}}" alt="Hot Dogs" class="article-image">
 						<div class="article-content">
 							<h2>{{ event.title}}</h2>
 							<h3>{{ event.date }}</h3>
