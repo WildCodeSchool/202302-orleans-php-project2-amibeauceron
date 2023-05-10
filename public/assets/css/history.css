@@ -1,115 +1,51 @@
-.berger>div {
-    display: flex;
-    flex-direction: column;
-}
-
-.berger {
-    display: flex;
-    flex-direction: column;
-    gap: calc(var(--spacing)*2);
-    padding: calc(var(--spacing)*2);
-}
-
-.beauceron p,
-.beauceron ul,
-.beauceron li {
-    font-family: var(--font-text);
-    font-weight: 400;
-    font-size: calc(var(--font-size))*2/3;
-    line-height: calc(var(--spacing)*1.5);
-    color: var(--intermediate);
+.beauceron p {
+    font-size: clamp(1rem, 10vw, 1rem);
     text-align: justify;
-    margin: auto;
 }
 
-.beauceron .part2:last-child p {
-    padding-bottom: calc(var(--spacing)*4);
-}
-
-.berger>h2 {
-    color: var(--secondary);
-    font-family: 'Cormorant Garamond';
-    font-weight: 500;
-    font-size: clamp(1rem, 4vw, calc(var(--font-size) * 1.3));
-    display: block;
-    margin: 0;
-}
-
-.beauceron>div {
-    width: 95%;
-    margin: auto;
-    margin-bottom: calc(var(--spacing)*2);
-}
-
-.beauceron>.pawsContainer {
-    position: relative;
-    margin: calc(var(--spacing)*3) auto calc(var(--spacing)*4);
-}
-
-.beauceron>.pawsContainer>img:first-child {
-    width: 80%;
-    padding: var(--spacing);
-    border-radius: calc(var(--spacing)*2);
-    display: block;
-    margin: auto;
-    z-index: -1;
-}
-
-.beauceron>.pawsContainer>img:last-child {
-    position: absolute;
-    top: -50px;
-    left: -70px;
-    z-index: -2;
-    width: 30%;
-    transform: rotate(-20deg);
-}
-
-.berger .part3 ul,
-.berger .part3 li {
-    color: var(--primary);
-    text-decoration: none;
-}
-
-.part1 {
-    display: flex;
+.beauceron .part1 {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding-block: calc(var(--spacing) * 4);
+    padding-inline: calc(var(--spacing) * 4);
     align-items: center;
+    justify-content: center;
+    gap: calc(var(--spacing) * 2);
 }
 
-.part1 img {
-    width: 50%;
-    border-radius: calc(var(--spacing)*2);
+.beauceron h2 {
+    padding-inline: calc(var(--spacing) * 4);
 }
 
-.part3:first-child {
-    padding-block-start: calc(var(--spacing)*2);
+.beauceron .part2,
+.beauceronP {
+    padding-inline: calc(var(--spacing) * 4);
 }
 
-.part3:last-child {
-    margin-bottom: calc(var(--spacing)*5);
+.beauceron .pawsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-block: calc(var(--spacing) * 4);
+    padding-inline: calc(var(--spacing) * 4);
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--spacing) * 2);
 }
 
-@media screen and (max-width: 1200px) {
-    .part1 {
-        flex-direction: column;
-    }
+.beauceron .part1 {
+    background-image: url('../images/care/empreintelightcontour.png');
+    background-position: 70% 5%;
+    background-size: calc(var(--spacing) * 12);
+}
 
-    .part1 img {
-        width: 70%;
-    }
+.beauceron .part3 {
+    background-color: var(--light);
+    background-image: url('../images/care/empreintechiencontour.png');
+    background-position: 70% 20%;
+    background-size: calc(var(--spacing) * 12);
+}
 
-    .beauceron p {
-        width: 100%;
-    }
-
-    .beauceron>div {
-        width: 100%;
-    }
-
-    h2 {
-        text-align: center;
-    }
-
-    .genese>h2 {
-        margin-left: 0;
-    }
+.beauceron .part3,
+.part2 p:last-child {
+    padding-bottom: calc(var(--spacing) * 4);
 }
