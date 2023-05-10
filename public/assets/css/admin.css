@@ -200,3 +200,9 @@ input[type="date"] {
     border-bottom: dashed 1px var(--primary);
     padding-inline: calc(var(--spacing)*2/3);
 }
+
+.datas-container table tr :is(td, th).buttonEvent {
+    padding: 3px;
+    width: min-content;
+    text-align: center;
+}
