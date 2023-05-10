@@ -1,82 +1,56 @@
-.genese {
-    background-color: var(--light);
-    display: flex;
-    flex-direction: column;
-    gap: calc(var(--spacing)*2);
-    padding: calc(var(--spacing)*2);
-}
-
 .genese p {
-    font-family: var(--font-text);
-    font-weight: 400;
-    font-size: calc(var(--font-size))*2/3;
-    color: var(--intermediate);
-    width: 95%;
-    margin: auto;
+    font-size: clamp(1rem, 10vw, 1rem);
     text-align: justify;
+    padding-inline: calc(var(--spacing) * 4);
 }
 
-.genese>h2 {
-    color: var(--secondary);
-    font-family: var(--font-title2);
-    font-weight: 500;
-    font-size: clamp(1rem, 4vw, calc(var(--font-size) * 1.8));
-    display: block;
-    margin: 0;
-    margin-left: calc(var(--spacing)*5);
-}
-
-.part4 {
-    display: flex;
+.genese .part4 {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding-block: calc(var(--spacing) * 4);
+    padding-inline: calc(var(--spacing) * 4);
     align-items: center;
-    margin: auto;
-    gap: calc(var(--spacing)*2);
-    padding: calc(var(--spacing)*2);
+    justify-content: center;
+    gap: calc(var(--spacing) * 2);
 }
 
-.part4 img {
-    width: 50%;
-    border-radius: calc(var(--spacing)*2);
+.genese .part4 p {
+    padding: 0;
 }
 
-.part5 {
-    display: flex;
+.genese h2 {
+    padding-top: calc(var(--spacing) * 4);
+    padding-inline: calc(var(--spacing) * 4);
+}
+
+.genese .part5 {
+    background-image: url('../images/care/empreintelightcontour.png');
+    background-position: 70% 5%;
+    background-size: calc(var(--spacing) * 12);
+}
+
+.genese .part6 {
+    background-color: var(--light);
+    background-image: url('../images/care/empreintechiencontour.png');
+    background-position: 70% 20%;
+    background-size: calc(var(--spacing) * 12);
+}
+
+.genese .divPart6 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-block: calc(var(--spacing) * 4);
+    padding-inline: calc(var(--spacing) * 4);
     align-items: center;
-    margin: auto;
-    gap: calc(var(--spacing)*2);
-    padding: calc(var(--spacing)*2);
+    justify-content: center;
+    gap: calc(var(--spacing) * 2);
 }
 
-.part5 img {
-    width: 50%;
-    border-radius: calc(var(--spacing)*2);
+.divPart6 p {
+    padding: 0;
 }
 
-.genese {
-    padding-bottom: calc(var(--spacing)*4);
-}
-
-@media screen and (max-width: 1000px) {
-
-    .part4,
-    .part5 {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .part5 img {
-        width: 80%;
-    }
-
-    .part4 img {
-        width: 70%;
-    }
-
-    .genese p {
-        width: 100%;
-    }
-
-    .genese h2 {
-        margin-left: 0;
-    }
+.genese .part5,
+.genese .part6 {
+    padding-bottom: calc(var(--spacing) * 4);
 }
