@@ -16,7 +16,7 @@ class MembershipController extends AbstractController
             $lenghtErrors = $this->validateLenght($membership);
             $errors = array_merge($dataErrors, $lenghtErrors);
             if (empty($errors)) {
-                header('Location:/administration/actualites');
+                header('Location:/association');
                 exit();
             }
             return $this->twig->render('Membership/index.html.twig', [
