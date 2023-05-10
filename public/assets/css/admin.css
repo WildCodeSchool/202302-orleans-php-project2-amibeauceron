@@ -199,5 +199,4 @@ input[type="date"] {
     padding-block: calc(var(--spacing)*2/3);
     border-bottom: dashed 1px var(--primary);
     padding-inline: calc(var(--spacing)*2/3);
-    ;
 }
