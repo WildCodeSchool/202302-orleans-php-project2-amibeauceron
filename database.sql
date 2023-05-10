@@ -284,19 +284,19 @@ VALUES (
         '2023-07-12',
         'Château de Chambord, Loir-et-Cher, France',
         'Préparez-vous à un spectacle de joutes canines à couper le souffle, où nos Beaucerons se transformeront en de véritables chevaliers à quatre pattes! Armés de leur élégance naturelle et de leur adresse, nos participants s\'affronteront avec panache pour conquérir le titre de champion de la joute canine. Les mouvements gracieux des Beaucerons sur le terrain vous émerveilleront, et vous serez captivé par la manière dont ils manient leur lance en croquant dans les défis avec brio.',
-        'hotdogs.jpg'
+        'chevalier.webp'
     ), (
         'Beau-Rock: Concert en plein air pour Beaucerons fans de musique live!',
         '2023-06-28',
         'Parc du Grognement Énergique, Lyon, France',
         'Préparez-vous à secouer la queue et à groover avec les Beaucerons passionnés de musique live! Ce concert en plein air mettra en vedette des groupes de rock spécialement sélectionnés pour leur capacité à faire bouger les pattes et à remuer les oreilles. Une ambiance déjantée, des snacks canins à gogo et du rock à volonté vous attendent pour cette soirée inoubliable!',
-        'hotdogs.jpg'
+        'beer.png'
     ), (
         'Beau-Ciné: Soirée cinéma en plein air pour Beaucerons cinéphiles!',
         '2023-08-12',
         'Parc du Cinéma Canin, Marseille, France',
         'Installez-vous confortablement avec votre Beauceron et profitez d\'une soirée cinéma en plein air sous les étoiles! Une sélection de films mettant en vedette des chiens et des animaux de compagnie sera projetée sur grand écran, avec des couvertures moelleuses et des snacks canins à déguster. Une soirée de détente et de divertissement pour les Beaucerons cinéphiles et leurs humains!',
-        'hotdogs.jpg'
+        'cine.jpg'
     );
 
 /********************TABLE MEMBER LIST****************/
