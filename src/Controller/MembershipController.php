@@ -58,7 +58,7 @@ class MembershipController extends AbstractController
     {
         $errors = [];
 
-        if (mb_strlen(($$membership['name'])) > self::MAX_LENGTH) {
+        if (mb_strlen(($membership['name'])) > self::MAX_LENGTH) {
             $errors[] = "Le nom doit faire un maximum de " . self::MAX_LENGTH .
                 " caractères (actuellement: " . mb_strlen($membership['name']) . ")";
         }
@@ -66,15 +66,15 @@ class MembershipController extends AbstractController
             $errors[] = "Le prenom doit faire un maximum de " . self::MAX_LENGTH .
                 " caractères (actuellement: " . mb_strlen($membership['prenom']) . ")";
         }
-        if (mb_strlen(($$membership['adress'])) > self::MAX_LENGTH) {
+        if (mb_strlen(($membership['adress'])) > self::MAX_LENGTH) {
             $errors[] = "L'adresse doit faire un maximum de " . self::MAX_LENGTH .
                 " caractères (actuellement: " . mb_strlen($membership['adress']) . ")";
         }
-        if (mb_strlen(($$membership['tel'])) > self::MAX_LENGTH) {
+        if (mb_strlen(($membership['tel'])) > self::MAX_LENGTH) {
             $errors[] = "Le telephone doit faire un maximum de " . self::MAX_LENGTH .
                 " caractères (actuellement: " . mb_strlen($membership['tel']) . ")";
         }
-        if (mb_strlen(($$membership['email'])) > self::MAX_LENGTH) {
+        if (mb_strlen(($membership['email'])) > self::MAX_LENGTH) {
             $errors[] = "Le courriel doit faire un maximum de " . self::MAX_LENGTH .
                 " caractères (actuellement: " . mb_strlen($membership['email']) . ")";
         }
