@@ -339,6 +339,18 @@ VALUES (
         'Professeur de physique-chimie',
         'walter.white@gmail.com',
         'walterwhite.jpg'
+    ), (
+        'RENAUX',
+        'Danièle',
+        'Présidente - pour toutes les affaires importantes',
+        'dr.renaux@orange.fr',
+        'DanieleRenaux.png'
+    ), (
+        'LEGUEDE',
+        'Didier',
+        'Trésorier Adjoint - responsable des mensurateurs de la boutique & du matériel',
+        'leguede.didier@neuf.fr',
+        'LeguedeDidier.png'
     );
 
 --
