@@ -6,11 +6,7 @@ use App\Model\MembershipManager;
 
 class MembershipController extends AbstractController
 {
-    public const MAX_LENGTH_NAME = 100;
-    public const MAX_LENGTH_LASTNAME = 100;
-    public const MAX_LENGTH_ADRESS = 100;
-    public const MAX_LENGTH_TEL = 100;
-    public const MAX_LENGTH_EMAIL = 100;
+    public const MAX_LENGTH = 100;
 
     public function add(): string
     {
@@ -62,24 +58,24 @@ class MembershipController extends AbstractController
     {
         $errors = [];
 
-        if (mb_strlen(($$membership['name'])) > self::MAX_LENGTH_NAME) {
-            $errors[] = "Le nom doit faire un maximum de " . self::MAX_LENGTH_NAME .
+        if (mb_strlen(($$membership['name'])) > self::MAX_LENGTH) {
+            $errors[] = "Le nom doit faire un maximum de " . self::MAX_LENGTH .
                 " caractères (actuellement: " . mb_strlen($membership['name']) . ")";
         }
-        if (mb_strlen(($membership['lastname'])) > self::MAX_LENGTH_LASTNAME) {
-            $errors[] = "Le prenom doit faire un maximum de " . self::MAX_LENGTH_LASTNAME .
+        if (mb_strlen(($membership['lastname'])) > self::MAX_LENGTH) {
+            $errors[] = "Le prenom doit faire un maximum de " . self::MAX_LENGTH .
                 " caractères (actuellement: " . mb_strlen($membership['prenom']) . ")";
         }
-        if (mb_strlen(($$membership['adress'])) > self::MAX_LENGTH_ADRESS) {
-            $errors[] = "L'adresse doit faire un maximum de " . self::MAX_LENGTH_ADRESS .
+        if (mb_strlen(($$membership['adress'])) > self::MAX_LENGTH) {
+            $errors[] = "L'adresse doit faire un maximum de " . self::MAX_LENGTH .
                 " caractères (actuellement: " . mb_strlen($membership['adress']) . ")";
         }
-        if (mb_strlen(($$membership['tel'])) > self::MAX_LENGTH_TEL) {
-            $errors[] = "Le telephone doit faire un maximum de " . self::MAX_LENGTH_TEL .
+        if (mb_strlen(($$membership['tel'])) > self::MAX_LENGTH) {
+            $errors[] = "Le telephone doit faire un maximum de " . self::MAX_LENGTH .
                 " caractères (actuellement: " . mb_strlen($membership['tel']) . ")";
         }
-        if (mb_strlen(($$membership['email'])) > self::MAX_LENGTH_EMAIL) {
-            $errors[] = "Le courriel doit faire un maximum de " . self::MAX_LENGTH_EMAIL .
+        if (mb_strlen(($$membership['email'])) > self::MAX_LENGTH) {
+            $errors[] = "Le courriel doit faire un maximum de " . self::MAX_LENGTH .
                 " caractères (actuellement: " . mb_strlen($membership['email']) . ")";
         }
 
