@@ -19,11 +19,6 @@ main.last-tree-actuality {
     justify-content: space-between;
     width: auto;
     --block-spacing-horizontal: calc(var(--spacing)*2);
-
-    --stagger-delay: 450ms;
-    animation: 400ms FadeInAnimation var(--stagger-delay) ease-out;
-    animation-fill-mode: backwards;
-    animation-iteration-count: 1;
 }
 
 .last-tree-actuality article.small-card header {
@@ -42,7 +37,7 @@ main.last-tree-actuality {
 }
 
 .last-tree-actuality img.img-actuality {
-    height: clamp(80px, 30vh, 180px); 
+    height: clamp(80px, 30vh, 180px);
 }
 
 .last-tree-actuality article.small-card > div {
@@ -57,7 +52,7 @@ main.last-tree-actuality {
 }
 
 .last-tree-actuality article.small-card .content {
-    padding-block:  var(--spacing);
+    padding-block: var(--spacing);
     font-size: clamp(0.7rem, 0.9vw, var(--font-size));
     font-style: var(--font-text);
     border-top: 2px solid var(--secondary);
@@ -79,29 +74,18 @@ main.last-tree-actuality {
     font-size: calc(var(--font-size) * 3 / 4);
 }
 
-@keyframes FadeInAnimation {
-    from {
-        opacity: 0.3;
-        transform: scale(0);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
 @media screen and (width < 400px) {
     .last-tree-actuality section > div {
         grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-        gap:0;
+        gap: 0;
     }
 
     .last-tree-actuality article.small-card {
         --block-spacing-horizontal: calc(var(--spacing)*2/3);
     }
 
-    .container, .container-fluid {
+    .container,
+    .container-fluid {
         padding-inline: calc(var(--spacing)*2/3);
     }
 }

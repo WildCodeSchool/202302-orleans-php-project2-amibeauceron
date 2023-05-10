@@ -9,20 +9,16 @@ main.dogs-relation {
 
 .dogs-relation section > div {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: var(--spacing);
 }
 
-.dogs-relation article{
+.dogs-relation article {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: auto;
     --block-spacing-horizontal: calc(var(--spacing)*2);
-    --stagger-delay: 450ms;
-    animation: 400ms FadeInAnimation var(--stagger-delay) ease-out;
-    animation-fill-mode: backwards;
-    animation-iteration-count: 1;
 }
 
 .dogs-relation section h1 {
@@ -51,45 +47,52 @@ main.dogs-relation {
 }
 
 .dogs-relation article .dog_info {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto;
     border-top: 2px solid var(--secondary);
-    flex-direction: column;
+    gap: calc(var(--spacing)*1/4);
     flex-wrap: wrap;
-    padding: var(--spacing);
+    padding-block-start: var(--spacing);
 }
 
 .dogs-relation article .label {
-    font-weight: 500;
-    font-size: clamp(0.8rem, 0.9vw, calc(var(--font-size)*3/2));
+    font-weight: 300;
+    font-size: clamp(0.7rem, 0.7vw, calc(var(--font-size)*3/2));
 }
 
+
 .dogs-relation article .content {
-    padding: var(--spacing);
-    font-style: var(--font-text);
+    padding-block-start: var(--spacing);
+    font-family: var(--font-text);
     height: 16vh;
+    overflow: scroll;
 }
 
 .dogs-relation article img.img-dog {
-    height: clamp(80px, 30vh, 250px); 
+    height: clamp(80px, 30vh, 250px);
 }
 
 .dogs-relation article footer {
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 5fr;
     margin-top: var(--spacing);
     padding: var(--spacing);
-    height: 20vh;
+    height: 18vh;
+    gap: calc(var(--spacing)*1/4);
 }
-.dogs-relation article footer div {
+
+.dogs-relation article footer > div {
     align-self: center;
     grid-row: 1/2;
-    color:var(--intermediate);
+    color: var(--intermediate);
 }
 
 .dogs-relation article footer .owner_info {
     padding-inline-start: var(--spacing);
-    color: var(--primary);
-    font-size: clamp(0.6rem, 0.8vw, calc(var(--font-size)*3/2));
+    font-size: clamp(0.8rem, 0.8vw, calc(var(--font-size)*3/2));
 }
+
 .dogs-relation article .people_icon {
     align-self: center;
     align-items: center;
@@ -99,22 +102,10 @@ main.dogs-relation {
     padding-inline: var(--spacing);
 }
 
-@keyframes FadeInAnimation {
-    from {
-        opacity: 0.3;
-        transform: scale(0);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
 .option-container {
     display: flex;
     flex-direction: row;
-    gap : var(--spacing);
+    gap: var(--spacing);
     margin-block: var(--spacing);
     padding-block-end: calc(var(--spacing)*2/3);
     accent-color: var(--secondary);
@@ -123,11 +114,10 @@ main.dogs-relation {
 }
 
 .option-label {
-    background-color:var(--light);
-    color:var(--dark);
+    color: var(--dark);
     padding-block: calc(var(--spacing)*2/3);
     border-bottom: dashed 1px var(--primary);
-    padding-inline: calc(var(--spacing)*2/3);;
+    padding-inline: calc(var(--spacing)*2/3);
     font-size: calc(var(--font-size) * 2/3);
 }
 
@@ -145,7 +135,7 @@ main.dogs-relation {
     justify-content: center;
     align-items: center;
     padding-block: calc(var(--spacing)* 2/3);
-    width: clamp(90px,12vw,200px);
+    width: clamp(90px, 12vw, 200px);
     font-size: calc(var(--font-size) * 2/3);
 }
 
@@ -161,7 +151,7 @@ details > form {
     padding: 0;
 }
 
-@media screen and (width <=500px) {
+@media screen and (width <=700px) {
     .dogs-relation section > div {
         grid-template-columns: 1fr;
     }

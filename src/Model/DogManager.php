@@ -57,12 +57,13 @@ class DogManager extends AbstractManager
     public function findDogs(array $search = []): array
     {
         $query = 'SELECT * FROM ' . self::TABLE . ' WHERE (0=0) ';
-        if (isset($search['is_lof'])) {
+        if (isset($search['is_lof']) && ($search['is_lof'] == 1 || $search['is_lof'] == 0)) {
             $query .= ' AND is_lof = :is_lof ';
         }
         $query .= ' ORDER BY name ';
         $statement = $this->pdo->prepare($query);
-        if (isset($search['is_lof'])) {
+
+        if (isset($search['is_lof']) && ($search['is_lof'] == 1 || $search['is_lof'] == 0)) {
             $statement->bindValue(':is_lof', $search['is_lof'], PDO::PARAM_STR);
         }
         $statement->execute();

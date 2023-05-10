@@ -1,4 +1,4 @@
-.article-content>h2 {
+.article-content > h2 {
     color: var(--secondary);
     font-family: var(--font-title2);
     font-weight: 500;
@@ -10,13 +10,13 @@
     margin-top: var(--spacing);
 }
 
-.article-content>h3 {
+.article-content > h3 {
     font-family: var(--font-text);
     margin-bottom: calc(var(--spacing)*0.5);
     font-size: var(--spacing);
 }
 
-.article-content>p {
+.article-content > p {
     font-family: var(--font-text);
     color: var(--intermediate);
     margin-top: 0;
@@ -27,15 +27,6 @@
     flex-wrap: wrap;
     max-width: 70%;
     margin: auto;
-    transform: translate(-12.5rem);
-    opacity: 0;
-    transition: transform 0.5s ease-in-out,
-        opacity 0.5s ease-in-out;
-}
-
-.slide-article.active {
-    transform: translateX(0%);
-    opacity: 1;
 }
 
 .article-container {

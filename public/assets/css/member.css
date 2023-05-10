@@ -17,10 +17,6 @@ main.member {
     justify-content: space-between;
     width: auto;
     --block-spacing-horizontal: calc(var(--spacing)*2);
-    --stagger-delay: 450ms;
-    animation: 400ms FadeInAnimation var(--stagger-delay) ease-out;
-    animation-fill-mode: backwards;
-    animation-iteration-count: 1;
 }
 
 .member article.small-card header {
@@ -76,16 +72,4 @@ article.small-card .job-member {
     padding: calc(var(--spacing) / 3) calc(var(--spacing) / 3);
     border-radius: 0;
     font-size: calc(var(--font-size) * 3 / 4);
-}
-
-@keyframes FadeInAnimation {
-    from {
-        opacity: 0.3;
-        transform: scale(0);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
 }
