@@ -49,3 +49,37 @@
 .part2 p:last-child {
     padding-bottom: calc(var(--spacing) * 4);
 }
+
+@media screen and (width < 1000px) {
+    .beauceron .part1 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .beauceron .part1:nth-child(odd) {
+        background-position: 95% 100%;
+    }
+
+    .beauceron .part3:nth-child(even) {
+        background-position: 95% 100%;
+    }
+}
+
+@media screen and (width < 800px) {
+    .beauceron .part1 {
+        grid-template-columns: 1fr;
+    }
+
+    .imgBeauceron {
+        width: 60%;
+        margin: auto;
+    }
+
+    .imgBeauceron2 {
+        width: 80%;
+        margin: auto;
+    }
+
+    .beauceron .pawsContainer {
+        grid-template-columns: 1fr;
+    }
+}

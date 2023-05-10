@@ -31,3 +31,24 @@
 .part8 {
     padding-bottom: calc(var(--spacing) * 4);
 }
+
+@media screen and (width < 1000px) {
+    .caractere .part7 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .caractere :nth-child(odd) {
+        background-position: 95% 100%;
+    }
+}
+
+@media screen and (width < 800px) {
+    .caractere .part7 {
+        grid-template-columns: 1fr;
+    }
+
+    .part7>img {
+        width: 80%;
+        margin: auto;
+    }
+}

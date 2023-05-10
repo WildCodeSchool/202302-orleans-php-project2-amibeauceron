@@ -54,3 +54,37 @@
 .genese .part6 {
     padding-bottom: calc(var(--spacing) * 4);
 }
+
+@media screen and (width < 1000px) {
+    .genese .part4 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .genese .part5:nth-child(odd) {
+        background-position: 95% 100%;
+    }
+
+    .genese .part6:nth-child(even) {
+        background-position: 95% 100%;
+    }
+}
+
+@media screen and (width < 800px) {
+    .genese .part4 {
+        grid-template-columns: 1fr;
+    }
+
+    .part4>img {
+        width: 60%;
+        margin: auto;
+    }
+
+    .genese .divPart6 {
+        grid-template-columns: 1fr;
+    }
+
+    .divPart6>img {
+        width: 60%;
+        margin: auto;
+    }
+}
