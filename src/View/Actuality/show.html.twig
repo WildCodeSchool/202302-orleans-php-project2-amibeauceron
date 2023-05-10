@@ -17,12 +17,15 @@
 				</header>
 				<div>
 					<div class="image-container">
-						<img class="img-actuality" src="{{ actuality.image_path ?? '/assets/images/dog-information.webp' }}" alt="image de l'actualité">
+						<img class="img-actuality" src="{{ (actuality.image_path is not empty) ? '/uploads/' ~ actuality.image_path : '/assets/images/dog-information.webp' }}" alt="image de l'actualité">
 					</div>
 					<p>{{ actuality.content ?? '' }}</p>
-					<a href="#" role="button" target=" _self" onclick=" window.history.go(-1); return false;">Retour...</a>
+
 				</div>
 				<footer>
+					<small class="link-back">
+						<a href="/actualites" role="link" target=" _self">Retour...</a>
+					</small>
 					<small>
 						<span>{{ actuality.creation_date|date("d/m/Y", "Europe/Paris")  }}</span>
 					</small>

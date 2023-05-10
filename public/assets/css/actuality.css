@@ -107,7 +107,8 @@ main.actuality {
 .actuality-details .image-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: normal;
+    padding-block: var(--spacing);
 }
 
 .actuality-details .img-actuality {
@@ -134,7 +135,7 @@ main.actuality {
 
 .actuality-details article > div {
     display: grid;
-    grid-template-columns: 2fr 4fr;
+    grid-template-columns: 2fr 3fr;
     gap: var(--spacing);
 }
 
@@ -148,14 +149,19 @@ main.actuality {
 
 .actuality-details footer {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    justify-content: space-between;
     color: var(--light);
     margin-top: 0px;
     padding-inline: 0 calc(var(--block-spacing-vertical) * 1 / 3);
     padding-block: calc(var(--block-spacing-vertical) * 1 / 4);
     background-color: var(--secondary);
 }
+
+.actuality-details .link-back {
+    padding-inline-start: var(--spacing);
+}
+
+
 
 @media screen and (width <=500px) {
     .actuality article {
