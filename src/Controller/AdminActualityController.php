@@ -179,17 +179,19 @@ class AdminActualityController extends AbstractAdminController
     {
         // Check Post Resquest
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // delete en bdd
-            $actualityManager = new ActualityManager();
-            $actuality = $actualityManager->selectOneById($id);
+            if (!empty($_POST['id'])) {
+                $id = $_POST['id'];
+                // delete en bdd
+                $actualityManager = new ActualityManager();
+                $actuality = $actualityManager->selectOneById($id);
 
-            // supprimer un fichier existant
-            $this->deleteFile($actuality['image_path']);
-            // delete row
-            $actualityManager->delete($id);
-
+                // supprimer un fichier existant
+                $this->deleteFile($actuality['image_path']);
+                // delete row
+                $actualityManager->delete($id);
+            }
             // redirec admin/pneus
-            header('Location: /admininistration/actualites');
+            header('Location: /administration/actualites');
         }
     }
 

@@ -4,11 +4,11 @@ body {
     gap: var(--spacing);
 }
 
-body > main {
+body>main {
     align-self: stretch;
     grid-column-start: 2;
     --block-spacing-vertical: 1rem;
-    --navbar-height:0;
+    --navbar-height: 0;
 }
 
 nav.admin-navbar {
@@ -114,11 +114,12 @@ tr.result-info th {
     text-align: center;
 }
 
-.datas-container table form :is(button, [type="submit"], [type="button"], [type="reset"], [role="button"]), a[role="button"] {
+.datas-container table form :is(button, [type="submit"], [type="button"], [type="reset"], [role="button"]),
+a[role="button"] {
     margin: 0px;
     padding: calc(var(--form-element-spacing-vertical)*0.4) var(--form-element-spacing-horizontal);
     text-decoration: none;
-    font-size : calc(var(--font-size)*0.8);
+    font-size: calc(var(--font-size)*0.8);
     width: fit-content;
     min-width: clamp(85px, 20vw, 120px);
 }
@@ -178,14 +179,14 @@ h2 {
 
 input[type="date"] {
     padding: var(--spacing);
-    color:var(--light);
-    background-color:var(--intermediate);
+    color: var(--light);
+    background-color: var(--intermediate);
 }
 
 .option-container {
     display: flex;
     flex-direction: row;
-    gap : var(--spacing);
+    gap: var(--spacing);
     margin-block: calc(var(--spacing)*2);
     padding-block-end: calc(var(--spacing)*2/3);
     accent-color: var(--secondary);
@@ -193,9 +194,10 @@ input[type="date"] {
 }
 
 .option-label {
-    background-color:var(--light);
-    color:var(--dark);
+    background-color: var(--light);
+    color: var(--dark);
     padding-block: calc(var(--spacing)*2/3);
     border-bottom: dashed 1px var(--primary);
-    padding-inline: calc(var(--spacing)*2/3);;
+    padding-inline: calc(var(--spacing)*2/3);
+    ;
 }
