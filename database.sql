@@ -148,7 +148,7 @@ INSERT INTO
     )
 VALUES (
         'Convocation Assemblée Générale 2023',
-        'L''assamblée générale du Club Les Amis du Beauceron aura lieux le samedi 06 mai 2023 à 18h00 à la mairie de Thoissey 8 rue de l''hôtel de ville salle des mariages.
+        'L''assemblée générale du Club Les Amis du Beauceron aura lieu le samedi 06 mai 2023 à 18h00 à la mairie de Thoissey 8 rue de l''hôtel de ville salle des mariages.
      
         L''ordre du jour sera le suivant :
 			
@@ -166,15 +166,8 @@ VALUES (
         NOW(),
         'assemblee-generale.jpg'
     ), (
-        'Renouvellement Adhesion & Abonnement 2023',
-        'Pensez a renouveller votre adhesion. La numéro 1 - 2023 va bientôt paraître
-     
-        Vous trouverez les documents suivant pour votre inscription : 
-        
-          - <a href="lettre adhesion au club 2023.pdf" border="0" alt="">LETTRE DE RENOUVELEMENT</a>
-          - <a href="../club/club-adhesion.html" border="0" alt="">BULLETIN ADHESION</a>
-          - <a href="RIB Crédit Agricole CAB.pdf" border="0" alt="">RIB bancaire</a>
-    ',
+        'Renouvellement Adhésion & Abonnement 2023',
+        'Pensez a renouveler votre adhésion. La numéro 1 - 2023 va bientôt paraître',
         DATE_ADD(NOW(), INTERVAL -2 DAY),
         'adhesion-association.jpg'
     ), (
@@ -203,8 +196,8 @@ VALUES (
         DATE_ADD(NOW(), INTERVAL -5 DAY),
         'perte-audition-chien.webp'
     ), (
-        'Titre de champion international de beaute',
-        'Titres de champion international de beaute jeune & veteran de la FCI C.I.B.-J & C.I.B.-V.
+        'Titre de champion international de beauté',
+        'Titres de champion international de beauté jeune & vétéran de la FCI C.I.B.-J & C.I.B.-V.
 
     Mesdames, Messieurs les Présidents,
 
