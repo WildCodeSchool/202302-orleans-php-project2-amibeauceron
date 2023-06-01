@@ -40,12 +40,12 @@ If you develop on Windows, you should edit you git configuration to change your 
 
 An example (a basic list of items) is provided (you can load the _simple-mvc.sql_ file in a test database). The accessible URLs are :
 
-- Home page at [localhost:8000/](localhost:8000/)
-- Items list at [localhost:8000/items](localhost:8000/items)
-- Item details [localhost:8000/items/show?id=:id](localhost:8000/item/show?id=2)
-- Item edit [localhost:8000/items/edit?id=:id](localhost:8000/items/edit?id=2)
-- Item add [localhost:8000/items/add](localhost:8000/items/add)
-- Item deletion [localhost:8000/items/delete?id=:id](localhost:8000/items/delete?id=2)
+-   Home page at [localhost:8000/](localhost:8000/)
+-   Items list at [localhost:8000/items](localhost:8000/items)
+-   Item details [localhost:8000/items/show?id=:id](localhost:8000/item/show?id=2)
+-   Item edit [localhost:8000/items/edit?id=:id](localhost:8000/items/edit?id=2)
+-   Item add [localhost:8000/items/add](localhost:8000/items/add)
+-   Item deletion [localhost:8000/items/delete?id=:id](localhost:8000/items/delete?id=2)
 
 You can find all these routes declared in the file `src/routes.php`. This is the very same file where you'll add your own new routes to the application.
 
@@ -82,3 +82,57 @@ then, run it to open it on your localhot :
 ```
 docker run -i -t --name simple-mvc  -p 80:80 simple-mvc-container
 ```
+
+## Screen Capture of the project
+
+### Home Page
+
+![CaptureVisitorHomePage.png](.tours/CaptureVisitorHomePage.png)
+
+### Events Page
+
+![CaptureVisitorEvents.png](.tours/CaptureVisitorEvents.png)
+
+### News Page
+
+![CaptureVisitorNews.png](.tours/CaptureVisitorNews.png)
+
+### Members Page
+
+![CaptureVisitorAssociationMembers.png](.tours/CaptureVisitorAssociationMembers.png)
+
+### Dog Care Page
+
+![CaptureVisitorDogCare.png](.tours/CaptureVisitorDogCare.png)
+
+### Dogs Infos Page
+
+![CaptureVisitorDogCare.png](.tours/CaptureVisitorDogListPage.png)
+
+### Login Page
+
+![CaptureAdminLoginPage.png](.tours/CaptureAdminLoginPage.png)
+
+### Admin News Page
+
+![CaptureAdminListNews.png](.tours/CaptureAdminListNews.png)
+
+### Admin Events Page
+
+![CaptureAdminListEvents.png](.tours/CaptureAdminListEvents.png)
+
+### Admin Edit Dog Page
+
+![CaptureAdminEditFormDog.png](.tours/CaptureAdminEditFormDog.png)
+
+### Mobil Home Page Responsive Version
+
+![CaptureResponsiveMobilHomePage.png](.tours/CaptureResponsiveMobilHomePage.png)
+
+### Mobil News Page Responsive Version
+
+![CaptureResponsiveMobilNewsPage.png](.tours/CaptureResponsiveMobilNewsPage.png)
+
+### Mobil Menu
+
+![CaptureMobileMenuExpanded.png](.tours/CaptureMobileMenuExpanded.png)
